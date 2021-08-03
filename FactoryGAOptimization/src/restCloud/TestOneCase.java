@@ -15,13 +15,13 @@ public class TestOneCase {
 //		int runGroup = Integer.parseInt(args[1]);
 //		int NoC = Integer.parseInt(args[2]);
 
-		int factorySize = 1;
+		int factorySize = 6;
 		int runGroup = 2;
 		int NoC = 5;
 
 //		runGAforOneSize(factorySize, runGroup, NoC);
 		
-		for(int j=1;j<11;j++) {
+		for(int j=6;j<11;j++) {
 			for (int i = 1; i < 41; i++) {
 				runGAforOneSize(j, i, NoC);
 			}
