@@ -18,17 +18,17 @@ Final PF:
 22263.0 44740.0 
 20838.0 45888.0 
 Remove random   Add new
-push: 1 pull: 3
+push: 1 pull: 2
 Final PF: 
 16515.0 48714.0 
 28763.0 44133.0 
-20838.0 45888.0 
 17492.0 46524.0 
 18922.0 46065.0 
 21657.0 44986.0 
 22263.0 44740.0 
+20838.0 45888.0 
 Remove random   Add random
-push: 1 pull: 2
+push: 1 pull: 3
 Final PF: 
 16515.0 48714.0 
 28763.0 44133.0 
@@ -48,15 +48,15 @@ Final PF:
 22263.0 44740.0 
 20838.0 45888.0 
 Remove random   Add diversity
-push: 1 pull: 2
+push: 1 pull: 3
 Final PF: 
 16515.0 48714.0 
 28763.0 44133.0 
-20838.0 45888.0 
 17492.0 46524.0 
 18922.0 46065.0 
 21657.0 44986.0 
 22263.0 44740.0 
+20838.0 45888.0 
 Remove worst   Add new
 push: 1 pull: 3
 Final PF: 
@@ -68,7 +68,7 @@ Final PF:
 22263.0 44740.0 
 20838.0 45888.0 
 Remove worst   Add random
-push: 1 pull: 3
+push: 0 pull: 3
 Final PF: 
 16515.0 48714.0 
 28763.0 44133.0 
@@ -78,7 +78,7 @@ Final PF:
 22263.0 44740.0 
 20838.0 45888.0 
 Remove worst   Add best
-push: 1 pull: 3
+push: 1 pull: 2
 Final PF: 
 16515.0 48714.0 
 28763.0 44133.0 
@@ -88,15 +88,15 @@ Final PF:
 22263.0 44740.0 
 20838.0 45888.0 
 Remove worst   Add diversity
-push: 1 pull: 2
+push: 1 pull: 3
 Final PF: 
-28763.0 44133.0 
 16515.0 48714.0 
-20838.0 45888.0 
+28763.0 44133.0 
 17492.0 46524.0 
 18922.0 46065.0 
 21657.0 44986.0 
 22263.0 44740.0 
+20838.0 45888.0 
 linkage migration
 push: 1 pull: 2
 Final PF: 
@@ -377,13 +377,13 @@ DCI:
 
 0 0
 1 0
-1 3
-1 2
-1 2
 1 2
 1 3
-1 3
-1 3
 1 2
+1 3
+1 3
+0 3
+1 2
+1 3
 1 2
 

@@ -32,35 +32,35 @@ Final PF:
 18148.0 44180.0 
 21266.0 43452.0 
 Remove random   Add best
-push: 0 pull: 2
-Final PF: 
-16816.0 55207.0 
-17945.0 54901.0 
-18148.0 44180.0 
-21266.0 43452.0 
-Remove random   Add diversity
-push: 0 pull: 2
-Final PF: 
-16816.0 55207.0 
-17945.0 54901.0 
-18148.0 44180.0 
-21266.0 43452.0 
-Remove worst   Add new
 push: 0 pull: 3
 Final PF: 
 16816.0 55207.0 
 17945.0 54901.0 
 18148.0 44180.0 
 21266.0 43452.0 
+Remove random   Add diversity
+push: 0 pull: 3
+Final PF: 
+16816.0 55207.0 
+17945.0 54901.0 
+18148.0 44180.0 
+21266.0 43452.0 
+Remove worst   Add new
+push: 0 pull: 2
+Final PF: 
+16816.0 55207.0 
+17945.0 54901.0 
+18148.0 44180.0 
+21266.0 43452.0 
 Remove worst   Add random
-push: 0 pull: 1
+push: 0 pull: 3
 Final PF: 
 16816.0 55207.0 
 17945.0 54901.0 
 18148.0 44180.0 
 21266.0 43452.0 
 Remove worst   Add best
-push: 0 pull: 1
+push: 0 pull: 2
 Final PF: 
 16816.0 55207.0 
 17945.0 54901.0 
@@ -74,7 +74,7 @@ Final PF:
 18148.0 44180.0 
 21266.0 43452.0 
 linkage migration
-push: 0 pull: 1
+push: 0 pull: 2
 Final PF: 
 16816.0 55207.0 
 17945.0 54901.0 
@@ -352,11 +352,11 @@ DCI:
 0 0
 0 2
 0 3
-0 2
+0 3
+0 3
 0 2
 0 3
-0 1
-0 1
 0 2
-0 1
+0 2
+0 2
 

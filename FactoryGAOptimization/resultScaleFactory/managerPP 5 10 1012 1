@@ -20,7 +20,7 @@ Final PF:
 39755.0 43668.0 
 26911.0 44163.0 
 Remove random   Add new
-push: 0 pull: 3
+push: 0 pull: 2
 Final PF: 
 18805.0 46251.0 
 21266.0 44804.0 
@@ -30,7 +30,7 @@ Final PF:
 39755.0 43668.0 
 26911.0 44163.0 
 Remove random   Add random
-push: 0 pull: 3
+push: 0 pull: 4
 Final PF: 
 18805.0 46251.0 
 21266.0 44804.0 
@@ -50,7 +50,7 @@ Final PF:
 39755.0 43668.0 
 26911.0 44163.0 
 Remove random   Add diversity
-push: 0 pull: 3
+push: 0 pull: 2
 Final PF: 
 18805.0 46251.0 
 21266.0 44804.0 
@@ -60,7 +60,7 @@ Final PF:
 39755.0 43668.0 
 26911.0 44163.0 
 Remove worst   Add new
-push: 0 pull: 3
+push: 0 pull: 2
 Final PF: 
 18805.0 46251.0 
 21266.0 44804.0 
@@ -90,7 +90,7 @@ Final PF:
 39755.0 43668.0 
 26911.0 44163.0 
 Remove worst   Add diversity
-push: 0 pull: 3
+push: 0 pull: 2
 Final PF: 
 18805.0 46251.0 
 21266.0 44804.0 
@@ -379,13 +379,13 @@ DCI:
 
 0 0
 0 0
-0 3
-0 3
+0 2
+0 4
+0 2
+0 2
 0 2
 0 3
-0 3
-0 3
 0 2
-0 3
+0 2
 0 2
 

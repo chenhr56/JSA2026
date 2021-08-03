@@ -254,11 +254,20 @@ public class ManagerPP {
 
 	private List<PopulationEntry> getEntryBestQI(List<PopulationEntry> globalPF, int number) {
 
-		List<List<List<Double>>> fronts = globalPF.stream().map(p -> {
-			List<List<Double>> oneFront = new ArrayList<>();
-			oneFront.add(p.getObjectives());
-			return oneFront;
-		}).collect(Collectors.toList());
+		List<List<List<Double>>> fronts = new ArrayList<>();
+		
+		for(int i=0; i<globalPF.size();i++) {
+			List<List<Double>> pf = new ArrayList<>();
+			pf.add(globalPF.get(i).getObjectives());
+			fronts.add(pf);
+		}
+				
+				
+//				globalPF.stream().map(p -> {
+//			List<List<Double>> oneFront = new ArrayList<>();
+//			oneFront.add(p.getObjectives());
+//			return oneFront;
+//		}).collect(Collectors.toList());
 
 		int sizeTemp = globalPF.size();
 

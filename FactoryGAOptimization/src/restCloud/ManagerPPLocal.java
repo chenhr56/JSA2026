@@ -73,6 +73,9 @@ public class ManagerPPLocal {
 
 		List<List<Double>> objectives = globalPF.stream().map(e -> e.getObjectives()).collect(Collectors.toList());
 
+		
+		
+		
 		numberOfPush = numberOfActions.stream().map(a -> a.get(0)).collect(Collectors.toList()).stream()
 				.mapToInt(Integer::intValue).sum();
 		numberOfPull = numberOfActions.stream().map(a -> a.get(1)).collect(Collectors.toList()).stream()
