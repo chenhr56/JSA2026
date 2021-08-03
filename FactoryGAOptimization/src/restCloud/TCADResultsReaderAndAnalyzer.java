@@ -22,6 +22,10 @@ public class TCADResultsReaderAndAnalyzer {
 
 	public static void main(String args[]) {
 
+		runAnalysis();
+	}
+
+	public static void runAnalysis() {
 		int startSeed = 1000;
 		int caseNum = 40;
 
@@ -72,23 +76,20 @@ public class TCADResultsReaderAndAnalyzer {
 		for (int i = 0; i < rankings.size(); i++) {
 			List<Double> averageRankForOneMethod = new ArrayList<>();
 			List<Double> medianRankForOneMethod = new ArrayList<>();
-			
+
 			List<List<Integer>> ranks = rankings.get(i);
-			
-			
-			
+
 			for (int j = 0; j < ranks.get(0).size(); j++) {
-				
+
 				int ranksForOneMethod = 0;
 				double[] ranksD = new double[ranks.size()];
-				
+
 				for (int k = 0; k < ranks.size(); k++) {
 					ranksForOneMethod += ranks.get(k).get(j);
 					ranksD[k] = ranks.get(k).get(j);
 				}
-				
+
 				double averageRank = (double) ranksForOneMethod / (double) ranks.size();
-				
 
 				Median median = new Median();
 				double med = median.evaluate(ranksD);
@@ -109,10 +110,9 @@ public class TCADResultsReaderAndAnalyzer {
 //		out += printRanks(rankings);
 		out += "\n\n----------------- Avg --------------\n\n";
 		out += printAverageRanks(averageRanking);
-		
+
 		out += "\n\n----------------- Med ---------------\n\n";
 		out += printAverageRanks(medianRanking);
-
 
 		ResultAnalyser.writeResult("FGCS/all " + factoryScale + ".txt", out);
 	}

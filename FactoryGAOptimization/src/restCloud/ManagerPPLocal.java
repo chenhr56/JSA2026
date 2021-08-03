@@ -19,8 +19,10 @@ public class ManagerPPLocal {
 		None, Random, Worst
 	}
 
-	private List<List<Double>> startManager(BusinessCase bc, int ONAfactoryScale, int numberOfIslands, int seeds,
+	private List<List<Double>> startManager(BusinessCase bc, int ONAfactoryScale, int numberOfIslandsParam, int seeds,
 			int notImprovedInARowLimit, int numberOfReplacement, int RemoveMethod, int addMethod) {
+		
+		int numberOfIslands = RemoveMethod == -2? 1 : numberOfIslandsParam;
 		Random ran = new Random(seeds);
 		List<ParetoFrontCapsule> globalCaps = new ArrayList<>();
 		List<List<Integer>> numberOfActions = new ArrayList<>();
@@ -32,6 +34,9 @@ public class ManagerPPLocal {
 			numberOfActions.add(new ArrayList<>());
 		}
 
+		
+		
+		
 		List<Thread> islands = new ArrayList<>();
 		for (int i = 0; i < numberOfIslands; i++) {
 			final int id = i;
@@ -111,9 +116,38 @@ public class ManagerPPLocal {
 		String out = "seeds " + seeds + " factoryScale" + ONAfactoryScale + " numberOfIslands" + numberofIsland
 				+ " numberOfReplacement" + numberOfReplacement + " notImprovedInARow " + notImprovedInARowLimit
 				+ "\n\n";
+		
+		/**
+		 * The traditional MOEA/D
+		 */
+		System.out.println(getName(-2, -2));
+		out += getName(-2, -2) + "\n";
+		t1 = System.currentTimeMillis();
+		normalPF = new ObjectiveCapsule(startManager(bc, ONAfactoryScale, numberOfIslands, seeds,
+				notImprovedInARowLimit, numberOfReplacement, -2, -2));
+		t2 = System.currentTimeMillis() - t1;
+		time.add(t2);
 
+		out += "push: " + numberOfPush + " pull: " + numberOfPull + "\n";
+		System.out.println("push: " + numberOfPush + " pull: " + numberOfPull);
+		int[] actions0 = { numberOfPush, numberOfPull };
+		numberOfActions.add(actions0);
+		
+		System.out.println("Final PF: ");
+		out += "Final PF: \n";
+		for (List<Double> l : normalPF.get()) {
+			for (Double d : l) {
+				System.out.print(d + " ");
+				out += d + " ";
+			}
+			System.out.println();
+			out += "\n";
+		}
+		
+		/**
+		 * Island Model without migration
+		 */
 		System.out.println(getName(-1, -1));
-
 		out += getName(-1, -1) + "\n";
 
 		t1 = System.currentTimeMillis();
@@ -124,9 +158,9 @@ public class ManagerPPLocal {
 
 		out += "push: " + numberOfPush + " pull: " + numberOfPull + "\n";
 		System.out.println("push: " + numberOfPush + " pull: " + numberOfPull);
-
 		int[] actions = { numberOfPush, numberOfPull };
 		numberOfActions.add(actions);
+		
 		System.out.println("Final PF: ");
 		out += "Final PF: \n";
 		for (List<Double> l : normalPF.get()) {
@@ -177,25 +211,6 @@ public class ManagerPPLocal {
 		out += getName(5, 5) + "\n";
 
 		t1 = System.currentTimeMillis();
-
-		// double[][] objectiveA = { { 16571.0, 45292.0 }, { 18092.0, 41467.0 }, {
-		// 21342.0, 40999.0 },
-		// { 24617.0, 40751.0 }, { 25417.0, 40370.0 }, { 32358.0, 40020.0 }, { 16745.0,
-		// 44274.0 },
-		// { 17089.0, 44129.0 }, { 17345.0, 42408.0 }, { 17516.0, 41720.0 }, { 18596.0,
-		// 41349.0 },
-		// { 22263.0, 40874.0 } };
-		//
-		// List<List<Double>> objective = new ArrayList<>();
-		// for (int i = 0; i < objectiveA.length; i++) {
-		// List<Double> obj = new ArrayList<>();
-		//
-		// for (int j = 0; j < objectiveA[i].length; j++) {
-		// obj.add(objectiveA[i][j]);
-		// }
-		// objective.add(obj);
-		// }
-
 		List<List<Double>> objective = startManager(bc, ONAfactoryScale, numberOfIslands, seeds, notImprovedInARowLimit,
 				numberOfReplacement, 5, 5);
 		t2 = System.currentTimeMillis() - t1;
@@ -345,7 +360,10 @@ public class ManagerPPLocal {
 
 	public static String getName(int remove, int add) {
 
-		if (remove < 0 && add < 0)
+		if (remove == -2 && add == -2)
+			return "traditional MOEA/D";
+		
+		if (remove == -1 && add == -1)
 			return "remove and add nothing";
 
 		if (remove == 5 && add == 5)

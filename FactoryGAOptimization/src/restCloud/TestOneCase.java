@@ -20,14 +20,16 @@ public class TestOneCase {
 		int NoC = 5;
 
 //		runGAforOneSize(factorySize, runGroup, NoC);
-		
-		for(int j=6;j<11;j++) {
+
+		for (int j = 1; j < 11; j++) {
 			for (int i = 1; i < 41; i++) {
 				runGAforOneSize(j, i, NoC);
 			}
 
 		}
-		
+
+		TCADResultsReaderAndAnalyzer.runAnalysis();
+
 	}
 
 	public static void runGAforOneSize(int factoryScale, int runGroup, int NoC) {
@@ -60,9 +62,9 @@ public class TestOneCase {
 		}
 
 		for (int i = 0; i < controlledVariabile; i++) {
-			System.out.println("seed: " + (Startingseed + i) + " factoryScale: " + (factoryScale)
-					+ " numberOfIslands: " + numberOfIslands + " numberOfReplace: " + numberOfReplace
-					+ " notImprovedInRow: " + NotImprovedInRow + " folder: " + folderName);
+			System.out.println("seed: " + (Startingseed + i) + " factoryScale: " + (factoryScale) + " numberOfIslands: "
+					+ numberOfIslands + " numberOfReplace: " + numberOfReplace + " notImprovedInRow: "
+					+ NotImprovedInRow + " folder: " + folderName);
 
 			List<List<Double>> res = new ManagerPPLocal().startPPLocal(Startingseed + i, factoryScale, numberOfIslands,
 					numberOfReplace, NotImprovedInRow, folderName);

@@ -1,0 +1,353 @@
+seeds 1000 factoryScale1 numberOfIslands5 numberOfReplacement1 notImprovedInARow 3
+
+traditional MOEA/D
+push: 0 pull: 0
+Final PF: 
+18671.0 50873.0 
+19505.0 42401.0 
+19587.0 42227.0 
+20766.0 41813.0 
+21708.0 41607.0 
+23950.0 41571.0 
+28187.0 41338.0 
+31437.0 41070.0 
+remove and add nothing
+push: 0 pull: 0
+Final PF: 
+18922.0 43086.0 
+21266.0 43085.0 
+18122.0 47785.0 
+Remove random   Add new
+push: 0 pull: 3
+Final PF: 
+18122.0 47785.0 
+18922.0 43086.0 
+21266.0 43085.0 
+Remove random   Add random
+push: 0 pull: 2
+Final PF: 
+18922.0 43086.0 
+21266.0 43085.0 
+18122.0 47785.0 
+28187.0 41955.0 
+Remove random   Add best
+push: 0 pull: 5
+Final PF: 
+18922.0 43086.0 
+21266.0 43085.0 
+18122.0 47785.0 
+Remove random   Add diversity
+push: 0 pull: 2
+Final PF: 
+18922.0 43086.0 
+21266.0 43085.0 
+21342.0 42793.0 
+18122.0 47785.0 
+Remove worst   Add new
+push: 0 pull: 4
+Final PF: 
+18122.0 47785.0 
+18922.0 43086.0 
+21266.0 43085.0 
+Remove worst   Add random
+push: 0 pull: 2
+Final PF: 
+18922.0 43086.0 
+21266.0 43085.0 
+18122.0 47785.0 
+Remove worst   Add best
+push: 0 pull: 4
+Final PF: 
+18922.0 43086.0 
+21266.0 43085.0 
+18122.0 47785.0 
+Remove worst   Add diversity
+push: 0 pull: 3
+Final PF: 
+17996.0 47646.0 
+18922.0 43086.0 
+21266.0 43085.0 
+linkage migration
+push: 0 pull: 2
+Final PF: 
+18092.0 40871.0 
+
+
+
+---------------------------------------
+Quality Indicator Results: 
+
+for each remove method 
+Remove random   
+
+
+ GD: 
+48737.091
+49188.9
+48737.091
+48507.738
+
+
+ D1R: 
+47057.895
+47057.895
+47057.895
+47057.895
+DCI: 
+0.6
+0.8
+0.6
+0.8
+
+
+ IGD: 
+1753.16
+0.0
+1753.16
+1724.026
+
+
+ HV: 
+0.956
+0.956
+0.956
+1.0
+
+
+Remove worst   
+
+
+ GD: 
+48737.091
+48737.091
+48737.091
+48678.89
+
+
+ D1R: 
+47057.895
+47057.895
+47057.895
+47057.895
+DCI: 
+0.667
+0.667
+0.667
+1.0
+
+
+ IGD: 
+62.536
+62.536
+62.536
+0.0
+
+
+ HV: 
+0.988
+0.988
+0.988
+1.0
+
+
+
+---------------------------------------
+for each add method
+Add new
+
+
+ GD: 
+48737.091
+48737.091
+
+
+ D1R: 
+47057.895
+47057.895
+DCI: 
+1.0
+1.0
+
+
+ IGD: 
+0.0
+0.0
+
+
+ HV: 
+1.0
+1.0
+
+
+Add random
+
+
+ GD: 
+49188.9
+48737.091
+
+
+ D1R: 
+47057.895
+47057.895
+DCI: 
+1.0
+0.75
+
+
+ IGD: 
+0.0
+1753.16
+
+
+ HV: 
+1.0
+1.0
+
+
+Add best
+
+
+ GD: 
+48737.091
+48737.091
+
+
+ D1R: 
+47057.895
+47057.895
+DCI: 
+1.0
+1.0
+
+
+ IGD: 
+0.0
+0.0
+
+
+ HV: 
+1.0
+1.0
+
+
+Add diversity
+
+
+ GD: 
+48507.738
+48678.89
+
+
+ D1R: 
+47057.895
+47057.895
+DCI: 
+0.75
+0.75
+
+
+ IGD: 
+46.902
+75.432
+
+
+ HV: 
+0.989
+1.0
+
+
+
+---------------------------------------
+ results for all together 
+
+Remove nothing   Add nothing
+Remove random   Add new
+Remove random   Add random
+Remove random   Add best
+Remove random   Add diversity
+Remove worst   Add new
+Remove worst   Add random
+Remove worst   Add best
+Remove worst   Add diversity
+Linkage migration
+
+
+ GD: 
+48737.091
+48737.091
+49188.9
+48737.091
+48507.738
+48737.091
+48737.091
+48737.091
+48678.89
+44696.299
+
+
+ D1R: 
+47057.895
+47057.895
+47057.895
+47057.895
+47057.895
+47057.895
+47057.895
+47057.895
+47057.895
+44696.299
+DCI: 
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.5
+0.5
+
+
+ IGD: 
+1500.396
+1500.396
+97.867
+1500.396
+1416.743
+1500.396
+1500.396
+1500.396
+1462.874
+5387.959
+
+
+ HV: 
+0.624
+0.624
+0.624
+0.624
+0.653
+0.624
+0.624
+0.624
+0.626
+1.0
+
+
+---------------------------------------
+ actions for all together 
+
+0 0
+0 0
+0 3
+0 2
+0 5
+0 2
+0 4
+0 2
+0 4
+0 3
+0 2
+

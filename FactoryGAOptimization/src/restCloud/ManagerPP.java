@@ -70,6 +70,11 @@ public class ManagerPP {
 		random = new Random(seeds);
 
 		of = (ObjectiveFunction.LocalObjectiveFunction) bc.getObjectiveFunction();
+		
+		
+		if(RemoveMethod == -2) {
+			populationSize = populationSize * 5;
+		}
 	}
 
 	// private PopulationEntry removeEntryWorstIGD(OptimisationIslandResult or) {
@@ -550,20 +555,20 @@ public class ManagerPP {
 		}
 
 		// TODO: This bit utilizes the greedy optimization results
-		if (factory.best.size() > 0) {
-			List<PopulationEntry> entry = factory.getBest();
-
-			int index = 0;
-
-			while (localPF.getFinalPopulation().contains(entry.get(index)) && index < entry.size()) {
-				index++;
-			}
-
-			if (index < entry.size())
-				localPF.getFinalPopulation().add(entry.get(index));
-			else
-				localPF.getFinalPopulation().add(dess.get(dess.size() - 1));
-		}
+//		if (factory.best.size() > 0) {
+//			List<PopulationEntry> entry = factory.getBest();
+//
+//			int index = 0;
+//
+//			while (localPF.getFinalPopulation().contains(entry.get(index)) && index < entry.size()) {
+//				index++;
+//			}
+//
+//			if (index < entry.size())
+//				localPF.getFinalPopulation().add(entry.get(index));
+//			else
+//				localPF.getFinalPopulation().add(dess.get(dess.size() - 1));
+//		}
 
 	}
 
