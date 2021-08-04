@@ -18,8 +18,6 @@ import indicator.Indicators;
 
 public class TCADResultsReaderAndAnalyzer {
 
-	static String divider = "---------------------------------------";
-
 	public static void main(String args[]) {
 
 		runAnalysis();
@@ -38,19 +36,20 @@ public class TCADResultsReaderAndAnalyzer {
 	}
 
 	public static void analyseOneFactory(int factoryScale, int startSeed, int caseNum) {
+		System.out.println("Factory size: " + factoryScale);
 
 		List<List<Double>> globalPF = findGlobalOptimal(factoryScale, startSeed, caseNum);
 
 		List<List<List<Double>>> qisOneSize = new ArrayList<>();
 
 		for (int i = 0; i < caseNum; i++) {
-			String file = "managerPP 5 " + factoryScale + " " + startSeed + " 1";
+			String file = "PFs 5 " + factoryScale + " " + startSeed + ".txt";
 
-			File f = new File("resultScaleFactory/" + file);
+			File f = new File("result_PF/" + file);
 			if (f.exists() && !f.isDirectory()) {
-				List<List<List<Double>>> res = readResults("resultScaleFactory", file);
+				List<List<List<Double>>> res = readResults("result_PF", file);
 
-				List<List<Double>> qis = Indicators.compare(res, null);
+				List<List<Double>> qis = Indicators.compare(res, globalPF);
 				qisOneSize.add(qis);
 
 			}
@@ -102,19 +101,33 @@ public class TCADResultsReaderAndAnalyzer {
 			medianRanking.add(medianRankForOneMethod);
 		}
 
-		System.out.println("\n\n---------------------------------------\n\n");
-
-		printRanks(rankings);
-
 		String out = "";
-//		out += printRanks(rankings);
+		out += "----------------- All ---------------\n\n";
+		for (int i = 0; i < rankings.size(); i++) {
+			out += Indicators.nameQI[i] + "\n";
+
+			List<List<Integer>> ranksForOneQI = rankings.get(i);
+			for (int j = 0; j < ranksForOneQI.size(); j++) {
+				for (int k = 0; k < ranksForOneQI.get(j).size(); k++) {
+					out += ranksForOneQI.get(j).get(k);
+					if (k != ranksForOneQI.get(j).size() - 1)
+						out += " ";
+				}
+				
+				out+="\n";
+			}
+			out+="\n";
+		}
+
 		out += "\n\n----------------- Avg --------------\n\n";
 		out += printAverageRanks(averageRanking);
 
 		out += "\n\n----------------- Med ---------------\n\n";
 		out += printAverageRanks(medianRanking);
 
-		ResultAnalyser.writeResult("FGCS/all " + factoryScale + ".txt", out);
+		ResultAnalyser.writeResult("FGCS/rank " + factoryScale + ".txt", out);
+		
+		System.out.println("\n");
 	}
 
 	private static String printAverageRanks(List<List<Double>> ranks) {
@@ -145,7 +158,7 @@ public class TCADResultsReaderAndAnalyzer {
 
 	}
 
-	private static String printRanks(List<List<List<Integer>>> ranks) {
+	public static String printRanks(List<List<List<Integer>>> ranks) {
 		String out = "";
 		System.out.print("QI: ");
 		out += "QI: ";
@@ -252,11 +265,11 @@ public class TCADResultsReaderAndAnalyzer {
 		List<List<Double>> gloablPF = new ArrayList<>();
 
 		for (int i = 0; i < caseNum; i++) {
-			String file = "managerPP 5 " + size + " " + seed + " 1";
+			String file = "PFs 5 " + size + " " + seed + ".txt";
 
-			File f = new File("resultScaleFactory/" + file);
+			File f = new File("result_PF/" + file);
 			if (f.exists() && !f.isDirectory()) {
-				List<List<List<Double>>> localPFs = readResults("resultScaleFactory", file);
+				List<List<List<Double>>> localPFs = readResults("result_PF", file);
 
 				for (List<List<Double>> oneMethod : localPFs) {
 					for (List<Double> oneSolution : oneMethod) {
@@ -267,6 +280,8 @@ public class TCADResultsReaderAndAnalyzer {
 
 			seed++;
 		}
+
+		gloablPF.sort((c1, c2) -> Double.compare(c1.get(0), c2.get(0)));
 
 		return gloablPF;
 	}
@@ -333,8 +348,8 @@ public class TCADResultsReaderAndAnalyzer {
 			bufferedReader = new BufferedReader(read);
 			String line = null;
 			while ((line = bufferedReader.readLine()) != null) {
-				if (line.length() > 1)
-					out += line + "\n";
+//				if (line.length() > 1)
+				out += line + "\n";
 			}
 
 		} catch (FileNotFoundException e) {
@@ -345,9 +360,10 @@ public class TCADResultsReaderAndAnalyzer {
 			e.printStackTrace();
 		}
 
-		String[] s_split = out.split(divider)[0].split("Final PF: ");
+		String[] s_split = out.split("\n\n");
 
-		for (int i = 1; i < s_split.length; i++) {
+		for (int i = 0; i < s_split.length; i++) {
+
 			String oneMethod = s_split[i];
 			String[] PF_split = oneMethod.split("\n");
 
@@ -362,15 +378,16 @@ public class TCADResultsReaderAndAnalyzer {
 					PF_one.add(d);
 				}
 			}
-			PFs.add(PF_one);
+
+			if (PF_one.size() > 0)
+				PFs.add(PF_one);
 
 		}
 
 		// String s = s_split[0];
 		//
 		// List<String> byMethod = new ArrayList<>();
-
-		System.out.println(out);
+//		System.out.println(out);
 
 		return PFs;
 

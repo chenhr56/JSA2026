@@ -15,8 +15,8 @@ public class TestOneCase {
 //		int runGroup = Integer.parseInt(args[1]);
 //		int NoC = Integer.parseInt(args[2]);
 
-		int factorySize = 6;
-		int runGroup = 2;
+//		int factorySize = 6;
+//		int runGroup = 2;
 		int NoC = 5;
 
 //		runGAforOneSize(factorySize, runGroup, NoC);
@@ -37,7 +37,6 @@ public class TestOneCase {
 		int numberOfIslands = 5;
 		int numberOfReplace = 1;
 		int NotImprovedInRow = 3;
-		String folderName = "resultScaleFactory";
 
 //		if (NoC != 50 && NoC != 100) { // NoC 50 , 100
 //			System.out.println("Number of processors not supported!  NoC: " + NoC);
@@ -64,18 +63,18 @@ public class TestOneCase {
 		for (int i = 0; i < controlledVariabile; i++) {
 			System.out.println("seed: " + (Startingseed + i) + " factoryScale: " + (factoryScale) + " numberOfIslands: "
 					+ numberOfIslands + " numberOfReplace: " + numberOfReplace + " notImprovedInRow: "
-					+ NotImprovedInRow + " folder: " + folderName);
+					+ NotImprovedInRow);
 
 			List<List<Double>> res = new ManagerPPLocal().startPPLocal(Startingseed + i, factoryScale, numberOfIslands,
-					numberOfReplace, NotImprovedInRow, folderName);
+					numberOfReplace, NotImprovedInRow);
 
 			results.set(i, res);
 		}
 
-		analyser(results, factoryScale);
+		finalAnalyserAndSummarizer(results, factoryScale);
 	}
 
-	public static void analyser(List<List<List<Double>>> results, int factoryScale) {
+	public static void finalAnalyserAndSummarizer(List<List<List<Double>>> results, int factoryScale) {
 
 		List<List<List<Double>>> qis = new ArrayList<>();
 
@@ -145,23 +144,24 @@ public class TestOneCase {
 		List<Double> averagePull = getAverage(pull);
 		List<Double> averagetime = getAverage(time);
 
+		
+		String out = "";
+		
+		System.out.println("\n\n---------------------------------------\n\n");
+		printRanks(rankings);
 		System.out.println("\n\n---------------------------------------\n\n");
 
-		printRanks(rankings);
-
-		String out = "";
-		out += printRanks(rankings);
-		out += "\n\n---------------------------------------\n\n";
-		out += printAverageRanks(averageRanking);
-		out += printAverage(averagePush, "Push:");
-		out += printAverage(averagePull, "Pull:");
+		
+//		out += printAverageRanks(averageRanking) + "\n";
+		out += printAverage(averagePush, "Push:") + "\n";
+		out += printAverage(averagePull, "Pull:") + "\n";
 		out += printAverage(averagetime, "Time:");
 
 		ResultAnalyser.writeResult("FGCS/all " + factoryScale + ".txt", out);
 	}
 
 	public static String printAverage(List<Double> value, String info) {
-		String out = info + "\n";
+		String out = "";
 		System.out.println(info);
 
 		for (int k = 0; k < value.size(); k++) {
@@ -179,13 +179,11 @@ public class TestOneCase {
 		String out = "";
 
 		System.out.print("QI: ");
-		out += "QI: ";
+		
 		for (int i = 0; i < Indicators.nameQI.length; i++) {
 			System.out.print(Indicators.nameQI[i] + "    ");
-			out += Indicators.nameQI[i] + "    ";
 		}
 		System.out.println();
-		out += "\n";
 
 		for (int k = 0; k < ranks.size(); k++) {
 

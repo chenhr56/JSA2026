@@ -43,9 +43,9 @@ public class ManagerPP {
 	Random random;
 	ConfigurationType ct;
 
-	int populationSize = 50; // 50
-	int generations = 20; // 20
-	int NoOfStages = 40; // 40
+	int populationSize = 5; // 50
+	int generations = 2; // 20
+	int NoOfStages = 4; // 40
 	int noOfIslands = 1;
 	public static int SIZE_OF_EP = 100;
 	double urgency = 0.5;
@@ -732,7 +732,19 @@ public class ManagerPP {
 
 		return new OptimisationArguments(configurations, urgency, quality);
 	}
-
+	
+	public ResultBundle start(int id, List<ParetoFrontCapsule> fpCaps, List<List<Integer>> actions,
+			boolean useCloud) {
+		long t1 = System.currentTimeMillis();
+		List<List<Double>> objectives = startIsland(id, fpCaps, actions, useCloud);
+		long t2 = System.currentTimeMillis();
+		
+		long time = t2 - t1;
+		
+		return new ResultBundle(objectives, numberOfPush, numberOfPull, time);
+		
+	}
+	
 	public List<List<Double>> startIsland(int id, List<ParetoFrontCapsule> fpCaps, List<List<Integer>> actions,
 			boolean useCloud) {
 		int islandID = id;
@@ -819,8 +831,8 @@ public class ManagerPP {
 					isImproved = true;
 				}
 
-				System.out.println(
-						"island: " + islandID + " stage: " + stage + " Prev: " + previousDCI + " Now: " + currentDCI);
+//				System.out.println(
+//						"island: " + islandID + " stage: " + stage + " Prev: " + previousDCI + " Now: " + currentDCI);
 			}
 
 			if (!isImproved) {

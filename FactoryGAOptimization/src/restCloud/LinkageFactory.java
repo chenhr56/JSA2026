@@ -81,7 +81,7 @@ public class LinkageFactory {
 		double weightO1 = (double) random.nextInt(101) / (double) 100;
 		double weightO2 = 1 - weightO1;
 
-		System.out.println("Weight 1: " + weightO1 + " Weight 2: " + weightO2);
+//		System.out.println("Weight 1: " + weightO1 + " Weight 2: " + weightO2);
 
 		Configuration config = entry.getConfiguration();
 
@@ -100,30 +100,30 @@ public class LinkageFactory {
 
 		allScraps.addAll(scarps);
 
-		System.out.println("Scraps");
-		for (int i = 0; i < allScraps.size(); i++) {
-			int[] s = allScraps.get(i);
-			for (int j = 0; j < s.length; j++) {
-				System.out.print(s[j] + " ");
-			}
-
-			System.out.println();
-			// System.out.println(Arrays.toString(allScraps.get(i)));
-		}
+//		System.out.println("Scraps");
+//		for (int i = 0; i < allScraps.size(); i++) {
+//			int[] s = allScraps.get(i);
+//			for (int j = 0; j < s.length; j++) {
+//				System.out.print(s[j] + " ");
+//			}
+//
+//			System.out.println();
+//			// System.out.println(Arrays.toString(allScraps.get(i)));
+//		}
 
 		double[][] lllo = get3L0(allScraps);
 
-		System.out.println("3LO-DSM:");
-		for (int i = 0; i < lllo.length; i++) {
-
-			double[] d = lllo[i];
-			for (int j = 0; j < d.length; j++) {
-				System.out.print(df.format(d[j]) + " ");
-			}
-
-			System.out.println();
-//			System.out.println(Arrays.toString(lllo[i]));
-		}
+//		System.out.println("3LO-DSM:");
+//		for (int i = 0; i < lllo.length; i++) {
+//
+//			double[] d = lllo[i];
+//			for (int j = 0; j < d.length; j++) {
+//				System.out.print(df.format(d[j]) + " ");
+//			}
+//
+//			System.out.println();
+////			System.out.println(Arrays.toString(lllo[i]));
+//		}
 
 		List<Node> roots = new ArrayList<>();
 		for (int i = 0; i < lllo.length; i++) {
@@ -135,8 +135,8 @@ public class LinkageFactory {
 
 		Tree linkageTree = new Tree(roots, lllo);
 
-		System.out.println("Linkage Tree:");
-		linkageTree.printTree();
+//		System.out.println("Linkage Tree:");
+//		linkageTree.printTree();
 
 		return linkageTree;
 	}
@@ -282,9 +282,9 @@ public class LinkageFactory {
 		List<Double> res = ONAFitnessFunction.getFitness(greedyConfig);
 		PopulationEntry bestEntry = new PopulationEntry(greedyConfig, res);
 
-		System.out.println("best: " + bestEntry.getObjectives().get(0) + ", " + bestEntry.getObjectives().get(1)
-				+ ". With weight: "
-				+ (bestEntry.getObjectives().get(0) * weightO1 + bestEntry.getObjectives().get(1) * weightO2));
+//		System.out.println("best: " + bestEntry.getObjectives().get(0) + ", " + bestEntry.getObjectives().get(1)
+//				+ ". With weight: "
+//				+ (bestEntry.getObjectives().get(0) * weightO1 + bestEntry.getObjectives().get(1) * weightO2));
 
 		// if (bestFitness <= (bestEntry.getObjectives().get(0) * weightO1
 		// + bestEntry.getObjectives().get(1) * weightO2)) {
@@ -303,6 +303,7 @@ public class LinkageFactory {
 
 		if (individual1.getObjectives().size() != individual2.getObjectives().size()) {
 			System.out.println("error");
+			System.exit(-1);
 		}
 
 		for (int i = 0; i < individual1.getObjectives().size(); i++) {
@@ -463,17 +464,17 @@ public class LinkageFactory {
 			}
 		}
 
-		System.out.println("3LO-DSM (before randomized):");
-		for (int i = 0; i < lllo.length; i++) {
-
-			double[] d = lllo[i];
-			for (int j = 0; j < d.length; j++) {
-				System.out.print((int) d[j] + " ");
-			}
-
-			System.out.println();
-//			System.out.println(Arrays.toString(lllo[i]));
-		}
+//		System.out.println("3LO-DSM (before randomized):");
+//		for (int i = 0; i < lllo.length; i++) {
+//
+//			double[] d = lllo[i];
+//			for (int j = 0; j < d.length; j++) {
+//				System.out.print((int) d[j] + " ");
+//			}
+//
+//			System.out.println();
+////			System.out.println(Arrays.toString(lllo[i]));
+//		}
 
 		for (int i = 0; i < lllo.length; i++) {
 			for (int j = 0; j < lllo[i].length; j++) {
@@ -666,7 +667,7 @@ public class LinkageFactory {
 					.makeObservableMetrics(UoYEarlyPrototypeDemo.observableMetricTypes, factory.random);
 
 			List<Double> objectives = ONAFitnessFunction.getFitness(config);
-			System.out.println("Fitness 1: " + objectives);
+//			System.out.println("Fitness 1: " + objectives);
 
 			PopulationEntry entry = new PopulationEntry(config, objectives);
 
@@ -676,10 +677,10 @@ public class LinkageFactory {
 
 			times.add(end);
 
-			System.out.println(i + " done");
+//			System.out.println(i + " done");
 		}
 
-		System.out.println(Arrays.toString(times.toArray()));
+//		System.out.println(Arrays.toString(times.toArray()));
 	}
 
 }

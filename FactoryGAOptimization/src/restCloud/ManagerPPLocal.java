@@ -3,7 +3,6 @@ package restCloud;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.stream.Collectors;
 
 import aura.PopulationEntry;
 import indicator.Indicators;
@@ -19,32 +18,39 @@ public class ManagerPPLocal {
 		None, Random, Worst
 	}
 
-	private List<List<Double>> startManager(BusinessCase bc, int ONAfactoryScale, int numberOfIslandsParam, int seeds,
+	public static int numberOfPush = 0;
+	public static int numberOfPull = 0;
+
+	private ResultBundle startManager(BusinessCase bc, int ONAfactoryScale, int numberOfIslandsParam, int seeds,
 			int notImprovedInARowLimit, int numberOfReplacement, int RemoveMethod, int addMethod) {
-		
-		int numberOfIslands = RemoveMethod == -2? 1 : numberOfIslandsParam;
+
+		System.out.println(getName(RemoveMethod, addMethod));
+
+		int numberOfIslands = RemoveMethod == -2 ? 1 : numberOfIslandsParam;
 		Random ran = new Random(seeds);
 		List<ParetoFrontCapsule> globalCaps = new ArrayList<>();
 		List<List<Integer>> numberOfActions = new ArrayList<>();
 		List<PopulationEntry> dummy = new ArrayList<>();
 
+		List<ResultBundle> results = new ArrayList<>();
+
 		for (int i = 0; i < numberOfIslands; i++) {
 			LinkageFactory factory = new LinkageFactory(bc, seeds + numberOfIslands);
 			globalCaps.add(new ParetoFrontCapsule(dummy, factory));
 			numberOfActions.add(new ArrayList<>());
+			results.add(null);
 		}
 
-		
-		
-		
 		List<Thread> islands = new ArrayList<>();
 		for (int i = 0; i < numberOfIslands; i++) {
 			final int id = i;
 			Thread island = new Thread(new Runnable() {
 				@Override
 				public void run() {
-					new ManagerPP(bc, ONAfactoryScale, ran.nextInt(), notImprovedInARowLimit, numberOfReplacement,
-							RemoveMethod, addMethod).startIsland(id, globalCaps, numberOfActions, false);
+					ResultBundle res = new ManagerPP(bc, ONAfactoryScale, ran.nextInt(), notImprovedInARowLimit,
+							numberOfReplacement, RemoveMethod, addMethod).start(id, globalCaps, numberOfActions, false);
+
+					results.set(id, res);
 				}
 			});
 
@@ -71,28 +77,72 @@ public class ManagerPPLocal {
 			}
 		}
 
-		List<List<Double>> objectives = globalPF.stream().map(e -> e.getObjectives()).collect(Collectors.toList());
+		List<List<Double>> objectives = new ArrayList<>();
 
-		
-		
-		
-		numberOfPush = numberOfActions.stream().map(a -> a.get(0)).collect(Collectors.toList()).stream()
-				.mapToInt(Integer::intValue).sum();
-		numberOfPull = numberOfActions.stream().map(a -> a.get(1)).collect(Collectors.toList()).stream()
-				.mapToInt(Integer::intValue).sum();
+		for (int i = 0; i < globalPF.size(); i++) {
+			objectives.add(globalPF.get(i).getObjectives());
+		}
 
-		return objectives;
+		objectives.sort((c1, c2) -> Double.compare(c1.get(0), c2.get(0)));
+
+		long timeSum = 0;
+		numberOfPush = 0;
+		numberOfPull = 0;
+		for (int i = 0; i < results.size(); i++) {
+
+			numberOfPush += results.get(i).push;
+			numberOfPull += results.get(i).pull;
+			timeSum += results.get(i).time;
+		}
+
+		long time = (long) Math.ceil(timeSum / (double) results.size());
+
+		return new ResultBundle(objectives, numberOfPush, numberOfPull, time, getName(RemoveMethod, addMethod));
 	}
 
-	public static int numberOfPush = 0;
-	public static int numberOfPull = 0;
+//	public static void main(String args[]) {
+//		new ManagerPPLocal().startPPLocal(1000, 1, 5, 1, 3);
+//	}
 
-	public static void main(String args[]) {
-		new ManagerPPLocal().startPPLocal(1000, 1, 5, 1, 3, "result");
-	}
+//	public ResultBundle runOneSetting(BusinessCase bc, int ONAfactoryScale, int numberOfIslands, int seeds,
+//			int notImprovedInARowLimit, int numberOfReplacement, int remove, int add) {
+//
+//		String out = "";
+//
+//		System.out.println(getName(remove, add));
+//
+//		out += getName(-2, -2) + "\n";
+//
+//		ResultBundle result = startManager(bc, ONAfactoryScale, numberOfIslands, seeds, notImprovedInARowLimit,
+//				numberOfReplacement, -2, -2);
+//
+//		ObjectiveCapsule normalPF = new ObjectiveCapsule(result.objectives);
+//
+//		System.out.println("Final PF: ");
+//		out += "Final PF: \n";
+//		for (List<Double> l : normalPF.get()) {
+//			for (Double d : l) {
+//				System.out.print(d + " ");
+//				out += d + " ";
+//			}
+//			System.out.println();
+//			out += "\n";
+//		}
+//
+//		out += "push: " + result.push + " pull: " + result.pull + "\n";
+//		System.out.println("push: " + result.push + " pull: " + result.pull);
+//
+//		long time = result.time;
+//		out += "time: " + time + "\n";
+//		System.out.println("time: " + time + "\n\n");
+//
+//		result.out = out;
+//
+//		return result;
+//	}
 
 	public List<List<Double>> startPPLocal(int seed, int factoryScale, int numberofIsland, int numerOfReplacement,
-			int notImprovedInRow, String directory) {
+			int notImprovedInRow) {
 
 		BusinessCase bc = BusinessCase.ONA;
 		int REMOVE_METHOD = 2;
@@ -104,268 +154,150 @@ public class ManagerPPLocal {
 		int numberOfReplacement = numerOfReplacement;
 		int notImprovedInARowLimit = notImprovedInRow;
 
-		long t1 = 0;
-		long t2 = 0;
-
-		ObjectiveCapsule normalPF = null;
-		List<List<ObjectiveCapsule>> objCaps = new ArrayList<>();
-		List<Long> time = new ArrayList<>();
-
-		List<int[]> numberOfActions = new ArrayList<>();
-
-		String fileName = directory + "/" + "managerPP " + numberOfIslands + " " + ONAfactoryScale + " " + seeds + " "
-				+ numberOfReplacement;
-
-		String out = "seeds " + seeds + " factoryScale" + ONAfactoryScale + " numberOfIslands" + numberofIsland
-				+ " numberOfReplacement" + numberOfReplacement + " notImprovedInARow " + notImprovedInARowLimit
-				+ "\n\n";
-		
+		List<ResultBundle> bundles = new ArrayList<>();
 		/**
 		 * The traditional MOEA/D
 		 */
-		System.out.println(getName(-2, -2));
-		out += getName(-2, -2) + "\n";
-		t1 = System.currentTimeMillis();
-		normalPF = new ObjectiveCapsule(startManager(bc, ONAfactoryScale, numberOfIslands, seeds,
-				notImprovedInARowLimit, numberOfReplacement, -2, -2));
-		t2 = System.currentTimeMillis() - t1;
-		time.add(t2);
+		bundles.add(startManager(bc, ONAfactoryScale, numberOfIslands, seeds, notImprovedInARowLimit,
+				numberOfReplacement, -2, -2));
 
-		out += "push: " + numberOfPush + " pull: " + numberOfPull + "\n";
-		System.out.println("push: " + numberOfPush + " pull: " + numberOfPull);
-		int[] actions0 = { numberOfPush, numberOfPull };
-		numberOfActions.add(actions0);
-		
-		System.out.println("Final PF: ");
-		out += "Final PF: \n";
-		for (List<Double> l : normalPF.get()) {
-			for (Double d : l) {
-				System.out.print(d + " ");
-				out += d + " ";
-			}
-			System.out.println();
-			out += "\n";
-		}
-		
 		/**
 		 * Island Model without migration
 		 */
-		System.out.println(getName(-1, -1));
-		out += getName(-1, -1) + "\n";
+		bundles.add(startManager(bc, ONAfactoryScale, numberOfIslands, seeds, notImprovedInARowLimit,
+				numberOfReplacement, -1, -1));
 
-		t1 = System.currentTimeMillis();
-		normalPF = new ObjectiveCapsule(startManager(bc, ONAfactoryScale, numberOfIslands, seeds,
-				notImprovedInARowLimit, numberOfReplacement, -1, -1));
-		t2 = System.currentTimeMillis() - t1;
-		time.add(t2);
-
-		out += "push: " + numberOfPush + " pull: " + numberOfPull + "\n";
-		System.out.println("push: " + numberOfPush + " pull: " + numberOfPull);
-		int[] actions = { numberOfPush, numberOfPull };
-		numberOfActions.add(actions);
-		
-		System.out.println("Final PF: ");
-		out += "Final PF: \n";
-		for (List<Double> l : normalPF.get()) {
-			for (Double d : l) {
-				System.out.print(d + " ");
-				out += d + " ";
-			}
-			System.out.println();
-			out += "\n";
-		}
-
-		System.out.println("\n\n");
+		/**
+		 * Island Model with migrations
+		 */
 		for (int i = 0; i < REMOVE_METHOD; i++) {
-			List<ObjectiveCapsule> objC = new ArrayList<>();
 			for (int j = 0; j < ADD_METHOD; j++) {
-				System.out.println(getName(i, j));
-				out += getName(i, j) + "\n";
-
-				t1 = System.currentTimeMillis();
-				List<List<Double>> objective = startManager(bc, ONAfactoryScale, numberOfIslands, seeds,
-						notImprovedInARowLimit, numberOfReplacement, i, j);
-				t2 = System.currentTimeMillis() - t1;
-				time.add(t2);
-
-				out += "push: " + numberOfPush + " pull: " + numberOfPull + "\n";
-				System.out.println("push: " + numberOfPush + " pull: " + numberOfPull);
-				int[] actions1 = { numberOfPush, numberOfPull };
-				numberOfActions.add(actions1);
-				System.out.println("Final PF: ");
-				out += "Final PF: \n";
-				for (List<Double> l : objective) {
-					for (Double d : l) {
-						System.out.print(d + " ");
-						out += d + " ";
-					}
-					System.out.println();
-					out += "\n";
-				}
-
-				ObjectiveCapsule oc = new ObjectiveCapsule(objective);
-				objC.add(oc);
-				System.out.println("\n\n");
+				bundles.add(startManager(bc, ONAfactoryScale, numberOfIslands, seeds, notImprovedInARowLimit,
+						numberOfReplacement, i, j));
 			}
-			objCaps.add(objC);
 		}
 
-		System.out.println(getName(5, 5));
-		out += getName(5, 5) + "\n";
+		/**
+		 * Island Model with migrations
+		 */
+		bundles.add(startManager(bc, ONAfactoryScale, numberOfIslands, seeds, notImprovedInARowLimit,
+				numberOfReplacement, 5, 5));
 
-		t1 = System.currentTimeMillis();
-		List<List<Double>> objective = startManager(bc, ONAfactoryScale, numberOfIslands, seeds, notImprovedInARowLimit,
-				numberOfReplacement, 5, 5);
-		t2 = System.currentTimeMillis() - t1;
-		time.add(t2);
+		List<List<Double>> result = preAnalysis(bundles);
 
-		out += "push: " + numberOfPush + " pull: " + numberOfPull + "\n";
-		System.out.println("push: " + numberOfPush + " pull: " + numberOfPull);
-		int[] actions1 = { numberOfPush, numberOfPull };
-		numberOfActions.add(actions1);
-
-		System.out.println("Final PF: ");
-		out += "Final PF: \n";
-		for (List<Double> l : objective) {
-			for (Double d : l) {
-				System.out.print(d + " ");
-				out += d + " ";
-			}
-			System.out.println();
-			out += "\n";
-		}
-
-		ObjectiveCapsule ocLinkage = new ObjectiveCapsule(objective);
-		System.out.println("\n\n");
-
-		out += "\n\n\n---------------------------------------\nQuality Indicator Results: \n\n";
-		System.out.println("Quality Indicator Results: ");
-
-		out += "for each remove method \n";
-		System.out.println("for each remove method \n\n");
-
-		for (int i = 0; i < objCaps.size(); i++) {
-			System.out.println(getName(i, -1));
-			out += getName(i, -1) + "\n";
-			List<List<List<Double>>> objectives = new ArrayList<>();
-
-			for (ObjectiveCapsule oc : objCaps.get(i))
-				objectives.add(oc.get());
-
-			String res = Indicators.compareForDisplay(objectives, null);
-			System.out.println(res);
-			out += res + "\n\n";
-			System.out.println("\n");
-		}
-
-		out += "\n---------------------------------------\nfor each add method\n";
-		System.out.println("for each add method \n\n");
-		for (int i = 0; i < objCaps.get(0).size(); i++) {
-			System.out.println(getName(-1, i));
-			out += getName(-1, i) + "\n";
-			List<List<List<Double>>> objectives = new ArrayList<>();
-
-			for (int j = 0; j < objCaps.size(); j++) {
-				objectives.add(objCaps.get(j).get(i).get());
-			}
-
-			String res = Indicators.compareForDisplay(objectives, null);
-			out += res + "\n\n";
-			System.out.println(res);
-			System.out.println("\n");
-		}
-
-		out += "\n---------------------------------------\n results for all together \n\n";
-		System.out.println("for all together \n\n");
-		List<ObjectiveCapsule> allToGether = new ArrayList<>();
-		for (int i = 0; i < objCaps.size(); i++) {
-			allToGether.addAll(objCaps.get(i));
-		}
-
-		int totalAddMethods = objCaps.get(0).size();
-		int removeID = 0;
-		int addID = 0;
-		System.out.println("Remove nothing   Add nothing");
-		out += "Remove nothing   Add nothing\n";
-		for (int i = 0; i < allToGether.size(); i++) {
-			removeID = i / totalAddMethods;
-			addID = i % totalAddMethods;
-			System.out.println(getName(removeID, addID));
-			out += getName(removeID, addID) + "\n";
-		}
-
-		System.out.println("Linkage migration");
-		out += "Linkage migration\n";
-
-		List<List<List<Double>>> objectives = new ArrayList<>();
-		objectives.add(normalPF.get());
-		for (int i = 0; i < allToGether.size(); i++) {
-			objectives.add(allToGether.get(i).get());
-		}
-		objectives.add(ocLinkage.get());
-
-		String res = Indicators.compareForDisplay(objectives, null);
-		out += res + "\n";
-		System.out.println(res);
-
-		System.out.println("\n---------------------------------------\n actions for all together");
-		out += "\n---------------------------------------\n actions for all together \n\n";
-
-		for (int i = 0; i < numberOfActions.size(); i++) {
-			int[] action = numberOfActions.get(i);
-			System.out.println(action[0] + " " + action[1]);
-			out += action[0] + " " + action[1] + "\n";
-		}
-
-		ResultAnalyser.writeResult(fileName, out);
-
-		List<List<Double>> result = Indicators.compare(objectives, null);
-
-		List<Double> nopush = new ArrayList<>();
-		List<Double> nopull = new ArrayList<>();
-		for (int i = 0; i < numberOfActions.size(); i++) {
-
-			nopush.add(numberOfActions.get(i)[0] + 0.0);
-			nopull.add(numberOfActions.get(i)[1] + 0.0);
-		}
-		result.add(nopush);
-		result.add(nopull);
-
-		String outForRead = "";
-
-		for (int i = 0; i < result.size(); i++) {
-			for (int j = 0; j < result.get(i).size(); j++) {
-				if (j < result.get(i).size() - 1)
-					outForRead += result.get(i).get(j) + " ";
-				else
-					outForRead += result.get(i).get(j);
-			}
-
-			outForRead += "\n";
-		}
-
-		ResultAnalyser.writeResult(fileName + ".txt", outForRead);
-
-		String timeS = "";
-
-		for (int i = 0; i < time.size(); i++) {
-			timeS += time.get(i) + "\n";
-		}
-
-		ResultAnalyser.writeResult(directory + "/cost.txt", timeS);
-
-		List<Double> timeD = time.stream().map(c -> (double) c).collect(Collectors.toList());
-
-		result.add(timeD);
+		writeToFile(bundles, numberOfIslands, ONAfactoryScale, seeds, numberOfReplacement);
 
 		return result;
+	}
+
+	private List<List<Double>> preAnalysis(List<ResultBundle> bundles) {
+
+		List<List<Double>> allRes = new ArrayList<>();
+		List<List<List<Double>>> allFPs = new ArrayList<>();
+
+		for (int i = 0; i < bundles.size(); i++) {
+			allFPs.add(bundles.get(i).objectives);
+		}
+
+		allRes.addAll(Indicators.compare(allFPs, null));
+
+		List<Double> push = new ArrayList<>();
+		List<Double> pull = new ArrayList<>();
+		List<Double> time = new ArrayList<>();
+
+		for (int i = 0; i < bundles.size(); i++) {
+			push.add((double) bundles.get(i).push);
+			pull.add((double) bundles.get(i).pull);
+			time.add((double) bundles.get(i).time);
+		}
+
+		allRes.add(push);
+		allRes.add(pull);
+		allRes.add(time);
+
+		return allRes;
+	}
+
+	public void writeToFile(List<ResultBundle> bundles, int numberOfIslands, int ONAfactoryScale, int seeds,
+			int numberOfReplacement) {
+
+		/**
+		 * Write FPs to the file system
+		 */
+		String fileName_PF = "result_PF" + "/" + "PFs " + numberOfIslands + " " + ONAfactoryScale + " " + seeds;
+		String out_PF = "";
+
+		for (int i = 0; i < bundles.size(); i++) {
+			ResultBundle r = bundles.get(i);
+
+			for (int j = 0; j < r.objectives.size(); j++) {
+				for (int k = 0; k < r.objectives.get(j).size(); k++) {
+					out_PF += r.objectives.get(j).get(k);
+
+					if (k != r.objectives.get(j).size() - 1)
+						out_PF += " ";
+				}
+				out_PF += "\n";
+			}
+			out_PF += "\n";
+		}
+
+		ResultAnalyser.writeResult(fileName_PF + ".txt", out_PF);
+
+		/**
+		 * Write Quality values to the file system
+		 */
+		String fileName_QV = "result_QV" + "/" + "Quality Values " + numberOfIslands + " " + ONAfactoryScale + " "
+				+ seeds;
+		String out_QV = "";
+
+		List<List<List<Double>>> objectives = new ArrayList<>();
+		for (int i = 0; i < bundles.size(); i++) {
+			objectives.add(bundles.get(i).objectives);
+		}
+
+		List<List<Double>> qvs = Indicators.compare(objectives, null);
+
+		for (int i = 0; i < qvs.size(); i++) {
+			for (int j = 0; j < qvs.get(i).size(); j++) {
+				out_QV += qvs.get(i).get(j);
+				if (j != qvs.get(i).size() - 1) {
+					out_QV += " ";
+				}
+			}
+			out_QV += "\n";
+		}
+
+		ResultAnalyser.writeResult(fileName_QV + ".txt", out_QV);
+
+		/**
+		 * Write pull_push and execution time to the system
+		 */
+		String fileName_PP = "result_Push_Pull" + "/" + "Push and Pull " + numberOfIslands + " " + ONAfactoryScale + " "
+				+ seeds;
+		String out_PP = "";
+		String fileName_ET = "result_ET" + "/" + "Execution Time " + numberOfIslands + " " + ONAfactoryScale + " "
+				+ seeds;
+		String out_ET = "";
+
+		for (int i = 0; i < bundles.size(); i++) {
+			ResultBundle r = bundles.get(i);
+
+			out_PP += r.push + " " + r.pull + "\n";
+			out_ET += r.time + "\n";
+
+		}
+
+		ResultAnalyser.writeResult(fileName_PP + ".txt", out_PP);
+		ResultAnalyser.writeResult(fileName_ET + ".txt", out_ET);
+
 	}
 
 	public static String getName(int remove, int add) {
 
 		if (remove == -2 && add == -2)
 			return "traditional MOEA/D";
-		
+
 		if (remove == -1 && add == -1)
 			return "remove and add nothing";
 
