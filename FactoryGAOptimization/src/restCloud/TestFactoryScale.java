@@ -1,5 +1,6 @@
 package restCloud;
 
+import java.io.File;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,24 +18,26 @@ public class TestFactoryScale {
 
 //		int factorySize = 6;
 //		int runGroup = 2;
+
+		int numberOfIslands = 5;
 		int NoC = 5;
+		String folder = "result_factory/";
 
 //		runGAforOneSize(factorySize, runGroup, NoC);
 
 		for (int j = 1; j < 11; j++) {
 			for (int i = 1; i < 41; i++) {
-				runGAforOneSize(j, i, NoC);
+				runGAforOneSize(j, i, NoC, folder, numberOfIslands);
 			}
 
 		}
 
-		TCADResultsReaderAndAnalyzer.runAnalysis();
+		TCADResultsReaderAndAnalyzer.runAnalysisFactory(folder, numberOfIslands);
 
 	}
 
-	public static void runGAforOneSize(int factoryScale, int runGroup, int NoC) {
+	public static void runGAforOneSize(int factoryScale, int runGroup, int NoC, String folder, int numberOfIslands) {
 
-		int numberOfIslands = 5;
 		int numberOfReplace = 1;
 		int NotImprovedInRow = 3;
 
@@ -44,7 +47,7 @@ public class TestFactoryScale {
 //			;
 //		}
 
-		int controlledVariabile = 1 * numberOfIslands / NoC; // TODO: controlledVariabile 4 , 2
+		int controlledVariabile = 1; // TODO: controlledVariabile 4 , 2
 
 		if (runGroup < 1 || runGroup > 40 / controlledVariabile) { // runGroup = [1,10] , [1,20]
 			System.out.println("Wrong run group index !");
@@ -66,15 +69,16 @@ public class TestFactoryScale {
 					+ NotImprovedInRow);
 
 			List<List<Double>> res = new ManagerPPLocal().startPPLocal(Startingseed + i, factoryScale, numberOfIslands,
-					numberOfReplace, NotImprovedInRow);
+					numberOfReplace, NotImprovedInRow, folder);
 
 			results.set(i, res);
 		}
 
-		finalAnalyserAndSummarizer(results, factoryScale);
+		finalAnalyserAndSummarizer(results, factoryScale, folder, numberOfIslands);
 	}
 
-	public static void finalAnalyserAndSummarizer(List<List<List<Double>>> results, int factoryScale) {
+	public static void finalAnalyserAndSummarizer(List<List<List<Double>>> results, int factoryScale, String folder,
+			int numberOfIslands) {
 
 		List<List<List<Double>>> qis = new ArrayList<>();
 
@@ -144,20 +148,31 @@ public class TestFactoryScale {
 		List<Double> averagePull = getAverage(pull);
 		List<Double> averagetime = getAverage(time);
 
-		
 		String out = "";
-		
+
 		System.out.println("\n\n---------------------------------------\n\n");
 		printRanks(rankings);
 		System.out.println("\n\n---------------------------------------\n\n");
 
-		
 //		out += printAverageRanks(averageRanking) + "\n";
 		out += printAverage(averagePush, "Push:") + "\n";
 		out += printAverage(averagePull, "Pull:") + "\n";
 		out += printAverage(averagetime, "Time:");
 
-		ResultAnalyser.writeResult("FGCS/all " + factoryScale + ".txt", out);
+		try {
+			File theDir = new File(folder);
+			if (!theDir.exists()) {
+				theDir.mkdirs();
+			}
+
+			File theDir1 = new File(folder + "FGCS");
+			if (!theDir1.exists()) {
+				theDir1.mkdirs();
+			}
+		} catch (Exception e) {
+		}
+
+		ResultAnalyser.writeResult(folder + "FGCS/all " + factoryScale + " " + numberOfIslands + ".txt", out);
 	}
 
 	public static String printAverage(List<Double> value, String info) {
@@ -179,7 +194,7 @@ public class TestFactoryScale {
 		String out = "";
 
 		System.out.print("QI: ");
-		
+
 		for (int i = 0; i < Indicators.nameQI.length; i++) {
 			System.out.print(Indicators.nameQI[i] + "    ");
 		}

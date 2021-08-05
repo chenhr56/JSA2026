@@ -20,34 +20,70 @@ public class TCADResultsReaderAndAnalyzer {
 
 	public static void main(String args[]) {
 
-		runAnalysis();
+		runAnalysisFactory("result_factory/", 5);
 	}
 
-	public static void runAnalysis() {
+	public static void runAnalysisFactory(String folder, int island) {
 		int startSeed = 1000;
 		int caseNum = 40;
 
+		try {
+			File theDir = new File(folder + "FGCS");
+			if (!theDir.exists()) {
+				theDir.mkdirs();
+			}
+
+			File theDir1 = new File(folder);
+			if (!theDir1.exists()) {
+				theDir1.mkdirs();
+			}
+
+		} catch (Exception e) {
+		}
+
 		for (int i = 1; i < 11; i++) {
-			if (i == 10)
-				System.out.println();
-			analyseOneFactory(i, startSeed, caseNum);
+			analyseOneFactory(i, startSeed, caseNum, folder, island);
+		}
+
+	}
+	
+	public static void runAnalysIsland(String folder, int factory) {
+		int startSeed = 1000;
+		int caseNum = 40;
+
+		try {
+			File theDir = new File(folder + "FGCS");
+			if (!theDir.exists()) {
+				theDir.mkdirs();
+			}
+
+			File theDir1 = new File(folder);
+			if (!theDir1.exists()) {
+				theDir1.mkdirs();
+			}
+
+		} catch (Exception e) {
+		}
+
+		for (int i = 1; i < 11; i++) {
+			analyseOneFactory(factory, startSeed, caseNum, folder, i);
 		}
 
 	}
 
-	public static void analyseOneFactory(int factoryScale, int startSeed, int caseNum) {
+	public static void analyseOneFactory(int factoryScale, int startSeed, int caseNum, String folder, int island) {
 		System.out.println("Factory size: " + factoryScale);
 
-		List<List<Double>> globalPF = findGlobalOptimal(factoryScale, startSeed, caseNum);
+		List<List<Double>> globalPF = findGlobalOptimal(factoryScale, startSeed, caseNum, folder, island);
 
 		List<List<List<Double>>> qisOneSize = new ArrayList<>();
 
 		for (int i = 0; i < caseNum; i++) {
-			String file = "PFs 5 " + factoryScale + " " + startSeed + ".txt";
+			String file = "PFs " + island + " " + factoryScale + " " + startSeed + ".txt";
 
-			File f = new File("result_PF/" + file);
+			File f = new File(folder + "result_PF/" + file);
 			if (f.exists() && !f.isDirectory()) {
-				List<List<List<Double>>> res = readResults("result_PF", file);
+				List<List<List<Double>>> res = readResults(folder + "result_PF", file);
 
 				List<List<Double>> qis = Indicators.compare(res, globalPF);
 				qisOneSize.add(qis);
@@ -57,10 +93,11 @@ public class TCADResultsReaderAndAnalyzer {
 			startSeed++;
 		}
 
-		analyser(qisOneSize, factoryScale, globalPF);
+		analyser(qisOneSize, factoryScale, globalPF, folder, island);
 	}
 
-	public static void analyser(List<List<List<Double>>> qis, int factoryScale, List<List<Double>> globalPF) {
+	public static void analyser(List<List<List<Double>>> qis, int factoryScale, List<List<Double>> globalPF,
+			String folder, int island) {
 
 		List<List<List<Integer>>> rankings = new ArrayList<>();
 
@@ -113,10 +150,10 @@ public class TCADResultsReaderAndAnalyzer {
 					if (k != ranksForOneQI.get(j).size() - 1)
 						out += " ";
 				}
-				
-				out+="\n";
+
+				out += "\n";
 			}
-			out+="\n";
+			out += "\n";
 		}
 
 		out += "\n\n----------------- Avg --------------\n\n";
@@ -125,8 +162,8 @@ public class TCADResultsReaderAndAnalyzer {
 		out += "\n\n----------------- Med ---------------\n\n";
 		out += printAverageRanks(medianRanking);
 
-		ResultAnalyser.writeResult("FGCS/rank " + factoryScale + ".txt", out);
-		
+		ResultAnalyser.writeResult(folder + "FGCS/rank " + factoryScale + " " + island + ".txt", out);
+
 		System.out.println("\n");
 	}
 
@@ -260,16 +297,16 @@ public class TCADResultsReaderAndAnalyzer {
 		return rankings;
 	}
 
-	public static List<List<Double>> findGlobalOptimal(int size, int seed, int caseNum) {
+	public static List<List<Double>> findGlobalOptimal(int size, int seed, int caseNum, String folder, int island) {
 
 		List<List<Double>> gloablPF = new ArrayList<>();
 
 		for (int i = 0; i < caseNum; i++) {
-			String file = "PFs 5 " + size + " " + seed + ".txt";
+			String file = "PFs " + island + " " + size + " " + seed + ".txt";
 
-			File f = new File("result_PF/" + file);
+			File f = new File(folder + "result_PF/" + file);
 			if (f.exists() && !f.isDirectory()) {
-				List<List<List<Double>>> localPFs = readResults("result_PF", file);
+				List<List<List<Double>>> localPFs = readResults(folder + "result_PF", file);
 
 				for (List<List<Double>> oneMethod : localPFs) {
 					for (List<Double> oneSolution : oneMethod) {

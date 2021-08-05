@@ -42,10 +42,10 @@ public class ManagerPP {
 
 	Random random;
 	ConfigurationType ct;
-
-	int populationSize = 50; // 50
-	int generations = 20; // 20
-	int NoOfStages = 40; // 40
+	
+	int populationSize = 5; // 50
+	int generations = 2; // 20
+	int NoOfStages = 4; // 40
 	int noOfIslands = 1;
 	public static int SIZE_OF_EP = 100;
 	double urgency = 0.5;
@@ -58,7 +58,7 @@ public class ManagerPP {
 	ObjectiveFunction.LocalObjectiveFunction of;
 
 	public ManagerPP(BusinessCase bc, int ONAfactoryScale, int seeds, int notImprovedInARowLimit,
-			int numberOfReplacement, int RemoveMethod, int addMethod) {
+			int numberOfReplacement, int RemoveMethod, int addMethod, int island) {
 		this.bc = bc;
 		this.ONAfactoryScale = ONAfactoryScale;
 		this.seeds = seeds;
@@ -70,11 +70,10 @@ public class ManagerPP {
 		random = new Random(seeds);
 
 		of = (ObjectiveFunction.LocalObjectiveFunction) bc.getObjectiveFunction();
+
+		if (RemoveMethod == -2)
+			this.populationSize = populationSize * island;
 		
-		
-		if(RemoveMethod == -2) {
-			populationSize = populationSize * 5;
-		}
 	}
 
 	// private PopulationEntry removeEntryWorstIGD(OptimisationIslandResult or) {
@@ -255,14 +254,13 @@ public class ManagerPP {
 	private List<PopulationEntry> getEntryBestQI(List<PopulationEntry> globalPF, int number) {
 
 		List<List<List<Double>>> fronts = new ArrayList<>();
-		
-		for(int i=0; i<globalPF.size();i++) {
+
+		for (int i = 0; i < globalPF.size(); i++) {
 			List<List<Double>> pf = new ArrayList<>();
 			pf.add(globalPF.get(i).getObjectives());
 			fronts.add(pf);
 		}
-				
-				
+
 //				globalPF.stream().map(p -> {
 //			List<List<Double>> oneFront = new ArrayList<>();
 //			oneFront.add(p.getObjectives());
@@ -732,19 +730,18 @@ public class ManagerPP {
 
 		return new OptimisationArguments(configurations, urgency, quality);
 	}
-	
-	public ResultBundle start(int id, List<ParetoFrontCapsule> fpCaps, List<List<Integer>> actions,
-			boolean useCloud) {
+
+	public ResultBundle start(int id, List<ParetoFrontCapsule> fpCaps, List<List<Integer>> actions, boolean useCloud) {
 		long t1 = System.currentTimeMillis();
 		List<List<Double>> objectives = startIsland(id, fpCaps, actions, useCloud);
 		long t2 = System.currentTimeMillis();
-		
+
 		long time = t2 - t1;
-		
+
 		return new ResultBundle(objectives, numberOfPush, numberOfPull, time);
-		
+
 	}
-	
+
 	public List<List<Double>> startIsland(int id, List<ParetoFrontCapsule> fpCaps, List<List<Integer>> actions,
 			boolean useCloud) {
 		int islandID = id;

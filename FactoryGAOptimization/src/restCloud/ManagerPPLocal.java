@@ -1,5 +1,6 @@
 package restCloud;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -48,7 +49,7 @@ public class ManagerPPLocal {
 				@Override
 				public void run() {
 					ResultBundle res = new ManagerPP(bc, ONAfactoryScale, ran.nextInt(), notImprovedInARowLimit,
-							numberOfReplacement, RemoveMethod, addMethod).start(id, globalCaps, numberOfActions, false);
+							numberOfReplacement, RemoveMethod, addMethod, numberOfIslandsParam).start(id, globalCaps, numberOfActions, false);
 
 					results.set(id, res);
 				}
@@ -142,7 +143,7 @@ public class ManagerPPLocal {
 //	}
 
 	public List<List<Double>> startPPLocal(int seed, int factoryScale, int numberofIsland, int numerOfReplacement,
-			int notImprovedInRow) {
+			int notImprovedInRow, String folder) {
 
 		BusinessCase bc = BusinessCase.ONA;
 		int REMOVE_METHOD = 2;
@@ -185,7 +186,7 @@ public class ManagerPPLocal {
 
 		List<List<Double>> result = preAnalysis(bundles);
 
-		writeToFile(bundles, numberOfIslands, ONAfactoryScale, seeds, numberOfReplacement);
+		writeToFile(bundles, numberOfIslands, ONAfactoryScale, seeds, numberOfReplacement, folder);
 
 		return result;
 	}
@@ -219,12 +220,20 @@ public class ManagerPPLocal {
 	}
 
 	public void writeToFile(List<ResultBundle> bundles, int numberOfIslands, int ONAfactoryScale, int seeds,
-			int numberOfReplacement) {
+			int numberOfReplacement, String folder) {
 
 		/**
 		 * Write FPs to the file system
 		 */
-		String fileName_PF = "result_PF" + "/" + "PFs " + numberOfIslands + " " + ONAfactoryScale + " " + seeds;
+		try {
+			File theDir = new File(folder + "result_PF");
+			if (!theDir.exists()) {
+				theDir.mkdirs();
+			}
+		} catch (Exception e) {
+		}
+		String fileName_PF = folder + "result_PF" + "/" + "PFs " + numberOfIslands + " " + ONAfactoryScale + " "
+				+ seeds;
 		String out_PF = "";
 
 		for (int i = 0; i < bundles.size(); i++) {
@@ -247,8 +256,15 @@ public class ManagerPPLocal {
 		/**
 		 * Write Quality values to the file system
 		 */
-		String fileName_QV = "result_QV" + "/" + "Quality Values " + numberOfIslands + " " + ONAfactoryScale + " "
-				+ seeds;
+		try {
+			File theDir = new File(folder + "result_QV");
+			if (!theDir.exists()) {
+				theDir.mkdirs();
+			}
+		} catch (Exception e) {
+		}
+		String fileName_QV = folder + "result_QV" + "/" + "Quality Values " + numberOfIslands + " " + ONAfactoryScale
+				+ " " + seeds;
 		String out_QV = "";
 
 		List<List<List<Double>>> objectives = new ArrayList<>();
@@ -273,11 +289,24 @@ public class ManagerPPLocal {
 		/**
 		 * Write pull_push and execution time to the system
 		 */
-		String fileName_PP = "result_Push_Pull" + "/" + "Push and Pull " + numberOfIslands + " " + ONAfactoryScale + " "
-				+ seeds;
+		try {
+			File theDir = new File(folder + "result_Push_Pull");
+			if (!theDir.exists()) {
+				theDir.mkdirs();
+			}
+
+			File theDir1 = new File(folder + "result_ET");
+			if (!theDir1.exists()) {
+				theDir1.mkdirs();
+			}
+		} catch (Exception e) {
+		}
+
+		String fileName_PP = folder + "result_Push_Pull" + "/" + "Push and Pull " + numberOfIslands + " "
+				+ ONAfactoryScale + " " + seeds;
 		String out_PP = "";
-		String fileName_ET = "result_ET" + "/" + "Execution Time " + numberOfIslands + " " + ONAfactoryScale + " "
-				+ seeds;
+		String fileName_ET = folder + "result_ET" + "/" + "Execution Time " + numberOfIslands + " " + ONAfactoryScale
+				+ " " + seeds;
 		String out_ET = "";
 
 		for (int i = 0; i < bundles.size(); i++) {
