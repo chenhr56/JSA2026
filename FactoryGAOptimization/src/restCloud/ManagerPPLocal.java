@@ -35,7 +35,7 @@ public class ManagerPPLocal {
 		List<ResultBundle> results = new ArrayList<>();
 
 		for (int i = 0; i < numberOfIslands; i++) {
-			LinkageFactory factory = new LinkageFactory(bc, seeds + numberOfIslands);
+			LinkageFactory factory = new LinkageFactory(bc, seeds); // + numberOfIslands
 			globalCaps.add(new ParetoFrontCapsule(dummy, factory));
 			numberOfActions.add(new ArrayList<>());
 			results.add(null);
@@ -47,7 +47,7 @@ public class ManagerPPLocal {
 			Thread island = new Thread(new Runnable() {
 				@Override
 				public void run() {
-					ResultBundle res = new ManagerPP(bc, ONAfactoryScale, ran.nextInt(), notImprovedInARowLimit,
+					ResultBundle res = new ManagerPP(bc, ONAfactoryScale, seeds, notImprovedInARowLimit,
 							numberOfReplacement, RemoveMethod, addMethod).start(id, globalCaps, numberOfActions, false);
 
 					results.set(id, res);
