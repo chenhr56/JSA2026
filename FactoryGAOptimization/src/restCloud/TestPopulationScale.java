@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 import indicator.Indicators;
 
-public class TestOneCase {
+public class TestPopulationScale {
 
 	public static void main(String args[]) {
 
