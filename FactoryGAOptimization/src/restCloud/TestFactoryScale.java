@@ -9,8 +9,12 @@ import java.util.stream.Collectors;
 import indicator.Indicators;
 
 public class TestFactoryScale {
-
+	
 	public static void main(String args[]) {
+		start();
+	}
+
+	public static void start() {
 
 //		int factorySize = Integer.parseInt(args[0]);
 //		int runGroup = Integer.parseInt(args[1]);
@@ -25,7 +29,7 @@ public class TestFactoryScale {
 
 //		runGAforOneSize(factorySize, runGroup, NoC);
 
-		for (int j = 1; j < 11; j++) {
+		for (int j = 4; j < 11; j++) {
 			for (int i = 1; i < 41; i++) {
 				runGAforOneSize(j, i, NoC, folder, numberOfIslands);
 			}

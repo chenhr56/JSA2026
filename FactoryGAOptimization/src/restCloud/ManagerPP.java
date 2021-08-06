@@ -43,9 +43,9 @@ public class ManagerPP {
 	Random random;
 	ConfigurationType ct;
 	
-	int populationSize = 5; // 50
-	int generations = 2; // 20
-	int NoOfStages = 4; // 40
+	int populationSize = 50; // 50
+	int generations = 20; // 20
+	int NoOfStages = 40; // 40
 	int noOfIslands = 1;
 	public static int SIZE_OF_EP = 100;
 	double urgency = 0.5;

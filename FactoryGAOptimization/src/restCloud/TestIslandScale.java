@@ -11,6 +11,10 @@ import indicator.Indicators;
 public class TestIslandScale {
 
 	public static void main(String args[]) {
+		start();
+	}
+	
+	public static void start() {
 
 //		int factorySize = Integer.parseInt(args[0]);
 //		int runGroup = Integer.parseInt(args[1]);
