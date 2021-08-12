@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import indicator.Indicators;
+import mitm.atb.OnaConfigurationType;
 
 public class TestFactoryScale {
 	
@@ -29,8 +30,9 @@ public class TestFactoryScale {
 
 //		runGAforOneSize(factorySize, runGroup, NoC);
 
-		for (int j = 4; j < 11; j++) {
+		for (int j = 1; j < 11; j++) {
 			for (int i = 1; i < 41; i++) {
+				OnaConfigurationType.ONAReader = null;
 				runGAforOneSize(j, i, NoC, folder, numberOfIslands);
 			}
 

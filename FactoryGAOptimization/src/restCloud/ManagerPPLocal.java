@@ -98,6 +98,7 @@ public class ManagerPPLocal {
 
 		long time = (long) Math.ceil(timeSum / (double) results.size());
 
+		System.out.println("time: " + time);
 		return new ResultBundle(objectives, numberOfPush, numberOfPull, time, getName(RemoveMethod, addMethod));
 	}
 
