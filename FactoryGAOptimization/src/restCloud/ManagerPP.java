@@ -562,20 +562,20 @@ public class ManagerPP {
 		}
 
 		// TODO: This bit utilizes the greedy optimization results
-//		if (factory.best.size() > 0) {
-//			List<PopulationEntry> entry = factory.getBest();
-//
-//			int index = 0;
-//
-//			while (localPF.getFinalPopulation().contains(entry.get(index)) && index < entry.size()) {
-//				index++;
-//			}
-//
-//			if (index < entry.size())
-//				localPF.getFinalPopulation().add(entry.get(index));
-//			else
-//				localPF.getFinalPopulation().add(dess.get(dess.size() - 1));
-//		}
+		if (factory.best.size() > 0) {
+			List<PopulationEntry> entry = factory.getBest();
+
+			int index = 0;
+
+			while (localPF.getFinalPopulation().contains(entry.get(index)) && index < entry.size()) {
+				index++;
+			}
+
+			if (index < entry.size())
+				localPF.getFinalPopulation().add(entry.get(index));
+			else
+				localPF.getFinalPopulation().add(dess.get(dess.size() - 1));
+		}
 
 	}
 

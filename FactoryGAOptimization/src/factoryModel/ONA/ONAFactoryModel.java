@@ -47,6 +47,7 @@ public class ONAFactoryModel {
 
 	public static void main(String args[]) {
 		ONAFactoryModel ona = new ONAFactoryModel();
+		ONAFactoryModel.scale = 3;
 		ona.getONAConfiguration();
 		System.out.println("done");
 	}
@@ -61,7 +62,7 @@ public class ONAFactoryModel {
 	public void getONAConfiguration() {
 		int[] NUMBER_OF_DEVICES = { 4 * scale, 4 * scale, 4 * scale };
 
-		int NoP = 14;
+		int NoP = 14 * scale;
 
 		PRODUCTIONS = new String[NoP];
 		for (int i = 0; i < NoP; i++) {

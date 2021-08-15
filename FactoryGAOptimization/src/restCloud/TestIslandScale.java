@@ -7,34 +7,36 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import indicator.Indicators;
+import mitm.atb.OnaConfigurationType;
 
 public class TestIslandScale {
 
 	public static void main(String args[]) {
 		start();
 	}
-	
+
 	public static void start() {
 
-//		int factorySize = Integer.parseInt(args[0]);
-//		int runGroup = Integer.parseInt(args[1]);
-//		int NoC = Integer.parseInt(args[2]);
+		// int factorySize = Integer.parseInt(args[0]);
+		// int runGroup = Integer.parseInt(args[1]);
+		// int NoC = Integer.parseInt(args[2]);
 
-//		int factorySize = 6;
-//		int runGroup = 2;
-//		int NoC = 5;
+		int factorySize = 1;
+		// int runGroup = 2;
+		// int NoC = 5;
 		String folder = "result_island/";
 
-//		runGAforOneSize(factorySize, runGroup, NoC);
+		// runGAforOneSize(factorySize, runGroup, NoC);
 
-		for (int j = 1; j < 11; j++) {
+		for (int j = 2; j < 11; j++) {
 			for (int i = 1; i < 41; i++) {
-				runGAforOneSize(5, i, j, folder, j);
+				OnaConfigurationType.ONAReader = null;
+				runGAforOneSize(factorySize, i, j, folder, j);
 			}
 
 		}
 
-		TCADResultsReaderAndAnalyzer.runAnalysIsland(folder, 5);
+		TCADResultsReaderAndAnalyzer.runAnalysIsland(folder, factorySize);
 
 	}
 
@@ -43,15 +45,20 @@ public class TestIslandScale {
 		int numberOfReplace = 1;
 		int NotImprovedInRow = 3;
 
-//		if (NoC != 50 && NoC != 100) { // NoC 50 , 100
-//			System.out.println("Number of processors not supported!  NoC: " + NoC);
-//			System.exit(-1);
-//			;
-//		}
+		// if (NoC != 50 && NoC != 100) { // NoC 50 , 100
+		// System.out.println("Number of processors not supported! NoC: " +
+		// NoC);
+		// System.exit(-1);
+		// ;
+		// }
 
-		int controlledVariabile = 1 * numberOfIslands / NoC; // TODO: controlledVariabile 4 , 2
+		int controlledVariabile = 1 * numberOfIslands / NoC; // TODO:
+																// controlledVariabile
+																// 4 , 2
 
-		if (runGroup < 1 || runGroup > 40 / controlledVariabile) { // runGroup = [1,10] , [1,20]
+		if (runGroup < 1 || runGroup > 40 / controlledVariabile) { // runGroup =
+																	// [1,10] ,
+																	// [1,20]
 			System.out.println("Wrong run group index !");
 			System.exit(-1);
 		}
@@ -66,12 +73,11 @@ public class TestIslandScale {
 		}
 
 		for (int i = 0; i < controlledVariabile; i++) {
-			System.out.println("seed: " + (Startingseed + i) + " factoryScale: " + (factoryScale) + " numberOfIslands: "
-					+ numberOfIslands + " numberOfReplace: " + numberOfReplace + " notImprovedInRow: "
-					+ NotImprovedInRow);
+			System.out.println("seed: " + (Startingseed + i) + " factoryScale: " + (factoryScale) + " numberOfIslands: " + numberOfIslands
+					+ " numberOfReplace: " + numberOfReplace + " notImprovedInRow: " + NotImprovedInRow);
 
-			List<List<Double>> res = new ManagerPPLocal().startPPLocal(Startingseed + i, factoryScale, numberOfIslands,
-					numberOfReplace, NotImprovedInRow, folder);
+			List<List<Double>> res = new ManagerPPLocal().startPPLocal(Startingseed + i, factoryScale, numberOfIslands, numberOfReplace,
+					NotImprovedInRow, folder);
 
 			results.set(i, res);
 		}
@@ -79,8 +85,7 @@ public class TestIslandScale {
 		finalAnalyserAndSummarizer(results, factoryScale, folder, numberOfIslands);
 	}
 
-	public static void finalAnalyserAndSummarizer(List<List<List<Double>>> results, int factoryScale, String folder,
-			int numberOfIslands) {
+	public static void finalAnalyserAndSummarizer(List<List<List<Double>>> results, int factoryScale, String folder, int numberOfIslands) {
 
 		List<List<List<Double>>> qis = new ArrayList<>();
 
@@ -156,7 +161,7 @@ public class TestIslandScale {
 		printRanks(rankings);
 		System.out.println("\n\n---------------------------------------\n\n");
 
-//		out += printAverageRanks(averageRanking) + "\n";
+		// out += printAverageRanks(averageRanking) + "\n";
 		out += printAverage(averagePush, "Push:") + "\n";
 		out += printAverage(averagePull, "Pull:") + "\n";
 		out += printAverage(averagetime, "Time:");
@@ -265,8 +270,7 @@ public class TestIslandScale {
 		return averageV;
 	}
 
-	public static List<List<Integer>> getRankingbyQI(List<List<List<Double>>> value_per_group, int QI,
-			boolean higherForBetter) {
+	public static List<List<Integer>> getRankingbyQI(List<List<List<Double>>> value_per_group, int QI, boolean higherForBetter) {
 		List<List<Integer>> rankings = new ArrayList<>();
 
 		List<List<Double>> QIvalues = new ArrayList<>();
