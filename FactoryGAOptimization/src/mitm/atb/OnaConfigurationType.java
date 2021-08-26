@@ -180,7 +180,7 @@ public final class OnaConfigurationType {
 					// ensure each priority value is unique - otherwise scheduling can get in an
 					// infinite loop:
 					controlledMetricTypes.add(new ControlledMetricType(instanceName + " priority",
-							ValueType.intType(priorityValue, priorityValue), "n/a"));
+							ValueType.intType(1, 1000), "n/a"));
 
 					///////////////
 
