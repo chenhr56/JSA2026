@@ -36,7 +36,7 @@ public class ElectroluxXMLReader {
 
 			ElectroluxConfiguration.getDocumentElement().normalize();
 
-			System.out.println("Root element :" + ElectroluxConfiguration.getDocumentElement().getNodeName());
+//			System.out.println("Root element :" + ElectroluxConfiguration.getDocumentElement().getNodeName());
 
 			objectivesList = getObjectives(ElectroluxConfiguration);
 			if (objectivesList.size() == 0) {

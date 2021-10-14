@@ -42,10 +42,10 @@ public class ManagerPP {
 
 	Random random;
 	ConfigurationType ct;
-	
+
 	int populationSize = 50; // 50
 	int generations = 20; // 20
-	int NoOfStages = 40; // 40
+	public static int NoOfStages = 40; // 40
 	int noOfIslands = 1;
 	public static int SIZE_OF_EP = 100;
 	double urgency = 0.5;
@@ -73,7 +73,7 @@ public class ManagerPP {
 
 		if (RemoveMethod == -2)
 			this.populationSize = populationSize * island;
-		
+
 	}
 
 	// private PopulationEntry removeEntryWorstIGD(OptimisationIslandResult or) {
@@ -561,7 +561,6 @@ public class ManagerPP {
 
 		}
 
-		// TODO: This bit utilizes the greedy optimization results
 		if (factory.best.size() > 0) {
 			List<PopulationEntry> entry = factory.getBest();
 

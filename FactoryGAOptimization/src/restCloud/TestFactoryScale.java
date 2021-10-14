@@ -10,7 +10,7 @@ import indicator.Indicators;
 import mitm.atb.OnaConfigurationType;
 
 public class TestFactoryScale {
-	
+
 	public static void main(String args[]) {
 		start();
 	}
@@ -20,7 +20,6 @@ public class TestFactoryScale {
 //		int factorySize = Integer.parseInt(args[0]);
 //		int runGroup = Integer.parseInt(args[1]);
 //		int NoC = Integer.parseInt(args[2]);
-
 //		int factorySize = 6;
 //		int runGroup = 2;
 
@@ -30,15 +29,29 @@ public class TestFactoryScale {
 
 //		runGAforOneSize(factorySize, runGroup, NoC);
 
-		for (int j = 1; j < 6; j++) {
-			for (int i = 1; i < 41; i++) {
-				OnaConfigurationType.ONAReader = null;
-				runGAforOneSize(j, i, NoC, folder, numberOfIslands);
+		for (int j = 2; j < 3; j++) {
+
+			for (int k = 10; k <= 120; k = k + 10) {
+
+				System.out.println("--------------------------------------------------------------------");
+				System.out.println("No. Stages: " + k);
+				ManagerPP.NoOfStages = k;
+
+				for (int i = 1; i < 41; i++) {
+					OnaConfigurationType.ONAReader = null;
+					runGAforOneSize(j, i, NoC, folder, numberOfIslands);
+				}
+
+				System.out.println("*******************************************************");
+				TCADResultsReaderAndAnalyzer.runAnalysisFactory(folder, numberOfIslands);
+				System.out.println("*******************************************************");
+				System.out.println("--------------------------------------------------------------------");
+				System.out.println("\n\n");
 			}
+			
+			
 
 		}
-
-		TCADResultsReaderAndAnalyzer.runAnalysisFactory(folder, numberOfIslands);
 
 	}
 
@@ -156,9 +169,9 @@ public class TestFactoryScale {
 
 		String out = "";
 
-		System.out.println("\n\n---------------------------------------\n\n");
-		printRanks(rankings);
-		System.out.println("\n\n---------------------------------------\n\n");
+//		System.out.println("\n\n---------------------------------------\n\n");
+//		printRanks(rankings);
+//		System.out.println("\n\n---------------------------------------\n\n");
 
 //		out += printAverageRanks(averageRanking) + "\n";
 		out += printAverage(averagePush, "Push:") + "\n";
@@ -183,13 +196,13 @@ public class TestFactoryScale {
 
 	public static String printAverage(List<Double> value, String info) {
 		String out = "";
-		System.out.println(info);
+//		System.out.println(info);
 
 		for (int k = 0; k < value.size(); k++) {
 			out += value.get(k) + " ";
-			System.out.print(value.get(k) + " ");
+//			System.out.print(value.get(k) + " ");
 		}
-		System.out.println();
+//		System.out.println();
 		out += "\n";
 
 		return out;

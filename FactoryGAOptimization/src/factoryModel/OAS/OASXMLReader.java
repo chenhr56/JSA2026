@@ -38,7 +38,7 @@ public class OASXMLReader {
 
 			OASConfiguration.getDocumentElement().normalize();
 
-			System.out.println("Root element :" + OASConfiguration.getDocumentElement().getNodeName());
+//			System.out.println("Root element :" + OASConfiguration.getDocumentElement().getNodeName());
 
 			objectivesList = getObjectives(OASConfiguration);
 			if (objectivesList.size() == 0) {

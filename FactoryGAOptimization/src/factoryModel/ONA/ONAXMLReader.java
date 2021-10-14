@@ -34,7 +34,7 @@ public class ONAXMLReader {
 
 			ONAConfiguration.getDocumentElement().normalize();
 
-			System.out.println("Root element :" + ONAConfiguration.getDocumentElement().getNodeName());
+//			System.out.println("Root element :" + ONAConfiguration.getDocumentElement().getNodeName());
 
 			objectivesList = getObjectives(ONAConfiguration);
 			if (objectivesList.size() == 0) {

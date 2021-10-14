@@ -25,7 +25,7 @@ public class ManagerPPLocal {
 	private ResultBundle startManager(BusinessCase bc, int ONAfactoryScale, int numberOfIslandsParam, int seeds,
 			int notImprovedInARowLimit, int numberOfReplacement, int RemoveMethod, int addMethod) {
 
-		System.out.println(getName(RemoveMethod, addMethod));
+//		System.out.println(getName(RemoveMethod, addMethod));
 
 		int numberOfIslands = RemoveMethod == -2 ? 1 : numberOfIslandsParam;
 		Random ran = new Random(seeds);
@@ -98,7 +98,7 @@ public class ManagerPPLocal {
 
 		long time = (long) Math.ceil(timeSum / (double) results.size());
 
-		System.out.println("time: " + time);
+//		System.out.println("time: " + time);
 		return new ResultBundle(objectives, numberOfPush, numberOfPull, time, getName(RemoveMethod, addMethod));
 	}
 
