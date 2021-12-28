@@ -6,8 +6,8 @@ import java.util.Map;
 
 import org.apache.commons.lang3.builder.ToStringStyle;
 
-import uk.ac.york.safire.metrics.Configuration;
-import uk.ac.york.safire.metrics.Value;
+import metrics.Configuration;
+import metrics.Value;
 
 public abstract class ObjectiveFunction {
 

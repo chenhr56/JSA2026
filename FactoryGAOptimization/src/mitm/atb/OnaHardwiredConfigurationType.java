@@ -16,13 +16,13 @@ import org.apache.commons.math3.util.Pair;
 import com.google.common.collect.HashMultiset;
 import com.google.common.collect.Multiset;
 
-import uk.ac.york.safire.metrics.ConfigurationType;
-import uk.ac.york.safire.metrics.ControlledMetricType;
-import uk.ac.york.safire.metrics.KeyObjectiveType;
-import uk.ac.york.safire.metrics.ObservableMetricType;
-import uk.ac.york.safire.metrics.SampleRate;
-import uk.ac.york.safire.metrics.SearchDirection;
-import uk.ac.york.safire.metrics.ValueType;
+import metrics.ConfigurationType;
+import metrics.ControlledMetricType;
+import metrics.KeyObjectiveType;
+import metrics.ObservableMetricType;
+import metrics.SampleRate;
+import metrics.SearchDirection;
+import metrics.ValueType;
 
 ///////////////////////////////////
 

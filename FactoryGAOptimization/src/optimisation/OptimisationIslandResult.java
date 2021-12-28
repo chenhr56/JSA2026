@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import aura.PopulationEntry;
-import uk.ac.york.safire.metrics.Configuration;
+import metrics.Configuration;
 
 public class OptimisationIslandResult {
 	private final List<PopulationEntry> front;

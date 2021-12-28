@@ -11,11 +11,11 @@ import java.util.stream.Stream;
 
 import org.apache.commons.math3.primes.Primes;
 
+import metrics.Configuration;
+import metrics.SearchDirection;
 import optimisation.ObjectiveFunction;
 import optimisation.ObjectiveFunctionArguments;
 import optimisation.ObjectiveFunctionResult;
-import uk.ac.york.safire.metrics.Configuration;
-import uk.ac.york.safire.metrics.SearchDirection;
 
 /**
  * This class provide the abstraction towards various versions of MOEA\D

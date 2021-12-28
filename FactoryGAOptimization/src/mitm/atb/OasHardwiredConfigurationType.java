@@ -323,13 +323,13 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import uk.ac.york.safire.metrics.ConfigurationType;
-import uk.ac.york.safire.metrics.ControlledMetricType;
-import uk.ac.york.safire.metrics.KeyObjectiveType;
-import uk.ac.york.safire.metrics.ObservableMetricType;
-import uk.ac.york.safire.metrics.SampleRate;
-import uk.ac.york.safire.metrics.SearchDirection;
-import uk.ac.york.safire.metrics.ValueType;
+import metrics.ConfigurationType;
+import metrics.ControlledMetricType;
+import metrics.KeyObjectiveType;
+import metrics.ObservableMetricType;
+import metrics.SampleRate;
+import metrics.SearchDirection;
+import metrics.ValueType;
 
 ///////////////////////////////////
 

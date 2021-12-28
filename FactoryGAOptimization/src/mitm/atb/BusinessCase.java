@@ -6,9 +6,9 @@ import java.util.Random;
 
 import org.apache.commons.lang3.tuple.Pair;
 
+import metrics.ConfigurationType;
 import optimisation.ONAFitnessFunction;
 import optimisation.ObjectiveFunction;
-import uk.ac.york.safire.metrics.ConfigurationType;
 
 ///////////////////////////////////
 

@@ -14,16 +14,16 @@ import org.apache.commons.lang3.tuple.Pair;
 import aura.PopulationEntry;
 import factoryModel.ONA.ONAFactoryModel;
 import indicator.HyperVolume;
+import metrics.Configuration;
+import metrics.ConfigurationType;
+import metrics.Utility;
+import metrics.Value;
+import metrics.ValueType;
+import metrics.Value.Nominal;
 import mitm.atb.BusinessCase;
 import mitm.atb.UoYEarlyPrototypeDemo;
 import optimisation.ONAFitnessFunction;
 import optimisation.ObjectiveFunction;
-import uk.ac.york.safire.metrics.Configuration;
-import uk.ac.york.safire.metrics.ConfigurationType;
-import uk.ac.york.safire.metrics.Utility;
-import uk.ac.york.safire.metrics.Value;
-import uk.ac.york.safire.metrics.Value.Nominal;
-import uk.ac.york.safire.metrics.ValueType;
 
 public class LinkageFactory {
 

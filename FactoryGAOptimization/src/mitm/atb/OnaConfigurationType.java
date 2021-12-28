@@ -10,7 +10,6 @@ import java.util.Random;
 import java.util.TreeMap;
 import java.util.function.BiPredicate;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 import org.apache.commons.lang3.tuple.Pair;
 
@@ -19,13 +18,14 @@ import factoryModel.ONA.ONAXMLReader;
 import factoryModel.ONA.ProductionProcess;
 import factoryModel.ONA.SubProcess;
 import factoryModel.ONA.SubProcessRelation;
-import uk.ac.york.safire.metrics.ConfigurationType;
-import uk.ac.york.safire.metrics.ControlledMetricType;
-import uk.ac.york.safire.metrics.KeyObjectiveType;
-import uk.ac.york.safire.metrics.ObservableMetricType;
-import uk.ac.york.safire.metrics.SampleRate;
-import uk.ac.york.safire.metrics.SearchDirection;
-import uk.ac.york.safire.metrics.ValueType;
+import metrics.ConfigurationType;
+import metrics.ControlledMetricType;
+import metrics.KeyObjectiveType;
+import metrics.ObservableMetricType;
+import metrics.SampleRate;
+import metrics.SearchDirection;
+import metrics.ValueType;
+
 
 ///////////////////////////////////
 
@@ -133,16 +133,16 @@ public final class OnaConfigurationType {
 		///////////////////////////
 
 		// count instances (used to set an upper bound on priority):
-		int totalInstances = 0;
-		for (Map.Entry<String, List<RecipeInfo>> e : recipeInfo.entrySet()) {
-			for (RecipeInfo r : e.getValue())
-				totalInstances += r.instances;
-		}
+//		int totalInstances = 0;
+//		for (Map.Entry<String, List<RecipeInfo>> e : recipeInfo.entrySet()) {
+//			for (RecipeInfo r : e.getValue())
+//				totalInstances += r.instances;
+//		}
 
-		List<Integer> priorities = IntStream.rangeClosed(0, totalInstances).boxed().collect(Collectors.toList());
+//		List<Integer> priorities = IntStream.rangeClosed(0, totalInstances).boxed().collect(Collectors.toList());
 
 		// int productsCount = 0;
-		int instanceCount = 0;
+//		int instanceCount = 0;
 		for (Map.Entry<String, List<RecipeInfo>> e : recipeInfo.entrySet()) {
 			for (RecipeInfo r : e.getValue()) {
 
@@ -176,7 +176,7 @@ public final class OnaConfigurationType {
 							.add(new ControlledMetricType(instanceName + " allocation", allocationValueType, "n/a"));
 
 					// e.g. Std Weiss A 1 priority (Int type)
-					final int priorityValue = priorities.get(instanceCount);
+//					final int priorityValue = priorities.get(instanceCount);
 					// ensure each priority value is unique - otherwise scheduling can get in an
 					// infinite loop:
 					controlledMetricTypes.add(new ControlledMetricType(instanceName + " priority",
@@ -248,7 +248,7 @@ public final class OnaConfigurationType {
 
 					}
 
-					instanceCount += 1;
+//					instanceCount += 1;
 				}
 			}
 			// productsCount++;

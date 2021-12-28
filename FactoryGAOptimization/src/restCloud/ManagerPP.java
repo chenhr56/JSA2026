@@ -13,6 +13,13 @@ import org.apache.commons.lang3.tuple.Pair;
 import aura.PopulationEntry;
 import factoryModel.ONA.ONAFactoryModel;
 import indicator.DCICaculator;
+import metrics.Configuration;
+import metrics.ConfigurationType;
+import metrics.OptimisationArguments;
+import metrics.Utility;
+import metrics.Value;
+import metrics.ValueType;
+import metrics.Value.Nominal;
 import mitm.atb.BusinessCase;
 import mitm.atb.UoYEarlyPrototypeDemo;
 import optimisation.AuraLocalOptimisationEngine3;
@@ -22,13 +29,6 @@ import optimisation.OptimisationEngine3;
 import optimisation.OptimisationIslandResult;
 import restCloud.LinkageFactory.Node;
 import restCloud.LinkageFactory.Tree;
-import uk.ac.york.safire.metrics.Configuration;
-import uk.ac.york.safire.metrics.ConfigurationType;
-import uk.ac.york.safire.metrics.OptimisationArguments;
-import uk.ac.york.safire.metrics.Utility;
-import uk.ac.york.safire.metrics.Value;
-import uk.ac.york.safire.metrics.Value.Nominal;
-import uk.ac.york.safire.metrics.ValueType;
 
 public class ManagerPP {
 

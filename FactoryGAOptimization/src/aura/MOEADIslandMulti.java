@@ -7,11 +7,11 @@ import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
+import metrics.Configuration;
+import metrics.SearchDirection;
 import optimisation.ObjectiveFunction.LocalObjectiveFunction;
 import optimisation.ObjectiveFunctionArguments;
 import optimisation.ObjectiveFunctionResult;
-import uk.ac.york.safire.metrics.Configuration;
-import uk.ac.york.safire.metrics.SearchDirection;
 
 /**
  * This class implements the original MOEA/D algorithm proposed by the following

@@ -5,7 +5,7 @@ import java.util.List;
 
 import org.apache.commons.lang3.builder.ToStringStyle;
 
-import uk.ac.york.safire.metrics.Configuration;
+import metrics.Configuration;
 
 ///////////////////////////////////
 

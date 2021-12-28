@@ -13,18 +13,18 @@ import java.util.stream.Collectors;
 import org.apache.commons.lang3.tuple.MutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 
+import metrics.Configuration;
+import metrics.ConfigurationType;
+import metrics.SearchDirection;
+import metrics.Utility;
+import metrics.Value;
+import metrics.ValueType;
+import metrics.ValueTypeVisitor;
+import metrics.ValueVisitor;
+import metrics.Value.Int;
+import metrics.Value.Nominal;
+import metrics.Value.Real;
 import mitm.atb.UoYEarlyPrototypeDemo;
-import uk.ac.york.safire.metrics.Configuration;
-import uk.ac.york.safire.metrics.ConfigurationType;
-import uk.ac.york.safire.metrics.SearchDirection;
-import uk.ac.york.safire.metrics.Utility;
-import uk.ac.york.safire.metrics.Value;
-import uk.ac.york.safire.metrics.Value.Int;
-import uk.ac.york.safire.metrics.Value.Nominal;
-import uk.ac.york.safire.metrics.Value.Real;
-import uk.ac.york.safire.metrics.ValueType;
-import uk.ac.york.safire.metrics.ValueTypeVisitor;
-import uk.ac.york.safire.metrics.ValueVisitor;
 
 public class Operators {
 

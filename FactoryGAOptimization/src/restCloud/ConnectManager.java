@@ -12,7 +12,7 @@ import com.mashape.unirest.http.async.Callback;
 import com.mashape.unirest.http.exceptions.UnirestException;
 
 import aura.PopulationEntry;
-import uk.ac.york.safire.metrics.JsonConverter;
+import metrics.JsonConverter;
 
 public class ConnectManager {
 
@@ -81,7 +81,7 @@ public class ConnectManager {
 	// http://www.shuai.zhao/
 
 	private void connectforDisplay(CompletableFuture<ObjectiveCapsule> o, String id, ObjectiveCapsule objectives) {
-		String configJSON = new uk.ac.york.safire.metrics.JsonConverter().toJson(objectives);
+		String configJSON = new metrics.JsonConverter().toJson(objectives);
 		success = false;
 		// int counter = 0;
 		while (!success) {
@@ -121,7 +121,7 @@ public class ConnectManager {
 
 	private void connect(CompletableFuture<ParetoFrontCapsule> o, String id, String action,
 			ParetoFrontCapsule paretoFronts) {
-		String configJSON = new uk.ac.york.safire.metrics.JsonConverter().toJson(paretoFronts);
+		String configJSON = new metrics.JsonConverter().toJson(paretoFronts);
 		success = false;
 		// int counter = 0;
 		while (!success) {

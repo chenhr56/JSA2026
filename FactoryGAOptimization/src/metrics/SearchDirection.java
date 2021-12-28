@@ -1,0 +1,5 @@
+package metrics;
+
+public enum SearchDirection { MINIMIZING, MAXIMIZING };
+
+// End ///////////////////////////////////////////////////////////////

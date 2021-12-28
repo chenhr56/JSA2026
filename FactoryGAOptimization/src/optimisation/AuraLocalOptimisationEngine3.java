@@ -12,10 +12,10 @@ import aura.EAIsland;
 import aura.MOEADIslandMulti;
 import aura.Operators;
 import aura.PopulationEntry;
-import uk.ac.york.safire.metrics.Configuration;
-import uk.ac.york.safire.metrics.ConfigurationType;
-import uk.ac.york.safire.metrics.OptimisationArguments;
-import uk.ac.york.safire.metrics.SearchDirection;
+import metrics.Configuration;
+import metrics.ConfigurationType;
+import metrics.OptimisationArguments;
+import metrics.SearchDirection;
 
 ///////////////////////////////////
 

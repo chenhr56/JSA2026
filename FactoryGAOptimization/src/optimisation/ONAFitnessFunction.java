@@ -9,13 +9,13 @@ import java.util.stream.Collectors;
 import org.apache.commons.lang3.tuple.MutablePair;
 
 import factoryModel.ONA.ProductionProcess;
+import metrics.Configuration;
+import metrics.Value;
+import metrics.ValueType;
+import metrics.Value.Int;
+import metrics.Value.Nominal;
 import mitm.atb.OnaConfigurationType;
 import restCloud.SchedulableObject;
-import uk.ac.york.safire.metrics.Configuration;
-import uk.ac.york.safire.metrics.Value;
-import uk.ac.york.safire.metrics.Value.Int;
-import uk.ac.york.safire.metrics.Value.Nominal;
-import uk.ac.york.safire.metrics.ValueType;
 
 public class ONAFitnessFunction extends ObjectiveFunction.LocalObjectiveFunction {
 

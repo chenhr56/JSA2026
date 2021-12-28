@@ -5,9 +5,9 @@ import java.util.List;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
 public class RecipeInfo {
-	final String name;
-	final List<Integer> compatibleResources;
-	final int instances;
+	final public String name;
+	final public List<Integer> compatibleResources;
+	final public int instances;
 	// final int commodityProduced;
 	// final int executionTime;
 

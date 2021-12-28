@@ -12,11 +12,11 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+import metrics.Configuration;
 import optimisation.ObjectiveFunction;
 import optimisation.ObjectiveFunctionArguments;
 import optimisation.ObjectiveFunctionResult;
 import optimisation.OptimisationIslandResult;
-import uk.ac.york.safire.metrics.Configuration;
 
 ///////////////////////////////////
 

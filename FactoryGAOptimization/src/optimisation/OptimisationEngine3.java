@@ -1,6 +1,6 @@
 package optimisation;
 
-import uk.ac.york.safire.metrics.OptimisationArguments;
+import metrics.OptimisationArguments;
 
 ///////////////////////////////////
 
