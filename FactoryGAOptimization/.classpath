@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/SAFIREMetrics"/>
 	<classpathentry kind="lib" path="I:/workspace/FactoryOptimization/FactoryGAOptimization/lib/akka-http-jackson_2.12-10.0.11.jar"/>
 	<classpathentry kind="lib" path="I:/workspace/FactoryOptimization/FactoryGAOptimization/lib/akka-protobuf_2.12-2.5.11.jar"/>
 	<classpathentry kind="lib" path="I:/workspace/FactoryOptimization/FactoryGAOptimization/lib/async-http-client-2.6.0.jar"/>
@@ -19,9 +18,9 @@
 	<classpathentry kind="lib" path="I:/workspace/FactoryOptimization/FactoryGAOptimization/lib/junit-4.12.jar"/>
 	<classpathentry kind="lib" path="I:/workspace/FactoryOptimization/FactoryGAOptimization/lib/nr3.jar"/>
 	<classpathentry kind="lib" path="I:/workspace/FactoryOptimization/FactoryGAOptimization/lib/reactive-streams-1.0.2.jar"/>
-	<classpathentry kind="lib" path="I:/workspace/FactoryOptimization/FactoryGAOptimization/lib/SAFIRE-metrics.jar"/>
 	<classpathentry kind="lib" path="I:/workspace/FactoryOptimization/FactoryGAOptimization/lib/Scarlet.jar"/>
 	<classpathentry kind="lib" path="I:/workspace/FactoryOptimization/FactoryGAOptimization/lib/unirest-java-1.4.9.jar"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="I:/workspace/FactoryOptimization/FactoryGAOptimization/lib/gson-2.8.2.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk-11.0.11"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

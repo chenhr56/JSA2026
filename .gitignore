@@ -3,6 +3,10 @@
 
 # Log file
 *.log
+*.classpath
+*.perfs
+*.settings
+*.project
 
 # BlueJ files
 *.ctxt
@@ -26,3 +30,6 @@ FactoryGAOptimization/.classpath
 FactoryGAOptimization/.DS_Store
 *.prefs
 FactoryGAOptimization/.classpath
+
+FactoryGAOptimization/bin
+
