@@ -32,10 +32,10 @@ public final class OneRun {
 
 		List<List<List<List<Double>>>> PFs = new ArrayList<>();
 
-		PFs.add(d.test(0, "Fit Worst", works, rng, isSpeedUp));
-		PFs.add(d.test(1, "Fit Best", works, rng, isSpeedUp));
-		PFs.add(d.test(2, "Fit First", works, rng, isSpeedUp));
-		PFs.add(d.test(3, "Fit Next", works, rng, isSpeedUp));
+//		PFs.add(d.test(0, "Fit Worst", works, rng, isSpeedUp));
+//		PFs.add(d.test(1, "Fit Best", works, rng, isSpeedUp));
+//		PFs.add(d.test(2, "Fit First", works, rng, isSpeedUp));
+//		PFs.add(d.test(3, "Fit Next", works, rng, isSpeedUp));
 		PFs.add(d.test(4, "Optimisation Rule", works, rng, isSpeedUp));
 		PFs.add(d.test(6, "Optimisation Full", works, rng, isSpeedUp));
 		PFs.add(d.test(5, "Allocation Rule", works, rng, isSpeedUp));
