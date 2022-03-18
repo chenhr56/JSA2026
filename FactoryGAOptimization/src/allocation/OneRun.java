@@ -37,9 +37,9 @@ public final class OneRun {
 //		PFs.add(d.test(2, "Fit First", works, rng, isSpeedUp));
 //		PFs.add(d.test(3, "Fit Next", works, rng, isSpeedUp));
 		PFs.add(d.test(4, "Optimisation Rule", works, rng, isSpeedUp));
-		PFs.add(d.test(6, "Optimisation Full", works, rng, isSpeedUp));
-		PFs.add(d.test(5, "Allocation Rule", works, rng, isSpeedUp));
-		PFs.add(d.test(7, "Optimisation Random", works, rng, isSpeedUp));
+//		PFs.add(d.test(6, "Optimisation Full", works, rng, isSpeedUp));
+//		PFs.add(d.test(5, "Allocation Rule", works, rng, isSpeedUp));
+//		PFs.add(d.test(7, "Optimisation Random", works, rng, isSpeedUp));
 
 		List<List<List<List<Double>>>> PFsSorted = new ArrayList<>();
 
@@ -87,6 +87,7 @@ public final class OneRun {
 		List<List<List<Double>>> paretos = new ArrayList<>();
 
 		for (int i = 0; i < works.size(); i++) {
+			// TODO: we have a better way for deep copy now. Use that.
 			Workload load = WorkloadConsumer.deepCopyWorkload(works.get(i));
 
 			AllocationSolutions alloc = new AllocationSolutions();

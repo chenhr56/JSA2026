@@ -118,10 +118,10 @@ public class WorkloadFeeder extends Thread {
 		Configuration config = generateConfiguration(Arrays.asList(ONAFactoryModel.objectives), processes, recipeInfo,
 				resourceNames, rdm);
 
-		Configuration rullConfig = generateRullConfiguration(tasks, Arrays.asList(ONAFactoryModel.objectives),
+		Configuration ruleConfig = generateRullConfiguration(tasks, Arrays.asList(ONAFactoryModel.objectives),
 				processes, recipeInfo, resourceNames, rdm);
 
-		workload = new Workload(id, tasks, config, rullConfig, Arrays.asList(resourceNames));
+		workload = new Workload(id, tasks, config, ruleConfig, Arrays.asList(resourceNames));
 
 		return workload;
 	}
@@ -512,6 +512,7 @@ public class WorkloadFeeder extends Thread {
 			}
 		}
 
+		//TODO: This utilization computation does not seem right, come back and double check later.
 		int totalComputation = 0;
 
 		for (int i = 0; i < tasks.size(); i++) {
