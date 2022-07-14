@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 
 import aura.EAIsland;
 import aura.MOEADIslandMulti;
+import aura.NSGA2;
 import aura.Operators;
 import aura.PopulationEntry;
 import metrics.Configuration;
@@ -30,8 +31,23 @@ public final class AuraLocalOptimisationEngine3 extends OptimisationEngine3.Loca
 
 	private final Random rng;
 	private final int maxGenerations;
+	private int engine = 0;
 
 	///////////////////////////////
+
+	public AuraLocalOptimisationEngine3(ObjectiveFunction objectiveFunction, int maxGenerations, Random rng,
+			int engine) {
+
+		super(objectiveFunction);
+
+		// if( minEvaluations < 1 || minEvaluations > maxEvaluations )
+		// throw new IllegalArgumentException();
+		if (maxGenerations < 1)
+			throw new IllegalArgumentException();
+		this.rng = rng;
+		this.maxGenerations = maxGenerations;
+		this.engine = engine;
+	}
 
 	public AuraLocalOptimisationEngine3(ObjectiveFunction objectiveFunction, int maxGenerations, Random rng) {
 
@@ -43,6 +59,8 @@ public final class AuraLocalOptimisationEngine3 extends OptimisationEngine3.Loca
 			throw new IllegalArgumentException();
 		this.rng = rng;
 		this.maxGenerations = maxGenerations;
+		
+		
 	}
 
 	///////////////////////////////
@@ -77,7 +95,10 @@ public final class AuraLocalOptimisationEngine3 extends OptimisationEngine3.Loca
 		//
 
 		// jeep.lang.Diag.println("maxGen: " + maxGenerations);
-
+		
+//		System.out.println("Geneartion in engine: " + maxGenerations);
+		
+		
 		final Predicate<List<List<PopulationEntry>>> isFinished = Operators.maxIterTermination(maxGenerations);
 
 		///////////////////////////
@@ -101,13 +122,23 @@ public final class AuraLocalOptimisationEngine3 extends OptimisationEngine3.Loca
 		} else {
 			// System.out.println("Multi-Objective Optimsation Start, OE number: " +
 			// args.getEngine());
-			MOEADIslandMulti moeadIsland = new MOEADIslandMulti(args.getConfigurations(),
-					(ObjectiveFunction.LocalObjectiveFunction) getObjectiveFunction(), crossover, mutation, isFinished,
-					objectiveValueRanges(args.getConfigurations().get(0).getConfigurationType()), TOURNAMENT_SIZE,
-					SEARCH_DIRECTION, rng);
-			List<PopulationEntry> bestFront = moeadIsland.apply();
-			or = new OptimisationIslandResult(bestFront, moeadIsland.currentPopulation,
-					moeadIsland.getCapsForNormalization());
+			if (engine == 0) {
+				MOEADIslandMulti moeadIsland = new MOEADIslandMulti(args.getConfigurations(),
+						(ObjectiveFunction.LocalObjectiveFunction) getObjectiveFunction(), crossover, mutation,
+						isFinished, objectiveValueRanges(args.getConfigurations().get(0).getConfigurationType()),
+						TOURNAMENT_SIZE, SEARCH_DIRECTION, rng);
+				List<PopulationEntry> bestFront = moeadIsland.apply();
+				or = new OptimisationIslandResult(bestFront, moeadIsland.currentPopulation,
+						moeadIsland.getCapsForNormalization());
+			} else {
+				List<PopulationEntry> bestFront = NSGA2.apply(args.getConfigurations(),
+						(ObjectiveFunction.LocalObjectiveFunction) getObjectiveFunction(), compareMultiObjective,
+						crossover, mutation, isFinished,
+						objectiveValueRanges(args.getConfigurations().get(0).getConfigurationType()), TOURNAMENT_SIZE,
+						SEARCH_DIRECTION, rng);
+				or = new OptimisationIslandResult(bestFront, NSGA2.currentPopulation, null);
+
+			}
 		}
 
 		return or;

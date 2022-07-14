@@ -32,6 +32,16 @@ import restCloud.LinkageFactory.Tree;
 
 public class ManagerPP {
 
+	public static int Global_NoOfStages = 40; // 40
+
+	public static int moead_iter = 130;
+	public static int individual_iter = 490;
+	public static int linkage_iter = 350 + 117;
+
+	public static int moead_stage = 7;
+	public static int individual_stage = 27;
+	public static int linkage_stage = 19;
+
 	BusinessCase bc;
 	int ONAfactoryScale;
 	int seeds;
@@ -44,8 +54,8 @@ public class ManagerPP {
 	ConfigurationType ct;
 
 	int populationSize = 50; // 50
-	int generations = 20; // 20
-	public static int NoOfStages = 40; // 40
+	public static int generations = 20; // 20
+	int NoOfStages = 40;
 	int noOfIslands = 1;
 	public static int SIZE_OF_EP = 100;
 	double urgency = 0.5;
@@ -66,13 +76,39 @@ public class ManagerPP {
 		this.numberOfReplacement = numberOfReplacement;
 		this.RemoveMethod = RemoveMethod;
 		this.addMethod = addMethod;
-
+//		this.NoOfStages = this.NoOfStages * Global_NoOfStages;
 		random = new Random(seeds);
 
 		of = (ObjectiveFunction.LocalObjectiveFunction) bc.getObjectiveFunction();
 
-		if (RemoveMethod == -2)
+		// NSGA-II
+		if (RemoveMethod == -3) {
 			this.populationSize = populationSize * island;
+
+			generations = generations * Global_NoOfStages;
+			NoOfStages = 1;
+		}
+
+		// traditional MOEA/D
+		if (RemoveMethod == -2) {
+			this.populationSize = populationSize * island;
+			this.NoOfStages = moead_stage * Global_NoOfStages;
+		}
+
+		// MOEA/D No-mig
+		if (RemoveMethod == -1) {
+			this.NoOfStages = individual_stage * Global_NoOfStages;
+		}
+
+		// individual migrations
+		if (RemoveMethod >= 0 && RemoveMethod < 5) {
+			this.NoOfStages = individual_stage * Global_NoOfStages;
+		}
+		
+		// linkage migrations
+		if (RemoveMethod == 5) {
+			this.NoOfStages = linkage_stage * Global_NoOfStages;
+		}
 
 	}
 
@@ -707,7 +743,8 @@ public class ManagerPP {
 		final Random rng = new Random(seeds);
 		final int iterations = generations;
 
-		final OptimisationEngine3 oe = new AuraLocalOptimisationEngine3(of, iterations, rng);
+		int engine = RemoveMethod == -3 ? 1 : 0;
+		final OptimisationEngine3 oe = new AuraLocalOptimisationEngine3(of, iterations, rng, engine);
 
 		final long startTime = System.currentTimeMillis();
 		final OptimisationIslandResult or = oe.optimise(optimisationArguments);

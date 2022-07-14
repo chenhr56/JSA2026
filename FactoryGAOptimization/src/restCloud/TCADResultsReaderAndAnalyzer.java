@@ -41,7 +41,7 @@ public class TCADResultsReaderAndAnalyzer {
 		} catch (Exception e) {
 		}
 
-		for (int i = 1; i < 11; i++) {
+		for (int i = 1; i < 2; i++) {
 			analyseOneFactory(i, startSeed, caseNum, folder, island);
 		}
 

@@ -74,6 +74,11 @@ public abstract class ObjectiveFunction {
 		}
 	}
 
+	public static ObjectiveFunctionResult evaluateNowHelper(ObjectiveFunction of, ObjectiveFunctionArguments args) {
+
+		return of.evaluate(args);
+	}
+
 	///////////////////////////////
 
 }

@@ -3,6 +3,7 @@ package restCloud;
 import java.io.File;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -10,7 +11,14 @@ import indicator.Indicators;
 import mitm.atb.OnaConfigurationType;
 
 public class TestFactoryScale {
+	
+	
 
+	
+//	public static int moead_stage = 7;
+//	public static int individual_stage = 25;
+//	public static int linkage_stage = 18;
+	
 	public static void main(String args[]) {
 		start();
 	}
@@ -29,13 +37,13 @@ public class TestFactoryScale {
 
 //		runGAforOneSize(factorySize, runGroup, NoC);
 
-		for (int j = 2; j < 3; j++) {
+		for (int j = 1; j < 2; j++) {
 
-			for (int k = 10; k <= 120; k = k + 10) {
+			for (int s = 1; s <= 10; s = s + 1) {
 
 				System.out.println("--------------------------------------------------------------------");
-				System.out.println("No. Stages: " + k);
-				ManagerPP.NoOfStages = k;
+				System.out.println("No. Stages: " + s);
+				ManagerPP.Global_NoOfStages = s;
 
 				for (int i = 1; i < 41; i++) {
 					OnaConfigurationType.ONAReader = null;
@@ -177,6 +185,8 @@ public class TestFactoryScale {
 		out += printAverage(averagePush, "Push:") + "\n";
 		out += printAverage(averagePull, "Pull:") + "\n";
 		out += printAverage(averagetime, "Time:");
+		
+		System.out.println("Time: " + Arrays.toString(averagetime.toArray()));
 
 		try {
 			File theDir = new File(folder);

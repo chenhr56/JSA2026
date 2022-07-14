@@ -10,7 +10,9 @@ import indicator.Indicators;
 import mitm.atb.BusinessCase;
 
 public class ManagerPPLocal {
+	
 
+	
 	public enum ADD {
 		New, Random, Best, Diverse
 	}
@@ -27,7 +29,7 @@ public class ManagerPPLocal {
 
 //		System.out.println(getName(RemoveMethod, addMethod));
 
-		int numberOfIslands = RemoveMethod == -2 ? 1 : numberOfIslandsParam;
+		int numberOfIslands = (RemoveMethod == -2 || RemoveMethod == -3) ? 1 : numberOfIslandsParam;
 		Random ran = new Random(seeds);
 		List<ParetoFrontCapsule> globalCaps = new ArrayList<>();
 		List<List<Integer>> numberOfActions = new ArrayList<>();
@@ -157,12 +159,27 @@ public class ManagerPPLocal {
 		int notImprovedInARowLimit = notImprovedInRow;
 
 		List<ResultBundle> bundles = new ArrayList<>();
+		
+//		/**
+//		 * The NSGA-II
+//		 */
+//		bundles.add(startManager(bc, ONAfactoryScale, numberOfIslands, seeds, notImprovedInARowLimit,
+//				numberOfReplacement, -3, -3));
+
+		
+//		ManagerPP.generations = moead_iter;
+//		System.out.println("Start MOEA/D, generation in each stage: " + ManagerPP.generations);
 		/**
 		 * The traditional MOEA/D
 		 */
+		
 		bundles.add(startManager(bc, ONAfactoryScale, numberOfIslands, seeds, notImprovedInARowLimit,
 				numberOfReplacement, -2, -2));
 
+		
+
+//		ManagerPP.generations = individual_iter;
+//		System.out.println("Start individual, generation in each stage: " + ManagerPP.generations);
 		/**
 		 * Island Model without migration
 		 */
@@ -179,8 +196,13 @@ public class ManagerPPLocal {
 			}
 		}
 
+		
+		
+		
+//		ManagerPP.generations = linkage_iter;
+//		System.out.println("Start linkage, generation in each stage: " + ManagerPP.generations);
 		/**
-		 * Island Model with migrations
+		 * Island Model with linkage
 		 */
 		bundles.add(startManager(bc, ONAfactoryScale, numberOfIslands, seeds, notImprovedInARowLimit,
 				numberOfReplacement, 5, 5));
