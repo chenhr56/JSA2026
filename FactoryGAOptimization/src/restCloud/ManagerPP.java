@@ -92,7 +92,7 @@ public class ManagerPP {
 		// traditional MOEA/D
 		if (RemoveMethod == -2) {
 			this.populationSize = populationSize * island;
-			this.NoOfStages = moead_stage * Global_NoOfStages;
+			this.NoOfStages = moead_stage * Global_NoOfStages * island;
 		}
 
 		// MOEA/D No-mig
