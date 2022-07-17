@@ -32,6 +32,9 @@ import restCloud.LinkageFactory.Tree;
 
 public class ManagerPP {
 
+	public static boolean testSameCPUTime = false;
+	public static boolean testStageScale = false;
+
 	public static int Global_NoOfStages = 40; // 40
 
 	public static int moead_iter = 130;
@@ -84,31 +87,39 @@ public class ManagerPP {
 		// NSGA-II
 		if (RemoveMethod == -3) {
 			this.populationSize = populationSize * island;
-
-			generations = generations * Global_NoOfStages;
+			generations = generations * 40;
 			NoOfStages = 1;
 		}
 
 		// traditional MOEA/D
 		if (RemoveMethod == -2) {
 			this.populationSize = populationSize * island;
-			this.NoOfStages = moead_stage * Global_NoOfStages * island;
 		}
 
-		// MOEA/D No-mig
-		if (RemoveMethod == -1) {
-			this.NoOfStages = individual_stage * Global_NoOfStages;
-		}
+		if (testSameCPUTime) {
+			// traditional MOEA/D
+			if (RemoveMethod == -2) {
+				this.NoOfStages = moead_stage * Global_NoOfStages * island;
+			}
 
-		// individual migrations
-		if (RemoveMethod >= 0 && RemoveMethod < 5) {
-			this.NoOfStages = individual_stage * Global_NoOfStages;
+			// MOEA/D No-mig
+			if (RemoveMethod == -1) {
+				this.NoOfStages = individual_stage * Global_NoOfStages;
+			}
+
+			// individual migrations
+			if (RemoveMethod >= 0 && RemoveMethod < 5) {
+				this.NoOfStages = individual_stage * Global_NoOfStages;
+			}
+
+			// linkage migrations
+			if (RemoveMethod == 5) {
+				this.NoOfStages = linkage_stage * Global_NoOfStages;
+			}
 		}
 		
-		// linkage migrations
-		if (RemoveMethod == 5) {
-			this.NoOfStages = linkage_stage * Global_NoOfStages;
-		}
+		if(testStageScale)
+			this.NoOfStages = Global_NoOfStages;
 
 	}
 

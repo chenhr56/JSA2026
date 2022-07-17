@@ -163,8 +163,8 @@ public class ManagerPPLocal {
 //		/**
 //		 * The NSGA-II
 //		 */
-//		bundles.add(startManager(bc, ONAfactoryScale, numberOfIslands, seeds, notImprovedInARowLimit,
-//				numberOfReplacement, -3, -3));
+		bundles.add(startManager(bc, ONAfactoryScale, numberOfIslands, seeds, notImprovedInARowLimit,
+				numberOfReplacement, -3, -3));
 
 		
 //		ManagerPP.generations = moead_iter;
