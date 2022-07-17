@@ -57,7 +57,7 @@ public class ManagerPP {
 	ConfigurationType ct;
 
 	int populationSize = 50; // 50
-	public static int generations = 20; // 20
+	public int generations = 20; // 20
 	int NoOfStages = 40;
 	int noOfIslands = 1;
 	public static int SIZE_OF_EP = 100;
@@ -94,9 +94,11 @@ public class ManagerPP {
 		// traditional MOEA/D
 		if (RemoveMethod == -2) {
 			this.populationSize = populationSize * island;
+//			this.NoOfStages = this.NoOfStages * island;
 		}
 
 		if (testSameCPUTime) {
+			System.out.println("here");
 			// traditional MOEA/D
 			if (RemoveMethod == -2) {
 				this.NoOfStages = moead_stage * Global_NoOfStages * island;
@@ -118,8 +120,13 @@ public class ManagerPP {
 			}
 		}
 		
-		if(testStageScale)
+		if(testStageScale) {
+			System.out.println("here11");
 			this.NoOfStages = Global_NoOfStages;
+		}
+		
+		System.out.println("add: " + addMethod + ", remove: " + RemoveMethod + ", stages: " + NoOfStages
+				+ ", iter: " + generations + ", pop: " + populationSize);
 
 	}
 
