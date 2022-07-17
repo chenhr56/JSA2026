@@ -13,13 +13,13 @@ import restCloud.ManagerPP;
 import restCloud.ManagerPPLocal;
 
 public class Test_FactoryScale {
-		
+
 	public static void main(String args[]) {
 		start();
 	}
 
 	public static void start() {
-		
+
 		ManagerPP.testSameCPUTime = false;
 		ManagerPP.testStageScale = false;
 
@@ -35,27 +35,18 @@ public class Test_FactoryScale {
 
 //		runGAforOneSize(factorySize, runGroup, NoC);
 
-		for (int j = 1; j < 10; j++) {
+		for (int j = 1; j < 2; j++) {
 
-			for (int s = 1; s <= 1; s = s + 1) {
-
-				System.out.println("--------------------------------------------------------------------");
-				System.out.println("No. Stages: " + s);
-				ManagerPP.Global_NoOfStages = s;
-
-				for (int i = 1; i < 41; i++) {
-					OnaConfigurationType.ONAReader = null;
-					runGAforOneSize(j, i, NoC, folder, numberOfIslands);
-				}
-
-				System.out.println("*******************************************************");
-				TCADResultsReaderAndAnalyzer.runAnalysisFactory(folder, numberOfIslands);
-				System.out.println("*******************************************************");
-				System.out.println("--------------------------------------------------------------------");
-				System.out.println("\n\n");
+			for (int i = 1; i < 41; i++) {
+				OnaConfigurationType.ONAReader = null;
+				runGAforOneSize(j, i, NoC, folder, numberOfIslands);
 			}
-			
-			
+
+			System.out.println("*******************************************************");
+			TCADResultsReaderAndAnalyzer.runAnalysisFactory(folder, numberOfIslands);
+			System.out.println("*******************************************************");
+			System.out.println("--------------------------------------------------------------------");
+			System.out.println("\n\n");
 
 		}
 
@@ -183,7 +174,7 @@ public class Test_FactoryScale {
 		out += printAverage(averagePush, "Push:") + "\n";
 		out += printAverage(averagePull, "Pull:") + "\n";
 		out += printAverage(averagetime, "Time:");
-		
+
 		System.out.println("Time: " + Arrays.toString(averagetime.toArray()));
 
 		try {
