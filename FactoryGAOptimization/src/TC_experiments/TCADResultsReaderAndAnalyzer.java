@@ -169,12 +169,20 @@ public class TCADResultsReaderAndAnalyzer {
 			ResultAnalyser.writeResult("TC_matlab/data/" + Indicators.nameQI[i] + ".txt", out_oneQI);
 		}
 
+		String out_avg_med = "";
 		out += "\n\n----------------- Avg --------------\n\n";
-		out += printAverageRanks(averageRanking);
+		out_avg_med += "\n\n----------------- Avg --------------\n\n";
+		String avg = printAverageRanks(averageRanking);
+		out += avg;
+		out_avg_med += avg;
 
 		out += "\n\n----------------- Med ---------------\n\n";
-		out += printAverageRanks(medianRanking);
+		out_avg_med += "\n\n----------------- Med --------------\n\n";
+		String med = printAverageRanks(medianRanking);
+		out += med;
+		out_avg_med += med;
 
+		ResultAnalyser.writeResult("TC_matlab/data/rank_avg_med.txt", out_avg_med);
 		ResultAnalyser.writeResult(folder + "FGCS/rank " + factoryScale + " " + island + ".txt", out);
 
 		System.out.println("\n");

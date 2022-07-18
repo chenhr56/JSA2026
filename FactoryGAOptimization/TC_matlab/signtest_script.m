@@ -5,6 +5,6 @@ data = readmatrix(strcat('data/', "HV" ,'.txt'));
 linkage = data(:,linkage_index);
 
 for n = 1 : linkage_index-1
-   [p,h] = ranksum(linkage, data(:,n))
+   [p] = ranksum(linkage, data(:,n))
    disp(p)
 end
