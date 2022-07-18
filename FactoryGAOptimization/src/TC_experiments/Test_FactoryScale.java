@@ -37,7 +37,7 @@ public class Test_FactoryScale {
 
 		for (int j = 1; j < 2; j++) {
 
-			for (int i = 1; i < 41; i++) {
+			for (int i = 1; i < 3; i++) {
 				OnaConfigurationType.ONAReader = null;
 				runGAforOneSize(j, i, NoC, folder, numberOfIslands);
 			}

@@ -1,6 +1,6 @@
-data = readmatrix(strcat('data/', "hv" ,'.txt'));
+data = readmatrix(strcat('data/', "HV" ,'.txt'));
 
-[No_of_cases, linkage_index] = size(data);
+[No_of_cases, linkage_index] = size(data)
 
 linkage = data(:,linkage_index);
 

@@ -17,10 +17,15 @@ import org.apache.commons.math3.stat.descriptive.rank.Median;
 import indicator.Indicators;
 
 public class TCADResultsReaderAndAnalyzer {
+	
+	public static int island_No = 5;
+	public static int factory_Size = 1;
+	public static  int startSeed = 1000;
+	public static  int caseNum = 40;
 
 	public static void main(String args[]) {
 
-		runAnalysisFactory("result_factory/", 5);
+		runAnalysisFactory("result_factory/", island_No);
 	}
 
 	public static void runAnalysisFactory(String folder, int island) {
@@ -41,16 +46,13 @@ public class TCADResultsReaderAndAnalyzer {
 		} catch (Exception e) {
 		}
 
-		for (int i = 1; i < 2; i++) {
+		for (int i = 1; i <= factory_Size; i++) {
 			analyseOneFactory(i, startSeed, caseNum, folder, island);
 		}
 
 	}
 	
 	public static void runAnalysIsland(String folder, int factory) {
-		int startSeed = 1000;
-		int caseNum = 40;
-
 		try {
 			File theDir = new File(folder + "FGCS");
 			if (!theDir.exists()) {
@@ -138,22 +140,32 @@ public class TCADResultsReaderAndAnalyzer {
 			medianRanking.add(medianRankForOneMethod);
 		}
 
+		
 		String out = "";
 		out += "----------------- All ---------------\n\n";
 		for (int i = 0; i < rankings.size(); i++) {
+			String out_oneQI = "";
 			out += Indicators.nameQI[i] + "\n";
 
 			List<List<Integer>> ranksForOneQI = rankings.get(i);
 			for (int j = 0; j < ranksForOneQI.size(); j++) {
 				for (int k = 0; k < ranksForOneQI.get(j).size(); k++) {
 					out += ranksForOneQI.get(j).get(k);
-					if (k != ranksForOneQI.get(j).size() - 1)
+					out_oneQI += ranksForOneQI.get(j).get(k);
+					if (k != ranksForOneQI.get(j).size() - 1) {
 						out += " ";
+						out_oneQI += " ";
+					}
+						
 				}
 
 				out += "\n";
+				out_oneQI += "\n";
 			}
 			out += "\n";
+			
+			
+			ResultAnalyser.writeResult("TC_matlab/data/" + Indicators.nameQI[i] + ".txt", out_oneQI);
 		}
 
 		out += "\n\n----------------- Avg --------------\n\n";
