@@ -1,9 +1,9 @@
-package restCloud;
+package TC_experiments;
 
 public class RunAllExperiment {
 	
 	public static void main(String args[]) {
-		TestFactoryScale.start();
+		Test_FactoryScale.start();
 		TestIslandScale.start();
 	}
 

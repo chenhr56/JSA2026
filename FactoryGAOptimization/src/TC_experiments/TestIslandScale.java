@@ -3,61 +3,42 @@ package TC_experiments;
 import java.io.File;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import indicator.Indicators;
 import mitm.atb.OnaConfigurationType;
-import restCloud.ManagerPP;
 import restCloud.ManagerPPLocal;
 import restCloud.ResultAnalyser;
 
-public class Test_StageScale {
-	
+public class TestIslandScale {
+
 	public static void main(String args[]) {
 		start();
 	}
 
 	public static void start() {
-		
-		ManagerPP.testSameCPUTime = false;
-		ManagerPP.testStageScale = true;
 
-//		int factorySize = Integer.parseInt(args[0]);
-//		int runGroup = Integer.parseInt(args[1]);
-//		int NoC = Integer.parseInt(args[2]);
-//		int factorySize = 6;
-//		int runGroup = 2;
+		// int factorySize = Integer.parseInt(args[0]);
+		// int runGroup = Integer.parseInt(args[1]);
+		// int NoC = Integer.parseInt(args[2]);
 
-		int numberOfIslands = 5;
-		int NoC = 5;
-		String folder = "result_factory/";
+		int factorySize = 1;
+		// int runGroup = 2;
+		// int NoC = 5;
+		String folder = "result_island/";
 
+		// runGAforOneSize(factorySize, runGroup, NoC);
 
-		for (int j = 1; j < 2; j++) {
-
-			for (int s = 1; s <= 10; s = s + 1) {
-
-				System.out.println("--------------------------------------------------------------------");
-				System.out.println("No. Stages: " + s);
-				ManagerPP.Global_NoOfStages = s;
-
-				for (int i = 1; i < 41; i++) {
-					OnaConfigurationType.ONAReader = null;
-					runGAforOneSize(j, i, NoC, folder, numberOfIslands);
-				}
-
-				System.out.println("*******************************************************");
-				TCADResultsReaderAndAnalyzer.runAnalysisFactory(folder, numberOfIslands);
-				System.out.println("*******************************************************");
-				System.out.println("--------------------------------------------------------------------");
-				System.out.println("\n\n");
+		for (int j = 2; j < 11; j++) {
+			for (int i = 1; i < 41; i++) {
+				OnaConfigurationType.ONAReader = null;
+				runGAforOneSize(factorySize, i, j, folder, j);
 			}
-			
-			
 
 		}
+
+		TCADResultsReaderAndAnalyzer.runAnalysIsland(folder, factorySize);
 
 	}
 
@@ -66,15 +47,20 @@ public class Test_StageScale {
 		int numberOfReplace = 1;
 		int NotImprovedInRow = 3;
 
-//		if (NoC != 50 && NoC != 100) { // NoC 50 , 100
-//			System.out.println("Number of processors not supported!  NoC: " + NoC);
-//			System.exit(-1);
-//			;
-//		}
+		// if (NoC != 50 && NoC != 100) { // NoC 50 , 100
+		// System.out.println("Number of processors not supported! NoC: " +
+		// NoC);
+		// System.exit(-1);
+		// ;
+		// }
 
-		int controlledVariabile = 1; // TODO: controlledVariabile 4 , 2
+		int controlledVariabile = 1 * numberOfIslands / NoC; // TODO:
+																// controlledVariabile
+																// 4 , 2
 
-		if (runGroup < 1 || runGroup > 40 / controlledVariabile) { // runGroup = [1,10] , [1,20]
+		if (runGroup < 1 || runGroup > 40 / controlledVariabile) { // runGroup =
+																	// [1,10] ,
+																	// [1,20]
 			System.out.println("Wrong run group index !");
 			System.exit(-1);
 		}
@@ -89,12 +75,11 @@ public class Test_StageScale {
 		}
 
 		for (int i = 0; i < controlledVariabile; i++) {
-			System.out.println("seed: " + (Startingseed + i) + " factoryScale: " + (factoryScale) + " numberOfIslands: "
-					+ numberOfIslands + " numberOfReplace: " + numberOfReplace + " notImprovedInRow: "
-					+ NotImprovedInRow);
+			System.out.println("seed: " + (Startingseed + i) + " factoryScale: " + (factoryScale) + " numberOfIslands: " + numberOfIslands
+					+ " numberOfReplace: " + numberOfReplace + " notImprovedInRow: " + NotImprovedInRow);
 
-			List<List<Double>> res = new ManagerPPLocal().startPPLocal(Startingseed + i, factoryScale, numberOfIslands,
-					numberOfReplace, NotImprovedInRow, folder);
+			List<List<Double>> res = new ManagerPPLocal().startPPLocal(Startingseed + i, factoryScale, numberOfIslands, numberOfReplace,
+					NotImprovedInRow, folder);
 
 			results.set(i, res);
 		}
@@ -102,8 +87,7 @@ public class Test_StageScale {
 		finalAnalyserAndSummarizer(results, factoryScale, folder, numberOfIslands);
 	}
 
-	public static void finalAnalyserAndSummarizer(List<List<List<Double>>> results, int factoryScale, String folder,
-			int numberOfIslands) {
+	public static void finalAnalyserAndSummarizer(List<List<List<Double>>> results, int factoryScale, String folder, int numberOfIslands) {
 
 		List<List<List<Double>>> qis = new ArrayList<>();
 
@@ -175,16 +159,14 @@ public class Test_StageScale {
 
 		String out = "";
 
-//		System.out.println("\n\n---------------------------------------\n\n");
-//		printRanks(rankings);
-//		System.out.println("\n\n---------------------------------------\n\n");
+		System.out.println("\n\n---------------------------------------\n\n");
+		printRanks(rankings);
+		System.out.println("\n\n---------------------------------------\n\n");
 
-//		out += printAverageRanks(averageRanking) + "\n";
+		// out += printAverageRanks(averageRanking) + "\n";
 		out += printAverage(averagePush, "Push:") + "\n";
 		out += printAverage(averagePull, "Pull:") + "\n";
 		out += printAverage(averagetime, "Time:");
-		
-		System.out.println("Time: " + Arrays.toString(averagetime.toArray()));
 
 		try {
 			File theDir = new File(folder);
@@ -204,13 +186,13 @@ public class Test_StageScale {
 
 	public static String printAverage(List<Double> value, String info) {
 		String out = "";
-//		System.out.println(info);
+		System.out.println(info);
 
 		for (int k = 0; k < value.size(); k++) {
 			out += value.get(k) + " ";
-//			System.out.print(value.get(k) + " ");
+			System.out.print(value.get(k) + " ");
 		}
-//		System.out.println();
+		System.out.println();
 		out += "\n";
 
 		return out;
@@ -290,8 +272,7 @@ public class Test_StageScale {
 		return averageV;
 	}
 
-	public static List<List<Integer>> getRankingbyQI(List<List<List<Double>>> value_per_group, int QI,
-			boolean higherForBetter) {
+	public static List<List<Integer>> getRankingbyQI(List<List<List<Double>>> value_per_group, int QI, boolean higherForBetter) {
 		List<List<Integer>> rankings = new ArrayList<>();
 
 		List<List<Double>> QIvalues = new ArrayList<>();
