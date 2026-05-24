@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import TC_experiments.ResultBundle;
+import JSA_experiments.ResultBundle;
 import aura.PopulationEntry;
 import indicator.Indicators;
 import mitm.atb.BusinessCase;
@@ -30,7 +30,7 @@ public class ManagerPPLocal {
 
 //		System.out.println(getName(RemoveMethod, addMethod));
 
-		int numberOfIslands = (RemoveMethod == -2 || RemoveMethod == -3) ? 1 : numberOfIslandsParam;
+		int numberOfIslands = (RemoveMethod == -2 || RemoveMethod == -3 || RemoveMethod == -4 || RemoveMethod == -5) ? 1 : numberOfIslandsParam;
 		Random ran = new Random(seeds);
 		List<ParetoFrontCapsule> globalCaps = new ArrayList<>();
 		List<List<Integer>> numberOfActions = new ArrayList<>();
@@ -161,6 +161,23 @@ public class ManagerPPLocal {
 
 		List<ResultBundle> bundles = new ArrayList<>();
 		
+		/**
+//		 * MOP3
+//		 */
+		bundles.add(startManager(bc, ONAfactoryScale, numberOfIslands, seeds, notImprovedInARowLimit,
+				numberOfReplacement, -6, -6));
+
+		/**
+//		 * MOGOMEA
+//		 */
+		bundles.add(startManager(bc, ONAfactoryScale, numberOfIslands, seeds, notImprovedInARowLimit,
+				numberOfReplacement, -5, -5));
+				/**
+//		 * GePIM
+//		 */
+		bundles.add(startManager(bc, ONAfactoryScale, numberOfIslands, seeds, notImprovedInARowLimit,
+				numberOfReplacement, -4, -4));
+				
 //		/**
 //		 * The NSGA-II
 //		 */
@@ -347,7 +364,10 @@ public class ManagerPPLocal {
 	}
 
 	public static String getName(int remove, int add) {
-
+		if (remove == -5 && add == -5)
+			return "MOP3";
+		if (remove == -4 && add == -4)
+			return "MOGOMEA";
 		if (remove == -2 && add == -2)
 			return "traditional MOEA/D";
 

@@ -1,0 +1,2532 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OASFactoryModel>
+  <objectives>
+    <objective name="makespan" />
+    <objective name="discrepancy" />
+  </objectives>
+  <processingDevices>
+    <processingDevice name="Silo 1" availability="1">
+      <modes>
+        <mode name="Ecomony" energyConsumptionPerTimeUnit="2" monetaryCostPerTimeUnit="22" />
+        <mode name="Standard" energyConsumptionPerTimeUnit="3" monetaryCostPerTimeUnit="30" />
+      </modes>
+      <unavailableTimes>
+        <unavailableTime />
+      </unavailableTimes>
+    </processingDevice>
+    <processingDevice name="Silo 2" availability="1">
+      <modes>
+        <mode name="Ecomony" energyConsumptionPerTimeUnit="2" monetaryCostPerTimeUnit="22" />
+        <mode name="Standard" energyConsumptionPerTimeUnit="3" monetaryCostPerTimeUnit="30" />
+      </modes>
+      <unavailableTimes>
+        <unavailableTime />
+      </unavailableTimes>
+    </processingDevice>
+    <processingDevice name="Silo 3" availability="1">
+      <modes>
+        <mode name="Ecomony" energyConsumptionPerTimeUnit="2" monetaryCostPerTimeUnit="22" />
+        <mode name="Standard" energyConsumptionPerTimeUnit="3" monetaryCostPerTimeUnit="30" />
+      </modes>
+      <unavailableTimes>
+        <unavailableTime />
+      </unavailableTimes>
+    </processingDevice>
+    <processingDevice name="Silo 4" availability="1">
+      <modes>
+        <mode name="Ecomony" energyConsumptionPerTimeUnit="2" monetaryCostPerTimeUnit="22" />
+        <mode name="Standard" energyConsumptionPerTimeUnit="3" monetaryCostPerTimeUnit="30" />
+      </modes>
+      <unavailableTimes>
+        <unavailableTime />
+      </unavailableTimes>
+    </processingDevice>
+    <processingDevice name="Silo 5" availability="1">
+      <modes>
+        <mode name="Ecomony" energyConsumptionPerTimeUnit="2" monetaryCostPerTimeUnit="22" />
+        <mode name="Standard" energyConsumptionPerTimeUnit="3" monetaryCostPerTimeUnit="30" />
+      </modes>
+      <unavailableTimes>
+        <unavailableTime />
+      </unavailableTimes>
+    </processingDevice>
+    <processingDevice name="Mixer 1" availability="1">
+      <modes>
+        <mode name="Ecomony" energyConsumptionPerTimeUnit="7" monetaryCostPerTimeUnit="37" />
+        <mode name="Standard" energyConsumptionPerTimeUnit="10" monetaryCostPerTimeUnit="50" />
+        <mode name="Performance" energyConsumptionPerTimeUnit="12" monetaryCostPerTimeUnit="62" />
+      </modes>
+      <unavailableTimes>
+        <unavailableTime />
+      </unavailableTimes>
+    </processingDevice>
+    <processingDevice name="Mixer 2" availability="1">
+      <modes>
+        <mode name="Ecomony" energyConsumptionPerTimeUnit="7" monetaryCostPerTimeUnit="37" />
+        <mode name="Standard" energyConsumptionPerTimeUnit="10" monetaryCostPerTimeUnit="50" />
+        <mode name="Performance" energyConsumptionPerTimeUnit="12" monetaryCostPerTimeUnit="62" />
+      </modes>
+      <unavailableTimes>
+        <unavailableTime />
+      </unavailableTimes>
+    </processingDevice>
+    <processingDevice name="Mixer 3" availability="1">
+      <modes>
+        <mode name="Ecomony" energyConsumptionPerTimeUnit="7" monetaryCostPerTimeUnit="37" />
+        <mode name="Standard" energyConsumptionPerTimeUnit="10" monetaryCostPerTimeUnit="50" />
+        <mode name="Performance" energyConsumptionPerTimeUnit="12" monetaryCostPerTimeUnit="62" />
+      </modes>
+      <unavailableTimes>
+        <unavailableTime />
+      </unavailableTimes>
+    </processingDevice>
+    <processingDevice name="Mixer 4" availability="1">
+      <modes>
+        <mode name="Ecomony" energyConsumptionPerTimeUnit="7" monetaryCostPerTimeUnit="37" />
+        <mode name="Standard" energyConsumptionPerTimeUnit="10" monetaryCostPerTimeUnit="50" />
+        <mode name="Performance" energyConsumptionPerTimeUnit="12" monetaryCostPerTimeUnit="62" />
+      </modes>
+      <unavailableTimes>
+        <unavailableTime />
+      </unavailableTimes>
+    </processingDevice>
+    <processingDevice name="Mixer 5" availability="1">
+      <modes>
+        <mode name="Ecomony" energyConsumptionPerTimeUnit="7" monetaryCostPerTimeUnit="37" />
+        <mode name="Standard" energyConsumptionPerTimeUnit="10" monetaryCostPerTimeUnit="50" />
+        <mode name="Performance" energyConsumptionPerTimeUnit="12" monetaryCostPerTimeUnit="62" />
+      </modes>
+      <unavailableTimes>
+        <unavailableTime />
+      </unavailableTimes>
+    </processingDevice>
+    <processingDevice name="Mixer 6" availability="1">
+      <modes>
+        <mode name="Ecomony" energyConsumptionPerTimeUnit="7" monetaryCostPerTimeUnit="37" />
+        <mode name="Standard" energyConsumptionPerTimeUnit="10" monetaryCostPerTimeUnit="50" />
+        <mode name="Performance" energyConsumptionPerTimeUnit="12" monetaryCostPerTimeUnit="62" />
+      </modes>
+      <unavailableTimes>
+        <unavailableTime />
+      </unavailableTimes>
+    </processingDevice>
+    <processingDevice name="Mixer 7" availability="1">
+      <modes>
+        <mode name="Ecomony" energyConsumptionPerTimeUnit="7" monetaryCostPerTimeUnit="37" />
+        <mode name="Standard" energyConsumptionPerTimeUnit="10" monetaryCostPerTimeUnit="50" />
+        <mode name="Performance" energyConsumptionPerTimeUnit="12" monetaryCostPerTimeUnit="62" />
+      </modes>
+      <unavailableTimes>
+        <unavailableTime />
+      </unavailableTimes>
+    </processingDevice>
+    <processingDevice name="Mixer 8" availability="1">
+      <modes>
+        <mode name="Ecomony" energyConsumptionPerTimeUnit="7" monetaryCostPerTimeUnit="37" />
+        <mode name="Standard" energyConsumptionPerTimeUnit="10" monetaryCostPerTimeUnit="50" />
+        <mode name="Performance" energyConsumptionPerTimeUnit="12" monetaryCostPerTimeUnit="62" />
+      </modes>
+      <unavailableTimes>
+        <unavailableTime />
+      </unavailableTimes>
+    </processingDevice>
+    <processingDevice name="Mixer 9" availability="1">
+      <modes>
+        <mode name="Ecomony" energyConsumptionPerTimeUnit="7" monetaryCostPerTimeUnit="37" />
+        <mode name="Standard" energyConsumptionPerTimeUnit="10" monetaryCostPerTimeUnit="50" />
+        <mode name="Performance" energyConsumptionPerTimeUnit="12" monetaryCostPerTimeUnit="62" />
+      </modes>
+      <unavailableTimes>
+        <unavailableTime />
+      </unavailableTimes>
+    </processingDevice>
+    <processingDevice name="Mixer 10" availability="1">
+      <modes>
+        <mode name="Ecomony" energyConsumptionPerTimeUnit="7" monetaryCostPerTimeUnit="37" />
+        <mode name="Standard" energyConsumptionPerTimeUnit="10" monetaryCostPerTimeUnit="50" />
+        <mode name="Performance" energyConsumptionPerTimeUnit="12" monetaryCostPerTimeUnit="62" />
+      </modes>
+      <unavailableTimes>
+        <unavailableTime />
+      </unavailableTimes>
+    </processingDevice>
+    <processingDevice name="Tank 1" availability="1">
+      <modes>
+        <mode name="Standard" energyConsumptionPerTimeUnit="1" monetaryCostPerTimeUnit="10" />
+      </modes>
+      <unavailableTimes>
+        <unavailableTime />
+      </unavailableTimes>
+    </processingDevice>
+    <processingDevice name="Tank 2" availability="1">
+      <modes>
+        <mode name="Standard" energyConsumptionPerTimeUnit="1" monetaryCostPerTimeUnit="10" />
+      </modes>
+      <unavailableTimes>
+        <unavailableTime />
+      </unavailableTimes>
+    </processingDevice>
+  </processingDevices>
+  <productionLines>
+    <productionLine name="ProductionLine 1">
+      <productionLineProcessingDevices>
+        <productionLineProcessingDevice order="0" name="Silo 1" />
+        <productionLineProcessingDevice order="1" name="Mixer 1" />
+        <productionLineProcessingDevice order="2" name="Tank 1" />
+      </productionLineProcessingDevices>
+    </productionLine>
+    <productionLine name="ProductionLine 2">
+      <productionLineProcessingDevices>
+        <productionLineProcessingDevice order="0" name="Silo 1" />
+        <productionLineProcessingDevice order="1" name="Mixer 2" />
+        <productionLineProcessingDevice order="2" name="Tank 1" />
+      </productionLineProcessingDevices>
+    </productionLine>
+    <productionLine name="ProductionLine 3">
+      <productionLineProcessingDevices>
+        <productionLineProcessingDevice order="0" name="Silo 2" />
+        <productionLineProcessingDevice order="1" name="Mixer 3" />
+        <productionLineProcessingDevice order="2" name="Tank 1" />
+      </productionLineProcessingDevices>
+    </productionLine>
+    <productionLine name="ProductionLine 4">
+      <productionLineProcessingDevices>
+        <productionLineProcessingDevice order="0" name="Silo 2" />
+        <productionLineProcessingDevice order="1" name="Mixer 4" />
+        <productionLineProcessingDevice order="2" name="Tank 1" />
+      </productionLineProcessingDevices>
+    </productionLine>
+    <productionLine name="ProductionLine 5">
+      <productionLineProcessingDevices>
+        <productionLineProcessingDevice order="0" name="Silo 3" />
+        <productionLineProcessingDevice order="1" name="Mixer 5" />
+        <productionLineProcessingDevice order="2" name="Tank 1" />
+      </productionLineProcessingDevices>
+    </productionLine>
+    <productionLine name="ProductionLine 6">
+      <productionLineProcessingDevices>
+        <productionLineProcessingDevice order="0" name="Silo 3" />
+        <productionLineProcessingDevice order="1" name="Mixer 6" />
+        <productionLineProcessingDevice order="2" name="Tank 2" />
+      </productionLineProcessingDevices>
+    </productionLine>
+    <productionLine name="ProductionLine 7">
+      <productionLineProcessingDevices>
+        <productionLineProcessingDevice order="0" name="Silo 4" />
+        <productionLineProcessingDevice order="1" name="Mixer 7" />
+        <productionLineProcessingDevice order="2" name="Tank 2" />
+      </productionLineProcessingDevices>
+    </productionLine>
+    <productionLine name="ProductionLine 8">
+      <productionLineProcessingDevices>
+        <productionLineProcessingDevice order="0" name="Silo 4" />
+        <productionLineProcessingDevice order="1" name="Mixer 8" />
+        <productionLineProcessingDevice order="2" name="Tank 2" />
+      </productionLineProcessingDevices>
+    </productionLine>
+    <productionLine name="ProductionLine 9">
+      <productionLineProcessingDevices>
+        <productionLineProcessingDevice order="0" name="Silo 5" />
+        <productionLineProcessingDevice order="1" name="Mixer 9" />
+        <productionLineProcessingDevice order="2" name="Tank 2" />
+      </productionLineProcessingDevices>
+    </productionLine>
+    <productionLine name="ProductionLine 10">
+      <productionLineProcessingDevices>
+        <productionLineProcessingDevice order="0" name="Silo 5" />
+        <productionLineProcessingDevice order="1" name="Mixer 10" />
+        <productionLineProcessingDevice order="2" name="Tank 2" />
+      </productionLineProcessingDevices>
+    </productionLine>
+  </productionLines>
+  <productionProcesses>
+    <productionProcess name="Std Weiss 45t" priority="1">
+      <processTypes>
+        <processType name="Std Weiss A" amountProduced="5t">
+          <comptiableProductionLines>
+            <comptiableProductionLine>ProductionLine 1</comptiableProductionLine>
+            <comptiableProductionLine>ProductionLine 2</comptiableProductionLine>
+            <comptiableProductionLine>ProductionLine 3</comptiableProductionLine>
+            <comptiableProductionLine>ProductionLine 4</comptiableProductionLine>
+            <comptiableProductionLine>ProductionLine 5</comptiableProductionLine>
+          </comptiableProductionLines>
+          <subprocesses>
+            <subprocess name="Std Weiss A Task 1">
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 1" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 1" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 1" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 1" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 1" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 1" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 2" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 1" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 1" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 2" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 1" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 1" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 1" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 1" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 1" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 1" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 2" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 1" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 1" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 2" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 2" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 3" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 2" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 3" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 2" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 3" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 2" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 4" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 2" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 4" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 2" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 4" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 2" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 3" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 2" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 3" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 2" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 3" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 2" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 4" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 2" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 4" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 2" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 4" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="8">
+                <subprocessProcessingDevice name="Silo 3" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 5" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="8">
+                <subprocessProcessingDevice name="Silo 3" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 5" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="8">
+                <subprocessProcessingDevice name="Silo 3" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 5" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="8">
+                <subprocessProcessingDevice name="Silo 3" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 5" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="8">
+                <subprocessProcessingDevice name="Silo 3" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 5" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="8">
+                <subprocessProcessingDevice name="Silo 3" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 5" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+            </subprocess>
+            <subprocess name="Std Weiss A Task 2">
+              <subprocessProcessingDevicesGroup processingTime="120">
+                <subprocessProcessingDevice name="Mixer 1" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="80">
+                <subprocessProcessingDevice name="Mixer 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="40">
+                <subprocessProcessingDevice name="Mixer 1" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="120">
+                <subprocessProcessingDevice name="Mixer 2" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="80">
+                <subprocessProcessingDevice name="Mixer 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="40">
+                <subprocessProcessingDevice name="Mixer 2" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="120">
+                <subprocessProcessingDevice name="Mixer 3" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="80">
+                <subprocessProcessingDevice name="Mixer 3" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="40">
+                <subprocessProcessingDevice name="Mixer 3" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="120">
+                <subprocessProcessingDevice name="Mixer 4" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="80">
+                <subprocessProcessingDevice name="Mixer 4" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="40">
+                <subprocessProcessingDevice name="Mixer 4" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="120">
+                <subprocessProcessingDevice name="Mixer 5" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="80">
+                <subprocessProcessingDevice name="Mixer 5" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="40">
+                <subprocessProcessingDevice name="Mixer 5" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+            </subprocess>
+            <subprocess name="Std Weiss A Task 3">
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 1" mode="Ecomony" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 1" mode="Standard" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 1" mode="Performance" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 2" mode="Ecomony" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 2" mode="Standard" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 2" mode="Performance" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 3" mode="Ecomony" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 3" mode="Standard" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 3" mode="Performance" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 4" mode="Ecomony" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 4" mode="Standard" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 4" mode="Performance" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 5" mode="Ecomony" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 5" mode="Standard" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 5" mode="Performance" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+            </subprocess>
+          </subprocesses>
+        </processType>
+        <processType name="Std Weiss B" amountProduced="10t">
+          <comptiableProductionLines>
+            <comptiableProductionLine>ProductionLine 6</comptiableProductionLine>
+            <comptiableProductionLine>ProductionLine 7</comptiableProductionLine>
+          </comptiableProductionLines>
+          <subprocesses>
+            <subprocess name="Std Weiss B Task 1">
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 3" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 6" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 3" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 6" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 3" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 6" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 3" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 6" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 3" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 6" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 3" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 6" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 4" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 7" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 4" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 7" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 4" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 7" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 4" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 7" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 4" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 7" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 4" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 7" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+            </subprocess>
+            <subprocess name="Std Weiss B Task 2">
+              <subprocessProcessingDevicesGroup processingTime="120">
+                <subprocessProcessingDevice name="Mixer 6" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="80">
+                <subprocessProcessingDevice name="Mixer 6" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="40">
+                <subprocessProcessingDevice name="Mixer 6" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="120">
+                <subprocessProcessingDevice name="Mixer 7" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="80">
+                <subprocessProcessingDevice name="Mixer 7" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="40">
+                <subprocessProcessingDevice name="Mixer 7" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+            </subprocess>
+            <subprocess name="Std Weiss B Task 3">
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 6" mode="Ecomony" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 6" mode="Standard" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 6" mode="Performance" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 7" mode="Ecomony" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 7" mode="Standard" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 7" mode="Performance" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+            </subprocess>
+          </subprocesses>
+        </processType>
+        <processType name="Std Weiss C" amountProduced="10t">
+          <comptiableProductionLines>
+            <comptiableProductionLine>ProductionLine 8</comptiableProductionLine>
+            <comptiableProductionLine>ProductionLine 9</comptiableProductionLine>
+            <comptiableProductionLine>ProductionLine 10</comptiableProductionLine>
+          </comptiableProductionLines>
+          <subprocesses>
+            <subprocess name="Std Weiss C Task 1">
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 4" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 8" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 4" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 8" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 4" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 8" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 4" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 8" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 4" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 8" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 4" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 8" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 5" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 9" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 5" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 9" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 5" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 9" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 5" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 10" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 5" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 10" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 5" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 10" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 5" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 9" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 5" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 9" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 5" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 9" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 5" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 10" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 5" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 10" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 5" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 10" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+            </subprocess>
+            <subprocess name="Std Weiss C Task 2">
+              <subprocessProcessingDevicesGroup processingTime="120">
+                <subprocessProcessingDevice name="Mixer 8" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="80">
+                <subprocessProcessingDevice name="Mixer 8" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="40">
+                <subprocessProcessingDevice name="Mixer 8" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="120">
+                <subprocessProcessingDevice name="Mixer 9" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="80">
+                <subprocessProcessingDevice name="Mixer 9" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="40">
+                <subprocessProcessingDevice name="Mixer 9" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="120">
+                <subprocessProcessingDevice name="Mixer 10" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="80">
+                <subprocessProcessingDevice name="Mixer 10" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="40">
+                <subprocessProcessingDevice name="Mixer 10" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+            </subprocess>
+            <subprocess name="Std Weiss C Task 3">
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 8" mode="Ecomony" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 8" mode="Standard" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 8" mode="Performance" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 9" mode="Ecomony" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 9" mode="Standard" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 9" mode="Performance" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 10" mode="Ecomony" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 10" mode="Standard" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 10" mode="Performance" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+            </subprocess>
+          </subprocesses>
+        </processType>
+      </processTypes>
+    </productionProcess>
+    <productionProcess name="Weiss Matt 40t" priority="2">
+      <processTypes>
+        <processType name="Weiss Matt A" amountProduced="5t">
+          <comptiableProductionLines>
+            <comptiableProductionLine>ProductionLine 1</comptiableProductionLine>
+            <comptiableProductionLine>ProductionLine 2</comptiableProductionLine>
+            <comptiableProductionLine>ProductionLine 3</comptiableProductionLine>
+            <comptiableProductionLine>ProductionLine 4</comptiableProductionLine>
+            <comptiableProductionLine>ProductionLine 5</comptiableProductionLine>
+          </comptiableProductionLines>
+          <subprocesses>
+            <subprocess name="Weiss Matt A Task 1">
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 1" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 1" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 1" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 1" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 1" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 1" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 2" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 1" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 1" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 2" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 1" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 1" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 1" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 1" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 1" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 1" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 2" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 1" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 1" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 2" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 2" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 3" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 2" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 3" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 2" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 3" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 2" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 4" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 2" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 4" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 2" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 4" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 2" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 3" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 2" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 3" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 2" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 3" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 2" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 4" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 2" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 4" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 2" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 4" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="8">
+                <subprocessProcessingDevice name="Silo 3" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 5" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="8">
+                <subprocessProcessingDevice name="Silo 3" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 5" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="8">
+                <subprocessProcessingDevice name="Silo 3" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 5" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="8">
+                <subprocessProcessingDevice name="Silo 3" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 5" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="8">
+                <subprocessProcessingDevice name="Silo 3" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 5" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="8">
+                <subprocessProcessingDevice name="Silo 3" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 5" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+            </subprocess>
+            <subprocess name="Weiss Matt A Task 2">
+              <subprocessProcessingDevicesGroup processingTime="120">
+                <subprocessProcessingDevice name="Mixer 1" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="80">
+                <subprocessProcessingDevice name="Mixer 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="40">
+                <subprocessProcessingDevice name="Mixer 1" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="120">
+                <subprocessProcessingDevice name="Mixer 2" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="80">
+                <subprocessProcessingDevice name="Mixer 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="40">
+                <subprocessProcessingDevice name="Mixer 2" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="120">
+                <subprocessProcessingDevice name="Mixer 3" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="80">
+                <subprocessProcessingDevice name="Mixer 3" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="40">
+                <subprocessProcessingDevice name="Mixer 3" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="120">
+                <subprocessProcessingDevice name="Mixer 4" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="80">
+                <subprocessProcessingDevice name="Mixer 4" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="40">
+                <subprocessProcessingDevice name="Mixer 4" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="120">
+                <subprocessProcessingDevice name="Mixer 5" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="80">
+                <subprocessProcessingDevice name="Mixer 5" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="40">
+                <subprocessProcessingDevice name="Mixer 5" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+            </subprocess>
+            <subprocess name="Weiss Matt A Task 3">
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 1" mode="Ecomony" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 1" mode="Standard" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 1" mode="Performance" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 2" mode="Ecomony" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 2" mode="Standard" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 2" mode="Performance" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 3" mode="Ecomony" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 3" mode="Standard" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 3" mode="Performance" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 4" mode="Ecomony" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 4" mode="Standard" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 4" mode="Performance" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 5" mode="Ecomony" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 5" mode="Standard" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 5" mode="Performance" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+            </subprocess>
+          </subprocesses>
+        </processType>
+        <processType name="Weiss Matt B" amountProduced="10t">
+          <comptiableProductionLines>
+            <comptiableProductionLine>ProductionLine 6</comptiableProductionLine>
+            <comptiableProductionLine>ProductionLine 7</comptiableProductionLine>
+          </comptiableProductionLines>
+          <subprocesses>
+            <subprocess name="Weiss Matt B Task 1">
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 3" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 6" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 3" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 6" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 3" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 6" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 3" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 6" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 3" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 6" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 3" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 6" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 4" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 7" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 4" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 7" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 4" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 7" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 4" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 7" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 4" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 7" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 4" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 7" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+            </subprocess>
+            <subprocess name="Weiss Matt B Task 2">
+              <subprocessProcessingDevicesGroup processingTime="120">
+                <subprocessProcessingDevice name="Mixer 6" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="80">
+                <subprocessProcessingDevice name="Mixer 6" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="40">
+                <subprocessProcessingDevice name="Mixer 6" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="120">
+                <subprocessProcessingDevice name="Mixer 7" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="80">
+                <subprocessProcessingDevice name="Mixer 7" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="40">
+                <subprocessProcessingDevice name="Mixer 7" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+            </subprocess>
+            <subprocess name="Weiss Matt B Task 3">
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 6" mode="Ecomony" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 6" mode="Standard" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 6" mode="Performance" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 7" mode="Ecomony" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 7" mode="Standard" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 7" mode="Performance" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+            </subprocess>
+          </subprocesses>
+        </processType>
+        <processType name="Weiss Matt C" amountProduced="10t">
+          <comptiableProductionLines>
+            <comptiableProductionLine>ProductionLine 8</comptiableProductionLine>
+            <comptiableProductionLine>ProductionLine 9</comptiableProductionLine>
+            <comptiableProductionLine>ProductionLine 10</comptiableProductionLine>
+          </comptiableProductionLines>
+          <subprocesses>
+            <subprocess name="Weiss Matt C Task 1">
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 4" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 8" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 4" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 8" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 4" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 8" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 4" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 8" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 4" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 8" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 4" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 8" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 5" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 9" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 5" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 9" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 5" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 9" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 5" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 10" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 5" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 10" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 5" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 10" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 5" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 9" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 5" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 9" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 5" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 9" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 5" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 10" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 5" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 10" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 5" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 10" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+            </subprocess>
+            <subprocess name="Weiss Matt C Task 2">
+              <subprocessProcessingDevicesGroup processingTime="120">
+                <subprocessProcessingDevice name="Mixer 8" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="80">
+                <subprocessProcessingDevice name="Mixer 8" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="40">
+                <subprocessProcessingDevice name="Mixer 8" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="120">
+                <subprocessProcessingDevice name="Mixer 9" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="80">
+                <subprocessProcessingDevice name="Mixer 9" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="40">
+                <subprocessProcessingDevice name="Mixer 9" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="120">
+                <subprocessProcessingDevice name="Mixer 10" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="80">
+                <subprocessProcessingDevice name="Mixer 10" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="40">
+                <subprocessProcessingDevice name="Mixer 10" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+            </subprocess>
+            <subprocess name="Weiss Matt C Task 3">
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 8" mode="Ecomony" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 8" mode="Standard" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 8" mode="Performance" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 9" mode="Ecomony" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 9" mode="Standard" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 9" mode="Performance" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 10" mode="Ecomony" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 10" mode="Standard" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 10" mode="Performance" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+            </subprocess>
+          </subprocesses>
+        </processType>
+      </processTypes>
+    </productionProcess>
+    <productionProcess name="Super Glanz 30t" priority="3">
+      <processTypes>
+        <processType name="Super Glanz A" amountProduced="4t">
+          <comptiableProductionLines>
+            <comptiableProductionLine>ProductionLine 1</comptiableProductionLine>
+            <comptiableProductionLine>ProductionLine 2</comptiableProductionLine>
+            <comptiableProductionLine>ProductionLine 3</comptiableProductionLine>
+            <comptiableProductionLine>ProductionLine 4</comptiableProductionLine>
+            <comptiableProductionLine>ProductionLine 5</comptiableProductionLine>
+          </comptiableProductionLines>
+          <subprocesses>
+            <subprocess name="Super Glanz A Task 1">
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 1" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 1" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 1" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 1" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 1" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 1" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 2" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 1" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 1" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 2" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 1" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 1" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 1" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 1" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 1" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 1" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 2" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 1" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 1" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 2" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 2" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 3" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 2" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 3" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 2" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 3" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 2" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 4" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 2" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 4" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 2" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 4" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 2" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 3" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 2" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 3" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 2" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 3" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 2" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 4" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 2" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 4" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 2" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 4" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="8">
+                <subprocessProcessingDevice name="Silo 3" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 5" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="8">
+                <subprocessProcessingDevice name="Silo 3" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 5" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="8">
+                <subprocessProcessingDevice name="Silo 3" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 5" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="8">
+                <subprocessProcessingDevice name="Silo 3" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 5" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="8">
+                <subprocessProcessingDevice name="Silo 3" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 5" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="8">
+                <subprocessProcessingDevice name="Silo 3" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 5" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+            </subprocess>
+            <subprocess name="Super Glanz A Task 2">
+              <subprocessProcessingDevicesGroup processingTime="180">
+                <subprocessProcessingDevice name="Mixer 1" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="120">
+                <subprocessProcessingDevice name="Mixer 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="60">
+                <subprocessProcessingDevice name="Mixer 1" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="180">
+                <subprocessProcessingDevice name="Mixer 2" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="120">
+                <subprocessProcessingDevice name="Mixer 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="60">
+                <subprocessProcessingDevice name="Mixer 2" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="180">
+                <subprocessProcessingDevice name="Mixer 3" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="120">
+                <subprocessProcessingDevice name="Mixer 3" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="60">
+                <subprocessProcessingDevice name="Mixer 3" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="180">
+                <subprocessProcessingDevice name="Mixer 4" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="120">
+                <subprocessProcessingDevice name="Mixer 4" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="60">
+                <subprocessProcessingDevice name="Mixer 4" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="180">
+                <subprocessProcessingDevice name="Mixer 5" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="120">
+                <subprocessProcessingDevice name="Mixer 5" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="60">
+                <subprocessProcessingDevice name="Mixer 5" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+            </subprocess>
+            <subprocess name="Super Glanz A Task 3">
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 1" mode="Ecomony" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 1" mode="Standard" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 1" mode="Performance" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 2" mode="Ecomony" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 2" mode="Standard" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 2" mode="Performance" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 3" mode="Ecomony" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 3" mode="Standard" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 3" mode="Performance" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 4" mode="Ecomony" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 4" mode="Standard" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 4" mode="Performance" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 5" mode="Ecomony" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 5" mode="Standard" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 5" mode="Performance" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+            </subprocess>
+          </subprocesses>
+        </processType>
+        <processType name="Super Glanz B" amountProduced="8t">
+          <comptiableProductionLines>
+            <comptiableProductionLine>ProductionLine 6</comptiableProductionLine>
+            <comptiableProductionLine>ProductionLine 7</comptiableProductionLine>
+          </comptiableProductionLines>
+          <subprocesses>
+            <subprocess name="Super Glanz B Task 1">
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 3" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 6" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 3" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 6" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 3" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 6" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 3" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 6" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 3" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 6" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 3" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 6" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 4" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 7" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 4" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 7" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 4" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 7" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 4" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 7" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 4" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 7" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 4" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 7" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+            </subprocess>
+            <subprocess name="Super Glanz B Task 2">
+              <subprocessProcessingDevicesGroup processingTime="180">
+                <subprocessProcessingDevice name="Mixer 6" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="120">
+                <subprocessProcessingDevice name="Mixer 6" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="60">
+                <subprocessProcessingDevice name="Mixer 6" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="180">
+                <subprocessProcessingDevice name="Mixer 7" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="120">
+                <subprocessProcessingDevice name="Mixer 7" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="60">
+                <subprocessProcessingDevice name="Mixer 7" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+            </subprocess>
+            <subprocess name="Super Glanz B Task 3">
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 6" mode="Ecomony" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 6" mode="Standard" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 6" mode="Performance" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 7" mode="Ecomony" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 7" mode="Standard" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 7" mode="Performance" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+            </subprocess>
+          </subprocesses>
+        </processType>
+        <processType name="Super Glanz C" amountProduced="8t">
+          <comptiableProductionLines>
+            <comptiableProductionLine>ProductionLine 8</comptiableProductionLine>
+            <comptiableProductionLine>ProductionLine 9</comptiableProductionLine>
+            <comptiableProductionLine>ProductionLine 10</comptiableProductionLine>
+          </comptiableProductionLines>
+          <subprocesses>
+            <subprocess name="Super Glanz C Task 1">
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 4" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 8" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 4" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 8" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 4" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 8" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 4" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 8" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 4" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 8" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 4" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 8" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 5" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 9" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 5" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 9" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 5" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 9" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 5" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 10" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 5" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 10" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 5" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 10" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 5" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 9" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 5" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 9" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 5" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 9" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 5" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 10" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 5" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 10" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 5" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 10" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+            </subprocess>
+            <subprocess name="Super Glanz C Task 2">
+              <subprocessProcessingDevicesGroup processingTime="180">
+                <subprocessProcessingDevice name="Mixer 8" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="120">
+                <subprocessProcessingDevice name="Mixer 8" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="60">
+                <subprocessProcessingDevice name="Mixer 8" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="180">
+                <subprocessProcessingDevice name="Mixer 9" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="120">
+                <subprocessProcessingDevice name="Mixer 9" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="60">
+                <subprocessProcessingDevice name="Mixer 9" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="180">
+                <subprocessProcessingDevice name="Mixer 10" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="120">
+                <subprocessProcessingDevice name="Mixer 10" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="60">
+                <subprocessProcessingDevice name="Mixer 10" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+            </subprocess>
+            <subprocess name="Super Glanz C Task 3">
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 8" mode="Ecomony" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 8" mode="Standard" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 8" mode="Performance" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 9" mode="Ecomony" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 9" mode="Standard" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 9" mode="Performance" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 10" mode="Ecomony" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 10" mode="Standard" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 10" mode="Performance" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+            </subprocess>
+          </subprocesses>
+        </processType>
+      </processTypes>
+    </productionProcess>
+    <productionProcess name="Weiss Basis 20t" priority="4">
+      <processTypes>
+        <processType name="Weiss Basis A" amountProduced="6t">
+          <comptiableProductionLines>
+            <comptiableProductionLine>ProductionLine 1</comptiableProductionLine>
+            <comptiableProductionLine>ProductionLine 2</comptiableProductionLine>
+            <comptiableProductionLine>ProductionLine 3</comptiableProductionLine>
+            <comptiableProductionLine>ProductionLine 4</comptiableProductionLine>
+            <comptiableProductionLine>ProductionLine 5</comptiableProductionLine>
+          </comptiableProductionLines>
+          <subprocesses>
+            <subprocess name="Weiss Basis A Task 1">
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 1" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 1" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 1" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 1" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 1" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 1" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 2" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 1" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 1" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 2" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 1" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 1" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 1" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 1" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 1" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 1" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 2" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 1" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 1" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 2" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 2" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 3" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 2" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 3" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 2" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 3" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 2" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 4" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 2" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 4" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 2" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 4" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 2" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 3" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 2" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 3" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 2" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 3" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 2" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 4" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 2" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 4" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 2" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 4" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="8">
+                <subprocessProcessingDevice name="Silo 3" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 5" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="8">
+                <subprocessProcessingDevice name="Silo 3" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 5" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="8">
+                <subprocessProcessingDevice name="Silo 3" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 5" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="8">
+                <subprocessProcessingDevice name="Silo 3" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 5" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="8">
+                <subprocessProcessingDevice name="Silo 3" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 5" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="8">
+                <subprocessProcessingDevice name="Silo 3" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 5" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+            </subprocess>
+            <subprocess name="Weiss Basis A Task 2">
+              <subprocessProcessingDevicesGroup processingTime="90">
+                <subprocessProcessingDevice name="Mixer 1" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="60">
+                <subprocessProcessingDevice name="Mixer 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="30">
+                <subprocessProcessingDevice name="Mixer 1" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="90">
+                <subprocessProcessingDevice name="Mixer 2" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="60">
+                <subprocessProcessingDevice name="Mixer 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="30">
+                <subprocessProcessingDevice name="Mixer 2" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="90">
+                <subprocessProcessingDevice name="Mixer 3" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="60">
+                <subprocessProcessingDevice name="Mixer 3" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="30">
+                <subprocessProcessingDevice name="Mixer 3" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="90">
+                <subprocessProcessingDevice name="Mixer 4" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="60">
+                <subprocessProcessingDevice name="Mixer 4" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="30">
+                <subprocessProcessingDevice name="Mixer 4" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="90">
+                <subprocessProcessingDevice name="Mixer 5" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="60">
+                <subprocessProcessingDevice name="Mixer 5" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="30">
+                <subprocessProcessingDevice name="Mixer 5" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+            </subprocess>
+            <subprocess name="Weiss Basis A Task 3">
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 1" mode="Ecomony" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 1" mode="Standard" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 1" mode="Performance" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 2" mode="Ecomony" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 2" mode="Standard" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 2" mode="Performance" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 3" mode="Ecomony" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 3" mode="Standard" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 3" mode="Performance" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 4" mode="Ecomony" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 4" mode="Standard" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 4" mode="Performance" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 5" mode="Ecomony" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 5" mode="Standard" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 5" mode="Performance" />
+                <subprocessProcessingDevice name="Tank 1" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+            </subprocess>
+          </subprocesses>
+        </processType>
+        <processType name="Weiss Basis B" amountProduced="12t">
+          <comptiableProductionLines>
+            <comptiableProductionLine>ProductionLine 6</comptiableProductionLine>
+            <comptiableProductionLine>ProductionLine 7</comptiableProductionLine>
+          </comptiableProductionLines>
+          <subprocesses>
+            <subprocess name="Weiss Basis B Task 1">
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 3" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 6" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 3" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 6" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 3" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 6" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 3" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 6" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 3" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 6" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 3" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 6" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 4" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 7" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 4" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 7" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 4" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 7" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 4" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 7" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 4" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 7" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 4" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 7" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+            </subprocess>
+            <subprocess name="Weiss Basis B Task 2">
+              <subprocessProcessingDevicesGroup processingTime="90">
+                <subprocessProcessingDevice name="Mixer 6" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="60">
+                <subprocessProcessingDevice name="Mixer 6" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="30">
+                <subprocessProcessingDevice name="Mixer 6" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="90">
+                <subprocessProcessingDevice name="Mixer 7" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="60">
+                <subprocessProcessingDevice name="Mixer 7" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="30">
+                <subprocessProcessingDevice name="Mixer 7" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+            </subprocess>
+            <subprocess name="Weiss Basis B Task 3">
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 6" mode="Ecomony" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 6" mode="Standard" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 6" mode="Performance" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 7" mode="Ecomony" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 7" mode="Standard" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 7" mode="Performance" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+            </subprocess>
+          </subprocesses>
+        </processType>
+        <processType name="Weiss Basis C" amountProduced="12t">
+          <comptiableProductionLines>
+            <comptiableProductionLine>ProductionLine 8</comptiableProductionLine>
+            <comptiableProductionLine>ProductionLine 9</comptiableProductionLine>
+            <comptiableProductionLine>ProductionLine 10</comptiableProductionLine>
+          </comptiableProductionLines>
+          <subprocesses>
+            <subprocess name="Weiss Basis C Task 1">
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 4" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 8" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 4" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 8" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 4" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 8" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 4" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 8" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 4" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 8" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 4" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 8" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 5" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 9" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 5" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 9" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 5" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 9" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 5" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 10" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 5" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 10" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Silo 5" mode="Ecomony" />
+                <subprocessProcessingDevice name="Mixer 10" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 5" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 9" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 5" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 9" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 5" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 9" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 5" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 10" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 5" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 10" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="15">
+                <subprocessProcessingDevice name="Silo 5" mode="Standard" />
+                <subprocessProcessingDevice name="Mixer 10" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+            </subprocess>
+            <subprocess name="Weiss Basis C Task 2">
+              <subprocessProcessingDevicesGroup processingTime="90">
+                <subprocessProcessingDevice name="Mixer 8" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="60">
+                <subprocessProcessingDevice name="Mixer 8" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="30">
+                <subprocessProcessingDevice name="Mixer 8" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="90">
+                <subprocessProcessingDevice name="Mixer 9" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="60">
+                <subprocessProcessingDevice name="Mixer 9" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="30">
+                <subprocessProcessingDevice name="Mixer 9" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="90">
+                <subprocessProcessingDevice name="Mixer 10" mode="Ecomony" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="60">
+                <subprocessProcessingDevice name="Mixer 10" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="30">
+                <subprocessProcessingDevice name="Mixer 10" mode="Performance" />
+              </subprocessProcessingDevicesGroup>
+            </subprocess>
+            <subprocess name="Weiss Basis C Task 3">
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 8" mode="Ecomony" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 8" mode="Standard" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 8" mode="Performance" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 9" mode="Ecomony" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 9" mode="Standard" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 9" mode="Performance" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 10" mode="Ecomony" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 10" mode="Standard" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+              <subprocessProcessingDevicesGroup processingTime="10">
+                <subprocessProcessingDevice name="Mixer 10" mode="Performance" />
+                <subprocessProcessingDevice name="Tank 2" mode="Standard" />
+              </subprocessProcessingDevicesGroup>
+            </subprocess>
+          </subprocesses>
+        </processType>
+      </processTypes>
+    </productionProcess>
+  </productionProcesses>
+  <subprocessRelations>
+    <subprocessRelation source="Std Weiss A Task 1" destination="Std Weiss A Task 2" allensOperator="M" />
+    <subprocessRelation source="Std Weiss A Task 2" destination="Std Weiss A Task 3" allensOperator="M" />
+    <subprocessRelation source="Std Weiss B Task 1" destination="Std Weiss B Task 2" allensOperator="M" />
+    <subprocessRelation source="Std Weiss B Task 2" destination="Std Weiss B Task 3" allensOperator="M" />
+    <subprocessRelation source="Std Weiss C Task 1" destination="Std Weiss C Task 2" allensOperator="M" />
+    <subprocessRelation source="Std Weiss C Task 2" destination="Std Weiss C Task 3" allensOperator="M" />
+    <subprocessRelation source="Weiss Matt A Task 1" destination="Weiss Matt A Task 2" allensOperator="M" />
+    <subprocessRelation source="Weiss Matt A Task 2" destination="Weiss Matt A Task 3" allensOperator="M" />
+    <subprocessRelation source="Weiss Matt B Task 1" destination="Weiss Matt B Task 2" allensOperator="M" />
+    <subprocessRelation source="Weiss Matt B Task 2" destination="Weiss Matt B Task 3" allensOperator="M" />
+    <subprocessRelation source="Weiss Matt C Task 1" destination="Weiss Matt C Task 2" allensOperator="M" />
+    <subprocessRelation source="Weiss Matt C Task 2" destination="Weiss Matt C Task 3" allensOperator="M" />
+    <subprocessRelation source="Super Glanz A Task 1" destination="Super Glanz A Task 2" allensOperator="M" />
+    <subprocessRelation source="Super Glanz A Task 2" destination="Super Glanz A Task 3" allensOperator="M" />
+    <subprocessRelation source="Super Glanz B Task 1" destination="Super Glanz B Task 2" allensOperator="M" />
+    <subprocessRelation source="Super Glanz B Task 2" destination="Super Glanz B Task 3" allensOperator="M" />
+    <subprocessRelation source="Super Glanz C Task 1" destination="Super Glanz C Task 2" allensOperator="M" />
+    <subprocessRelation source="Super Glanz C Task 2" destination="Super Glanz C Task 3" allensOperator="M" />
+    <subprocessRelation source="Weiss Basis A Task 1" destination="Weiss Basis A Task 2" allensOperator="M" />
+    <subprocessRelation source="Weiss Basis A Task 2" destination="Weiss Basis A Task 3" allensOperator="M" />
+    <subprocessRelation source="Weiss Basis B Task 1" destination="Weiss Basis B Task 2" allensOperator="M" />
+    <subprocessRelation source="Weiss Basis B Task 2" destination="Weiss Basis B Task 3" allensOperator="M" />
+    <subprocessRelation source="Weiss Basis C Task 1" destination="Weiss Basis C Task 2" allensOperator="M" />
+    <subprocessRelation source="Weiss Basis C Task 2" destination="Weiss Basis C Task 3" allensOperator="M" />
+  </subprocessRelations>
+  <sequenceDependentSetups>
+    <sequenceDependentSetup source="Std Weiss A" destination="Weiss Matt A" processingDevice="Silo 1" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss A" destination="Weiss Matt A" processingDevice="Silo 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss A" destination="Weiss Matt A" processingDevice="Mixer 5" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss A" destination="Weiss Matt A" processingDevice="Silo 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss A" destination="Weiss Matt A" processingDevice="Mixer 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss A" destination="Weiss Matt A" processingDevice="Mixer 1" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss A" destination="Weiss Matt A" processingDevice="Tank 1" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss A" destination="Weiss Matt A" processingDevice="Mixer 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss A" destination="Weiss Matt A" processingDevice="Mixer 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss A" destination="Weiss Matt B" processingDevice="Silo 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss A" destination="Super Glanz A" processingDevice="Silo 1" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss A" destination="Super Glanz A" processingDevice="Silo 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss A" destination="Super Glanz A" processingDevice="Mixer 5" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss A" destination="Super Glanz A" processingDevice="Silo 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss A" destination="Super Glanz A" processingDevice="Mixer 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss A" destination="Super Glanz A" processingDevice="Mixer 1" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss A" destination="Super Glanz A" processingDevice="Tank 1" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss A" destination="Super Glanz A" processingDevice="Mixer 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss A" destination="Super Glanz A" processingDevice="Mixer 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss A" destination="Super Glanz B" processingDevice="Silo 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss A" destination="Weiss Basis A" processingDevice="Silo 1" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss A" destination="Weiss Basis A" processingDevice="Silo 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss A" destination="Weiss Basis A" processingDevice="Mixer 5" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss A" destination="Weiss Basis A" processingDevice="Silo 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss A" destination="Weiss Basis A" processingDevice="Mixer 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss A" destination="Weiss Basis A" processingDevice="Mixer 1" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss A" destination="Weiss Basis A" processingDevice="Tank 1" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss A" destination="Weiss Basis A" processingDevice="Mixer 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss A" destination="Weiss Basis A" processingDevice="Mixer 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss A" destination="Weiss Basis B" processingDevice="Silo 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss B" destination="Weiss Matt A" processingDevice="Silo 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss B" destination="Weiss Matt B" processingDevice="Mixer 6" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss B" destination="Weiss Matt B" processingDevice="Silo 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss B" destination="Weiss Matt B" processingDevice="Silo 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss B" destination="Weiss Matt B" processingDevice="Mixer 7" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss B" destination="Weiss Matt B" processingDevice="Tank 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss B" destination="Weiss Matt C" processingDevice="Silo 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss B" destination="Weiss Matt C" processingDevice="Tank 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss B" destination="Super Glanz A" processingDevice="Silo 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss B" destination="Super Glanz B" processingDevice="Mixer 6" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss B" destination="Super Glanz B" processingDevice="Silo 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss B" destination="Super Glanz B" processingDevice="Silo 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss B" destination="Super Glanz B" processingDevice="Mixer 7" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss B" destination="Super Glanz B" processingDevice="Tank 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss B" destination="Super Glanz C" processingDevice="Silo 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss B" destination="Super Glanz C" processingDevice="Tank 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss B" destination="Weiss Basis A" processingDevice="Silo 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss B" destination="Weiss Basis B" processingDevice="Mixer 6" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss B" destination="Weiss Basis B" processingDevice="Silo 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss B" destination="Weiss Basis B" processingDevice="Silo 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss B" destination="Weiss Basis B" processingDevice="Mixer 7" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss B" destination="Weiss Basis B" processingDevice="Tank 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss B" destination="Weiss Basis C" processingDevice="Silo 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss B" destination="Weiss Basis C" processingDevice="Tank 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss C" destination="Weiss Matt B" processingDevice="Silo 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss C" destination="Weiss Matt B" processingDevice="Tank 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss C" destination="Weiss Matt C" processingDevice="Mixer 8" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss C" destination="Weiss Matt C" processingDevice="Silo 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss C" destination="Weiss Matt C" processingDevice="Silo 5" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss C" destination="Weiss Matt C" processingDevice="Mixer 10" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss C" destination="Weiss Matt C" processingDevice="Tank 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss C" destination="Weiss Matt C" processingDevice="Mixer 9" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss C" destination="Super Glanz B" processingDevice="Silo 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss C" destination="Super Glanz B" processingDevice="Tank 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss C" destination="Super Glanz C" processingDevice="Mixer 8" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss C" destination="Super Glanz C" processingDevice="Silo 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss C" destination="Super Glanz C" processingDevice="Silo 5" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss C" destination="Super Glanz C" processingDevice="Mixer 10" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss C" destination="Super Glanz C" processingDevice="Tank 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss C" destination="Super Glanz C" processingDevice="Mixer 9" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss C" destination="Weiss Basis B" processingDevice="Silo 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss C" destination="Weiss Basis B" processingDevice="Tank 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss C" destination="Weiss Basis C" processingDevice="Mixer 8" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss C" destination="Weiss Basis C" processingDevice="Silo 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss C" destination="Weiss Basis C" processingDevice="Silo 5" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss C" destination="Weiss Basis C" processingDevice="Mixer 10" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss C" destination="Weiss Basis C" processingDevice="Tank 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Std Weiss C" destination="Weiss Basis C" processingDevice="Mixer 9" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt A" destination="Std Weiss A" processingDevice="Silo 1" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt A" destination="Std Weiss A" processingDevice="Silo 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt A" destination="Std Weiss A" processingDevice="Mixer 5" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt A" destination="Std Weiss A" processingDevice="Silo 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt A" destination="Std Weiss A" processingDevice="Mixer 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt A" destination="Std Weiss A" processingDevice="Mixer 1" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt A" destination="Std Weiss A" processingDevice="Tank 1" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt A" destination="Std Weiss A" processingDevice="Mixer 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt A" destination="Std Weiss A" processingDevice="Mixer 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt A" destination="Std Weiss B" processingDevice="Silo 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt A" destination="Super Glanz A" processingDevice="Silo 1" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt A" destination="Super Glanz A" processingDevice="Silo 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt A" destination="Super Glanz A" processingDevice="Mixer 5" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt A" destination="Super Glanz A" processingDevice="Silo 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt A" destination="Super Glanz A" processingDevice="Mixer 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt A" destination="Super Glanz A" processingDevice="Mixer 1" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt A" destination="Super Glanz A" processingDevice="Tank 1" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt A" destination="Super Glanz A" processingDevice="Mixer 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt A" destination="Super Glanz A" processingDevice="Mixer 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt A" destination="Super Glanz B" processingDevice="Silo 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt B" destination="Std Weiss A" processingDevice="Silo 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt B" destination="Std Weiss B" processingDevice="Mixer 6" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt B" destination="Std Weiss B" processingDevice="Silo 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt B" destination="Std Weiss B" processingDevice="Silo 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt B" destination="Std Weiss B" processingDevice="Mixer 7" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt B" destination="Std Weiss B" processingDevice="Tank 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt B" destination="Std Weiss C" processingDevice="Silo 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt B" destination="Std Weiss C" processingDevice="Tank 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt B" destination="Super Glanz A" processingDevice="Silo 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt B" destination="Super Glanz B" processingDevice="Mixer 6" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt B" destination="Super Glanz B" processingDevice="Silo 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt B" destination="Super Glanz B" processingDevice="Silo 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt B" destination="Super Glanz B" processingDevice="Mixer 7" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt B" destination="Super Glanz B" processingDevice="Tank 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt B" destination="Super Glanz C" processingDevice="Silo 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt B" destination="Super Glanz C" processingDevice="Tank 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt C" destination="Std Weiss B" processingDevice="Silo 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt C" destination="Std Weiss B" processingDevice="Tank 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt C" destination="Std Weiss C" processingDevice="Mixer 8" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt C" destination="Std Weiss C" processingDevice="Silo 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt C" destination="Std Weiss C" processingDevice="Silo 5" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt C" destination="Std Weiss C" processingDevice="Mixer 10" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt C" destination="Std Weiss C" processingDevice="Tank 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt C" destination="Std Weiss C" processingDevice="Mixer 9" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt C" destination="Super Glanz B" processingDevice="Silo 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt C" destination="Super Glanz B" processingDevice="Tank 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt C" destination="Super Glanz C" processingDevice="Mixer 8" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt C" destination="Super Glanz C" processingDevice="Silo 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt C" destination="Super Glanz C" processingDevice="Silo 5" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt C" destination="Super Glanz C" processingDevice="Mixer 10" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt C" destination="Super Glanz C" processingDevice="Tank 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Matt C" destination="Super Glanz C" processingDevice="Mixer 9" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz A" destination="Std Weiss A" processingDevice="Silo 1" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz A" destination="Std Weiss A" processingDevice="Silo 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz A" destination="Std Weiss A" processingDevice="Mixer 5" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz A" destination="Std Weiss A" processingDevice="Silo 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz A" destination="Std Weiss A" processingDevice="Mixer 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz A" destination="Std Weiss A" processingDevice="Mixer 1" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz A" destination="Std Weiss A" processingDevice="Tank 1" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz A" destination="Std Weiss A" processingDevice="Mixer 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz A" destination="Std Weiss A" processingDevice="Mixer 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz A" destination="Std Weiss B" processingDevice="Silo 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz A" destination="Weiss Matt A" processingDevice="Silo 1" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz A" destination="Weiss Matt A" processingDevice="Silo 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz A" destination="Weiss Matt A" processingDevice="Mixer 5" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz A" destination="Weiss Matt A" processingDevice="Silo 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz A" destination="Weiss Matt A" processingDevice="Mixer 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz A" destination="Weiss Matt A" processingDevice="Mixer 1" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz A" destination="Weiss Matt A" processingDevice="Tank 1" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz A" destination="Weiss Matt A" processingDevice="Mixer 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz A" destination="Weiss Matt A" processingDevice="Mixer 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz A" destination="Weiss Matt B" processingDevice="Silo 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz A" destination="Weiss Basis A" processingDevice="Silo 1" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz A" destination="Weiss Basis A" processingDevice="Silo 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz A" destination="Weiss Basis A" processingDevice="Mixer 5" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz A" destination="Weiss Basis A" processingDevice="Silo 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz A" destination="Weiss Basis A" processingDevice="Mixer 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz A" destination="Weiss Basis A" processingDevice="Mixer 1" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz A" destination="Weiss Basis A" processingDevice="Tank 1" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz A" destination="Weiss Basis A" processingDevice="Mixer 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz A" destination="Weiss Basis A" processingDevice="Mixer 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz A" destination="Weiss Basis B" processingDevice="Silo 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz B" destination="Std Weiss A" processingDevice="Silo 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz B" destination="Std Weiss B" processingDevice="Mixer 6" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz B" destination="Std Weiss B" processingDevice="Silo 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz B" destination="Std Weiss B" processingDevice="Silo 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz B" destination="Std Weiss B" processingDevice="Mixer 7" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz B" destination="Std Weiss B" processingDevice="Tank 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz B" destination="Std Weiss C" processingDevice="Silo 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz B" destination="Std Weiss C" processingDevice="Tank 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz B" destination="Weiss Matt A" processingDevice="Silo 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz B" destination="Weiss Matt B" processingDevice="Mixer 6" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz B" destination="Weiss Matt B" processingDevice="Silo 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz B" destination="Weiss Matt B" processingDevice="Silo 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz B" destination="Weiss Matt B" processingDevice="Mixer 7" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz B" destination="Weiss Matt B" processingDevice="Tank 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz B" destination="Weiss Matt C" processingDevice="Silo 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz B" destination="Weiss Matt C" processingDevice="Tank 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz B" destination="Weiss Basis A" processingDevice="Silo 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz B" destination="Weiss Basis B" processingDevice="Mixer 6" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz B" destination="Weiss Basis B" processingDevice="Silo 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz B" destination="Weiss Basis B" processingDevice="Silo 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz B" destination="Weiss Basis B" processingDevice="Mixer 7" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz B" destination="Weiss Basis B" processingDevice="Tank 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz B" destination="Weiss Basis C" processingDevice="Silo 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz B" destination="Weiss Basis C" processingDevice="Tank 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz C" destination="Std Weiss B" processingDevice="Silo 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz C" destination="Std Weiss B" processingDevice="Tank 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz C" destination="Std Weiss C" processingDevice="Mixer 8" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz C" destination="Std Weiss C" processingDevice="Silo 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz C" destination="Std Weiss C" processingDevice="Silo 5" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz C" destination="Std Weiss C" processingDevice="Mixer 10" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz C" destination="Std Weiss C" processingDevice="Tank 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz C" destination="Std Weiss C" processingDevice="Mixer 9" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz C" destination="Weiss Matt B" processingDevice="Silo 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz C" destination="Weiss Matt B" processingDevice="Tank 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz C" destination="Weiss Matt C" processingDevice="Mixer 8" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz C" destination="Weiss Matt C" processingDevice="Silo 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz C" destination="Weiss Matt C" processingDevice="Silo 5" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz C" destination="Weiss Matt C" processingDevice="Mixer 10" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz C" destination="Weiss Matt C" processingDevice="Tank 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz C" destination="Weiss Matt C" processingDevice="Mixer 9" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz C" destination="Weiss Basis B" processingDevice="Silo 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz C" destination="Weiss Basis B" processingDevice="Tank 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz C" destination="Weiss Basis C" processingDevice="Mixer 8" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz C" destination="Weiss Basis C" processingDevice="Silo 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz C" destination="Weiss Basis C" processingDevice="Silo 5" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz C" destination="Weiss Basis C" processingDevice="Mixer 10" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz C" destination="Weiss Basis C" processingDevice="Tank 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Super Glanz C" destination="Weiss Basis C" processingDevice="Mixer 9" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis A" destination="Std Weiss A" processingDevice="Silo 1" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis A" destination="Std Weiss A" processingDevice="Silo 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis A" destination="Std Weiss A" processingDevice="Mixer 5" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis A" destination="Std Weiss A" processingDevice="Silo 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis A" destination="Std Weiss A" processingDevice="Mixer 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis A" destination="Std Weiss A" processingDevice="Mixer 1" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis A" destination="Std Weiss A" processingDevice="Tank 1" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis A" destination="Std Weiss A" processingDevice="Mixer 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis A" destination="Std Weiss A" processingDevice="Mixer 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis A" destination="Std Weiss B" processingDevice="Silo 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis A" destination="Super Glanz A" processingDevice="Silo 1" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis A" destination="Super Glanz A" processingDevice="Silo 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis A" destination="Super Glanz A" processingDevice="Mixer 5" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis A" destination="Super Glanz A" processingDevice="Silo 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis A" destination="Super Glanz A" processingDevice="Mixer 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis A" destination="Super Glanz A" processingDevice="Mixer 1" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis A" destination="Super Glanz A" processingDevice="Tank 1" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis A" destination="Super Glanz A" processingDevice="Mixer 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis A" destination="Super Glanz A" processingDevice="Mixer 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis A" destination="Super Glanz B" processingDevice="Silo 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis B" destination="Std Weiss A" processingDevice="Silo 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis B" destination="Std Weiss B" processingDevice="Mixer 6" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis B" destination="Std Weiss B" processingDevice="Silo 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis B" destination="Std Weiss B" processingDevice="Silo 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis B" destination="Std Weiss B" processingDevice="Mixer 7" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis B" destination="Std Weiss B" processingDevice="Tank 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis B" destination="Std Weiss C" processingDevice="Silo 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis B" destination="Std Weiss C" processingDevice="Tank 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis B" destination="Super Glanz A" processingDevice="Silo 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis B" destination="Super Glanz B" processingDevice="Mixer 6" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis B" destination="Super Glanz B" processingDevice="Silo 3" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis B" destination="Super Glanz B" processingDevice="Silo 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis B" destination="Super Glanz B" processingDevice="Mixer 7" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis B" destination="Super Glanz B" processingDevice="Tank 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis B" destination="Super Glanz C" processingDevice="Silo 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis B" destination="Super Glanz C" processingDevice="Tank 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis C" destination="Std Weiss B" processingDevice="Silo 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis C" destination="Std Weiss B" processingDevice="Tank 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis C" destination="Std Weiss C" processingDevice="Mixer 8" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis C" destination="Std Weiss C" processingDevice="Silo 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis C" destination="Std Weiss C" processingDevice="Silo 5" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis C" destination="Std Weiss C" processingDevice="Mixer 10" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis C" destination="Std Weiss C" processingDevice="Tank 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis C" destination="Std Weiss C" processingDevice="Mixer 9" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis C" destination="Super Glanz B" processingDevice="Silo 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis C" destination="Super Glanz B" processingDevice="Tank 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis C" destination="Super Glanz C" processingDevice="Mixer 8" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis C" destination="Super Glanz C" processingDevice="Silo 4" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis C" destination="Super Glanz C" processingDevice="Silo 5" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis C" destination="Super Glanz C" processingDevice="Mixer 10" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis C" destination="Super Glanz C" processingDevice="Tank 2" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+    <sequenceDependentSetup source="Weiss Basis C" destination="Super Glanz C" processingDevice="Mixer 9" extraProcessingTime="10" extraEnergyConsumption="10" extraMonetaryCost="1000" />
+  </sequenceDependentSetups>
+</OASFactoryModel>

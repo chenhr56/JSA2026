@@ -10,13 +10,17 @@ import java.util.stream.Collectors;
 import org.apache.commons.lang3.tuple.MutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 
-import TC_experiments.ResultBundle;
+import JSA_experiments.ResultBundle;
+import aura.GePIM;
+import aura.MOGOMEA;
+import aura.MOP3;
 import aura.PopulationEntry;
 import factoryModel.ONA.ONAFactoryModel;
 import indicator.DCICaculator;
 import metrics.Configuration;
 import metrics.ConfigurationType;
 import metrics.OptimisationArguments;
+import metrics.SearchDirection;
 import metrics.Utility;
 import metrics.Value;
 import metrics.ValueType;
@@ -85,6 +89,27 @@ public class ManagerPP {
 
 		of = (ObjectiveFunction.LocalObjectiveFunction) bc.getObjectiveFunction();
 
+		// MOP3
+		if (RemoveMethod == -6) {
+			this.populationSize = populationSize * island;
+			// generations = generations * 40;
+			NoOfStages = 1;
+		}
+
+		// MOGOMEA
+		if (RemoveMethod == -5) {
+			this.populationSize = populationSize * island;
+			// generations = generations * 40;
+			NoOfStages = 1;
+		}
+
+		// GePIM
+		if (RemoveMethod == -4) {
+			this.populationSize = 200;
+			// generations = generations * 40;
+			// NoOfStages = 1;
+		}
+
 		// NSGA-II
 		if (RemoveMethod == -3) {
 			this.populationSize = populationSize * island;
@@ -99,7 +124,7 @@ public class ManagerPP {
 		}
 
 		if (testSameCPUTime) {
-			System.out.println("here");
+			System.out.println("testSameCPUTime here");
 			// traditional MOEA/D
 			if (RemoveMethod == -2) {
 				this.NoOfStages = moead_stage * Global_NoOfStages * island;
@@ -763,10 +788,30 @@ public class ManagerPP {
 		final int iterations = generations;
 
 		int engine = RemoveMethod == -3 ? 1 : 0;
-		final OptimisationEngine3 oe = new AuraLocalOptimisationEngine3(of, iterations, rng, engine);
+		// final OptimisationEngine3 oe = new AuraLocalOptimisationEngine3(of, iterations, rng, engine);
 
 		final long startTime = System.currentTimeMillis();
-		final OptimisationIslandResult or = oe.optimise(optimisationArguments);
+		OptimisationIslandResult or;
+
+    	if (RemoveMethod == -6) {
+        	// MOP3
+        	or = MOP3.apply(optimisationArguments.getConfigurations(), of,
+            	SearchDirection.MINIMIZING, rng, iterations * populationSize);
+    	} if (RemoveMethod == -5) {
+        	// MOGOMEA
+        	or = MOGOMEA.apply(optimisationArguments.getConfigurations(), of,
+            	SearchDirection.MINIMIZING, rng, iterations * populationSize,
+            (int) Math.sqrt(populationSize));
+    	} else if (RemoveMethod == -4) {
+        	// GePIM
+        	or = GePIM.apply(optimisationArguments.getConfigurations(), of,
+            	SearchDirection.MINIMIZING, rng, iterations * populationSize);
+    	} else {
+        	final OptimisationEngine3 oe = new AuraLocalOptimisationEngine3(of, iterations, rng, engine);
+        	or = oe.optimise(optimisationArguments);
+    	}
+
+		// final OptimisationIslandResult or = oe.optimise(optimisationArguments);
 		final long endTime = System.currentTimeMillis();
 
 		or.optimisationTime = (double) (endTime - startTime) / (double) 1000.0;

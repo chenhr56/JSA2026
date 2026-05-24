@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C \"D:\\\\code\\\\FactoryOptimization\\\\FactoryOptimization\\\\FactoryGAOptimization\" log --all --oneline --=\"aura\" --name-only)",
+      "Bash(git -C \"D:\\\\code\\\\FactoryOptimization\\\\FactoryOptimization\\\\FactoryGAOptimization\" log --all --oneline --diff-filter=D -- \"*MOP*\")",
+      "Bash(git -C \"D:\\\\code\\\\FactoryOptimization\\\\FactoryOptimization\\\\FactoryGAOptimization\" log --all --oneline)",
+      "Bash(git -C \"D:\\\\code\\\\FactoryOptimization\\\\FactoryOptimization\\\\FactoryGAOptimization\" log --all --oneline -- \"*.java\")",
+      "Bash(git *)",
+      "Bash(pdftotext \"D:/code/FactoryOptimization/FactoryOptimization/FactoryGAOptimization/paper/JSA2026.pdf\" -)"
+    ]
+  }
+}
