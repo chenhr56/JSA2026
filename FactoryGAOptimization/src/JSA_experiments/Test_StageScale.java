@@ -52,6 +52,7 @@ public class Test_StageScale {
 				}
 
 				System.out.println("*******************************************************");
+				TCADResultsReaderAndAnalyzer.factory_Size = j;
 				TCADResultsReaderAndAnalyzer.runAnalysisFactory(folder, numberOfIslands);
 				System.out.println("*******************************************************");
 				System.out.println("--------------------------------------------------------------------");
