@@ -33,7 +33,7 @@ public class Para_Test_FactoryScale {
         int NoC = 5;
         String folder = "diff_kappa_factoryScale_result/";
 
-        int threadNum = Math.min(16, Runtime.getRuntime().availableProcessors());
+        int threadNum = Math.min(8, Runtime.getRuntime().availableProcessors());
 
         java.util.concurrent.ExecutorService pool = java.util.concurrent.Executors.newFixedThreadPool(threadNum);
 
