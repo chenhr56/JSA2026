@@ -57,9 +57,6 @@ public final class OnaConfigurationType {
 		if (ONAReader == null || currentScale != factoryModel.ONA.ONAFactoryModel.scale) {
 			ONAXMLReader reader = new ONAXMLReader();
 			reader.readOASInput();
-		if (ONAReader == null) {
-			ONAReader = new ONAXMLReader();
-			ONAReader.readOASInput();
 
 			objectives = ONAReader.getObjectivesList();
 			devices = ONAReader.getResources();
