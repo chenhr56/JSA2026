@@ -13,6 +13,9 @@ import restCloud.ManagerPP;
 import restCloud.ManagerPPLocal;
 import restCloud.ResultAnalyser;
 
+/**
+ * 对应图8的实验
+ */
 public class Test_StageScale {
 	
 	public static void main(String args[]) {
@@ -32,10 +35,10 @@ public class Test_StageScale {
 
 		int numberOfIslands = 5;
 		int NoC = 5;
-		String folder = "result_factory1/";
+		String folder = "fig_8_stageScale_result/";
 
 
-		for (int j = 1; j < 2; j++) {
+		for (int j = 2; j <= 2; j++) {
 
 			for (int s = 1; s <= 10; s = s + 1) {
 

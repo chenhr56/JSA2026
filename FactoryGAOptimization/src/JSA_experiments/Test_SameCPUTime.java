@@ -14,7 +14,9 @@ import restCloud.ManagerPPLocal;
 import restCloud.ResultAnalyser;
 
 public class Test_SameCPUTime {
-	
+	/**
+	 * 对应表6实验
+	 */
 	
 
 	
@@ -39,7 +41,7 @@ public class Test_SameCPUTime {
 
 		int numberOfIslands = 5;
 		int NoC = 5;
-		String folder = "result_factory1/";
+		String folder = "tab6_result_factory";
 
 //		runGAforOneSize(factorySize, runGroup, NoC);
 

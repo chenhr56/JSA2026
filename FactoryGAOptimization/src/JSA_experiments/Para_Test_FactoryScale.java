@@ -16,7 +16,7 @@ import restCloud.ManagerPP;
 import restCloud.ManagerPPLocal;
 import restCloud.ResultAnalyser;
 /**
- * 图7：测试不同问题规模：lambda(j)=1,2,...,16
+ * 图7：测试不同问题规模：lambda(j)=1,2,...,32
  */
 public class Para_Test_FactoryScale {
 
@@ -31,7 +31,7 @@ public class Para_Test_FactoryScale {
 
         int numberOfIslands = 5;
         int NoC = 5;
-        String folder = "para_factoryScale-Result/";
+        String folder = "diff_kappa_factoryScale_result/";
 
         int threadNum = Math.min(16, Runtime.getRuntime().availableProcessors());
 
@@ -40,7 +40,7 @@ public class Para_Test_FactoryScale {
         java.util.List<java.util.concurrent.Future<?>> futures = new java.util.ArrayList<>();
 
         try {
-            for (int j = 1; j <= 16; j++) {
+            for (int j = 1; j <= 32; j++) {
                 final int factoryScale = j;
 
                 futures.add(pool.submit(() -> {

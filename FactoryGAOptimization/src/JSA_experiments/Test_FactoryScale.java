@@ -14,7 +14,9 @@ import restCloud.ManagerPPLocal;
 import restCloud.ResultAnalyser;
 
 public class Test_FactoryScale {
-
+/**
+ * 对应图5 6的实验
+ */
 	public static void main(String args[]) {
 		start();
 	}
