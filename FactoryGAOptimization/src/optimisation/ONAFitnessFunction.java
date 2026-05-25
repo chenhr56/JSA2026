@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.tuple.MutablePair;
 
+import factoryModel.ONA.Device;
 import factoryModel.ONA.ProductionProcess;
 import metrics.Configuration;
 import metrics.Value;
@@ -41,7 +42,7 @@ public class ONAFitnessFunction extends ObjectiveFunction.LocalObjectiveFunction
 		 * Organize parts information
 		 */
 		List<String> parts = new ArrayList<>();
-		for (ProductionProcess process : OnaConfigurationType.processes) {
+		for (ProductionProcess process : processes) {
 			String name = process.getName();
 
 			for (int i = 0; i < process.getInstanceNumber(); i++) {
@@ -84,7 +85,7 @@ public class ONAFitnessFunction extends ObjectiveFunction.LocalObjectiveFunction
 
 			String shortName = name.split(" ")[0];
 			int number = Integer.parseInt(shortName.substring(1, shortName.length())) - 1;
-			int index_allocation = OnaConfigurationType.processes.get(number).compitableResourceName
+			int index_allocation = processes.get(number).compitableResourceName
 					.indexOf(allocation);
 
 			if (index_allocation < 0) {
@@ -106,7 +107,7 @@ public class ONAFitnessFunction extends ObjectiveFunction.LocalObjectiveFunction
 		/**
 		 * Allocate parts now
 		 */
-		long[] makespan = new long[OnaConfigurationType.devices.size()];
+		long[] makespan = new long[devices.size()];
 
 		double finalTime = 0;
 		double finalCost = 0;
@@ -120,10 +121,10 @@ public class ONAFitnessFunction extends ObjectiveFunction.LocalObjectiveFunction
 				baseIndex = 0;
 			}
 			if (machine_size.equals("Medium")) {
-				baseIndex = OnaConfigurationType.devices.size() / 3;
+				baseIndex = devices.size() / 3;
 			}
 			if (machine_size.equals("Large")) {
-				baseIndex = OnaConfigurationType.devices.size() / 3 * 2;
+				baseIndex = devices.size() / 3 * 2;
 			}
 
 			int index = baseIndex + wireNum;
@@ -133,12 +134,12 @@ public class ONAFitnessFunction extends ObjectiveFunction.LocalObjectiveFunction
 			finalCost += so.cost;
 		}
 
-		long[] makespanWithMutex = new long[OnaConfigurationType.devices.size() / 3];
+		long[] makespanWithMutex = new long[devices.size() / 3];
 
 		for (int i = 0; i < makespanWithMutex.length; i++) {
 			int smallIndex = i;
-			int mediumIndex = i + OnaConfigurationType.devices.size() / 3;
-			int largeIndex = i + OnaConfigurationType.devices.size() / 3 * 2;
+			int mediumIndex = i + devices.size() / 3;
+			int largeIndex = i + devices.size() / 3 * 2;
 
 			makespanWithMutex[i] += makespan[smallIndex];
 			makespanWithMutex[i] += makespan[mediumIndex];

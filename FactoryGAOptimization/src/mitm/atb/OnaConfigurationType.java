@@ -51,18 +51,18 @@ public final class OnaConfigurationType {
 		// [多线程修复] 原条件: if (ONAReader == null)
 		// 问题1: 仅判断 null，不感知 scale 变化。线程 A 加载 scale=3 后，线程 B 切换到 scale=8 时不会重新初始化。
 		// 问题2: 外部代码（如 Para_Test_FactoryScale）直接 ONAReader=null 可在 presetup() 执行中途置空，
-		//        导致后续 ONAReader.getObjectivesList() 抛出 NullPointerException。
+		//        导致后续 reader.getObjectivesList() 抛出 NullPointerException。
 		// 修复: (1) 增加 currentScale 跟踪，scale 变化时强制重新加载。
 		//       (2) 使用局部变量 reader，最后才赋值给 ONAReader，防止中途被外部置 null。
 		if (ONAReader == null || currentScale != factoryModel.ONA.ONAFactoryModel.scale) {
 			ONAXMLReader reader = new ONAXMLReader();
 			reader.readOASInput();
 
-			objectives = ONAReader.getObjectivesList();
-			devices = ONAReader.getResources();
-			processes = ONAReader.getProcesses();
-			relation = ONAReader.getRelations();
-			setUps = ONAReader.getSetUps();
+			objectives = reader.getObjectivesList();
+			devices = reader.getResources();
+			processes = reader.getProcesses();
+			relation = reader.getRelations();
+			setUps = reader.getSetUps();
 
 			devicesName = new ArrayList<>();
 			for (Device d : devices) {
