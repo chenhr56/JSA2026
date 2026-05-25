@@ -72,10 +72,21 @@ public class ONAFitnessFunction extends ObjectiveFunction.LocalObjectiveFunction
 			String name = parts.get(i);
 			String allocation = allocs[i];
 
+			if (allocation == null) {
+				throw new IllegalStateException(
+						"Missing allocation for part '" + name + "'. Configuration/processes mismatch.");
+			}
+
 			String shortName = name.split(" ")[0];
 			int number = Integer.parseInt(shortName.substring(1, shortName.length())) - 1;
 			int index_allocation = processes.get(number).compitableResourceName
 					.indexOf(allocation);
+
+			if (index_allocation < 0) {
+				throw new IllegalStateException(
+						"Allocation '" + allocation + "' not found for part '" + name
+								+ "'. Configuration may have been created with a different problem scale.");
+			}
 
 			int cost = processes.get(number).montarys.get(index_allocation);
 			int time = processes.get(number).processingTime.get(index_allocation);

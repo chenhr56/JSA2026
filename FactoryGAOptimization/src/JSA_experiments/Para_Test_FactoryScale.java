@@ -40,12 +40,11 @@ public class Para_Test_FactoryScale {
         java.util.List<java.util.concurrent.Future<?>> futures = new java.util.ArrayList<>();
 
         try {
-            for (int j = 1; j <= 32; j++) {
+            for (int j = 1; j <= 10; j++) {
                 final int factoryScale = j;
 
                 futures.add(pool.submit(() -> {
                     for (int i = 1; i < 41; i++) {
-                        OnaConfigurationType.ONAReader = null;
                         runGAforOneSize(factoryScale, i, NoC, folder, numberOfIslands);
                     }
                 }));

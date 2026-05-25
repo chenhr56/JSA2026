@@ -39,19 +39,20 @@ public final class OnaConfigurationType {
 	public static List<ProductionProcess> processes;
 	public static List<SubProcessRelation> relation;
 	private static List<SequenceDependentTaskInfo> setUps = null;
+	private static int currentScale = -1;
 
 	public static Map<String, List<String>> unAvailableTimes = new HashMap<>();
 
 	public static synchronized void presetup() {
-		if (ONAReader == null) {
-			ONAReader = new ONAXMLReader();
-			ONAReader.readOASInput();
+		if (ONAReader == null || currentScale != factoryModel.ONA.ONAFactoryModel.scale) {
+			ONAXMLReader reader = new ONAXMLReader();
+			reader.readOASInput();
 
-			objectives = ONAReader.getObjectivesList();
-			devices = ONAReader.getResources();
-			processes = ONAReader.getProcesses();
-			relation = ONAReader.getRelations();
-			setUps = ONAReader.getSetUps();
+			objectives = reader.getObjectivesList();
+			devices = reader.getResources();
+			processes = reader.getProcesses();
+			relation = reader.getRelations();
+			setUps = reader.getSetUps();
 
 			devicesName = new ArrayList<>();
 			for (Device d : devices) {
@@ -63,6 +64,9 @@ public final class OnaConfigurationType {
 					unAvailableTimes.put(deviceID, Arrays.asList(d.getNotavailbaileTime().split(" ")));
 				}
 			}
+
+			currentScale = factoryModel.ONA.ONAFactoryModel.scale;
+			ONAReader = reader;
 		}
 	}
 
