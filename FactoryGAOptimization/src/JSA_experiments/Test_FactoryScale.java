@@ -32,7 +32,7 @@ public class Test_FactoryScale {
 
 		int numberOfIslands = 5;
 		int NoC = 5;
-		String folder = "factoryScale_result/";
+		String folder = "Fig5-6_factoryScale_result/";
 
 //		runGAforOneSize(factorySize, runGroup, NoC);
 

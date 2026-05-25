@@ -30,7 +30,7 @@ public class ManagerPPLocal {
 
 //		System.out.println(getName(RemoveMethod, addMethod));
 
-		int numberOfIslands = (RemoveMethod == -2 || RemoveMethod == -3 || RemoveMethod == -4 || RemoveMethod == -5) ? 1 : numberOfIslandsParam;
+		int numberOfIslands = (RemoveMethod == -2 || RemoveMethod == -3 || RemoveMethod == -4 || RemoveMethod == -5 || RemoveMethod == -6) ? 1 : numberOfIslandsParam;
 		Random ran = new Random(seeds);
 		List<ParetoFrontCapsule> globalCaps = new ArrayList<>();
 		List<List<Integer>> numberOfActions = new ArrayList<>();
