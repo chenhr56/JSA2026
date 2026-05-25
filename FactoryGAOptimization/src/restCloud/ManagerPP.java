@@ -849,10 +849,10 @@ public class ManagerPP {
 		ONAFactoryModel.scale = ONAfactoryScale;
 
 		ct = bc.getConfigurationType(percentAvailability, random);
-			// [多线程修复] presetup() 完成后立即将本线程的 processes/devices 保存到 ThreadLocal，
-			// 后续本线程内所有 ONAFitnessFunction 评估（引擎的 of.evaluate 和 linkageMigration 的
-			// getFitness）都从 ThreadLocal 读取，不受其他线程 presetup() 切换 scale 的影响。
-			ONAFitnessFunction.captureForCurrentThread();
+			// [多线程修复] captureForCurrentThread() 已移至 OnaConfigurationType.presetup()
+			// 内部的 synchronized 块中调用。在此处调用会存在窗口：presetup() 释放锁后、
+			// 本行执行前，其他线程的 presetup() 可能已改写静态字段，导致捕获到错误 scale 的数据。
+			// 因此不在 startIsland() 中重复调用，避免覆盖 presetup() 内已设置的正确 ThreadLocal 值。
 		Configuration configurationTemplate = Utility.randomConfiguration(ct, random);
 		List<OptimisationArguments> optimisationArguments = new ArrayList<OptimisationArguments>();
 		UoYEarlyPrototypeDemo.observableMetrics = Utility

@@ -79,6 +79,12 @@ public final class OnaConfigurationType {
 			// 确保外部代码读到非 null 的 ONAReader 时，processes/devices 等字段已完整就绪。
 			currentScale = factoryModel.ONA.ONAFactoryModel.scale;
 			ONAReader = reader;
+
+				// [多线程修复] 在 synchronized 块内立即将 processes/devices 保存到 ThreadLocal，
+				// 保证本线程后续所有 ONAFitnessFunction 评估都使用本次 presetup() 设定的数据。
+				// 如果在 presetup() 外部调用 captureForCurrentThread()，synchronized 锁已释放，
+				// 其他线程可能在调用前改写静态字段，导致捕获到错误 scale 的数据。
+				optimisation.ONAFitnessFunction.captureForCurrentThread();
 		}
 	}
 

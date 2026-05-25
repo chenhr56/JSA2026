@@ -49,6 +49,15 @@ public class ONAFitnessFunction extends ObjectiveFunction.LocalObjectiveFunction
 		List<ProductionProcess> processes = tlProcesses.get();
 		List<Device> devices = tlDevices.get();
 
+			// [多线程修复] Fallback：单线程场景（如 LinkageFactory.main()）不会调用
+			// captureForCurrentThread()，ThreadLocal 为 null，此时直接读静态字段。
+			if (processes == null) {
+				processes = OnaConfigurationType.processes;
+			}
+			if (devices == null) {
+				devices = OnaConfigurationType.devices;
+			}
+
 		Map<String, Value> controlMetric = current.getControlledMetrics();
 
 		List<MutablePair<String, Value>> controlsList = controlMetric.entrySet().stream()

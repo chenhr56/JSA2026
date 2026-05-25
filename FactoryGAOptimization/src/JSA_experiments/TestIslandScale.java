@@ -26,11 +26,11 @@ public class TestIslandScale {
 		int factorySize = 1;
 		// int runGroup = 2;
 		// int NoC = 5;
-		String folder = "IslandScale_result/";
+		String folder = "NoIsland_result/";
 
 		// runGAforOneSize(factorySize, runGroup, NoC);
 
-		for (int j = 2; j < 11; j++) {
+		for (int j = 1; j < 11; j++) {
 			for (int i = 1; i < 41; i++) {
 				OnaConfigurationType.ONAReader = null;
 				runGAforOneSize(factorySize, i, j, folder, j);
