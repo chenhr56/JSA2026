@@ -20,18 +20,34 @@ import restCloud.SchedulableObject;
 
 public class ONAFitnessFunction extends ObjectiveFunction.LocalObjectiveFunction {
 
+	// [多线程修复] 使用 ThreadLocal 为每个线程保存独立的 processes/devices 快照。
+	// 原代码直接读取 OnaConfigurationType.processes/devices 静态字段，
+	// 多线程下不同 scale 的 presetup() 会替换这些静态 List，导致评估时使用的
+	// processes/devices 与 Configuration 创建时不一致，抛出 ArrayIndexOutOfBounds 等异常。
+	// ThreadLocal 保证每个线程在 startIsland() 中调用 captureForCurrentThread() 后，
+	// 本线程内所有评估（包括 getFitness 和引擎的 of.evaluate）都使用同一份数据。
+	private static ThreadLocal<List<ProductionProcess>> tlProcesses = new ThreadLocal<>();
+	private static ThreadLocal<List<Device>> tlDevices = new ThreadLocal<>();
+
+	/**
+	 * [多线程修复] 当前线程在 presetup() 完成后调用此方法，将本线程所用 scale 的
+	 * processes/devices 保存到 ThreadLocal。此后本线程内所有 predictKeyObjectivesImpl
+	 * 调用都使用这份数据，不受其他线程 presetup() 的影响。
+	 */
+	public static void captureForCurrentThread() {
+		tlProcesses.set(OnaConfigurationType.processes);
+		tlDevices.set(OnaConfigurationType.devices);
+	}
+
 	public static List<Double> getFitness(Configuration config) {
 		return new ONAFitnessFunction().predictKeyObjectivesImpl(config);
 	}
 
 	public List<Double> predictKeyObjectivesImpl(Configuration current) {
-		// [多线程修复] 快照 OnaConfigurationType 的静态字段到局部变量。
-		// 原代码在方法中部多次读取 OnaConfigurationType.processes / .devices，
-		// 多线程下另一个线程的 presetup() 可能中途替换这些 List 为不同 scale 的数据，
-		// 导致 IndexOutOfBoundsException（line 74/108）。
-		// 捕获引用后，即使静态字段被替换，本方法仍持有本次调用对应的 processes/devices。
-		List<ProductionProcess> processes = OnaConfigurationType.processes;
-		List<Device> devices = OnaConfigurationType.devices;
+		// [多线程修复] 从 ThreadLocal 获取本线程专属的 processes/devices，
+		// 而非直接读取 OnaConfigurationType 静态字段。
+		List<ProductionProcess> processes = tlProcesses.get();
+		List<Device> devices = tlDevices.get();
 
 		Map<String, Value> controlMetric = current.getControlledMetrics();
 
@@ -59,6 +75,13 @@ public class ONAFitnessFunction extends ObjectiveFunction.LocalObjectiveFunction
 
 			int index = parts.indexOf(name);
 
+			// [多线程修复] 防御性检查：如果 index==-1，说明 Configuration 与当前 processes 不匹配
+			if (index < 0) {
+				throw new IllegalStateException(
+						"[多线程] part='" + name + "' 不在 processes 的 parts 列表中。"
+								+ "Configuration 可能使用了不同 scale 的 processes。");
+			}
+
 			if (p.getKey().contains("priority")) {
 				Int prio = (Value.Int) p.right;
 				int pri = prio.value;
@@ -75,9 +98,7 @@ public class ONAFitnessFunction extends ObjectiveFunction.LocalObjectiveFunction
 			String name = parts.get(i);
 			String allocation = allocs[i];
 
-			// [多线程修复] 增加防御性检查：如果 allocation 为 null 或 indexOf 返回 -1，
-			// 说明 Configuration 与当前 processes 不匹配（属于不同 scale），给出明确报错。
-			// 原代码直接使用返回值导致 IndexOutOfBoundsException。
+			// [多线程修复] 防御性检查：allocation 为 null 说明 Configuration 与 processes 不匹配
 			if (allocation == null) {
 				throw new IllegalStateException(
 						"[多线程] allocation 为 null, part='" + name + "'. Configuration-processes 不匹配。");
@@ -88,11 +109,11 @@ public class ONAFitnessFunction extends ObjectiveFunction.LocalObjectiveFunction
 			int index_allocation = processes.get(number).compitableResourceName
 					.indexOf(allocation);
 
+			// [多线程修复] 防御性检查
 			if (index_allocation < 0) {
 				throw new IllegalStateException(
 						"[多线程] allocation='" + allocation + "' 未在 processes[" + number
-								+ "].compitableResourceName 中找到, part='" + name
-								+ "'. 当前 processes 可能属于不同 scale。");
+								+ "].compitableResourceName 中找到, part='" + name + "'。");
 			}
 
 			int cost = processes.get(number).montarys.get(index_allocation);
