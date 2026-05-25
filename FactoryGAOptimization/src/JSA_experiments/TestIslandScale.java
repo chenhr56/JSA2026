@@ -26,7 +26,7 @@ public class TestIslandScale {
 		int factorySize = 1;
 		// int runGroup = 2;
 		// int NoC = 5;
-		String folder = "result_island/";
+		String folder = "IslandScale_result/";
 
 		// runGAforOneSize(factorySize, runGroup, NoC);
 
