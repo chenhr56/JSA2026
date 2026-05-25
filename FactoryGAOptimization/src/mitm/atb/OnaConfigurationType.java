@@ -31,6 +31,7 @@ import metrics.ValueType;
 
 public final class OnaConfigurationType {
 
+	// [多线程修复] ONAReader 保持 public 以兼容旧代码直接置 null 的调用方，但 presetup() 不再仅依赖 null 判断。
 	public static ONAXMLReader ONAReader = null;
 
 	public static List<String> objectives;
@@ -40,18 +41,28 @@ public final class OnaConfigurationType {
 	public static List<SubProcessRelation> relation;
 	private static List<SequenceDependentTaskInfo> setUps = null;
 
+	// [多线程修复] 记录当前已加载的 scale，用于检测 scale 变化并触发重新初始化。
+	// 原代码仅判断 ONAReader==null，多线程下不同 scale 切换时无法自动重新加载。
+	private static int currentScale = -1;
+
 	public static Map<String, List<String>> unAvailableTimes = new HashMap<>();
 
 	public static synchronized void presetup() {
-		if (ONAReader == null) {
-			ONAReader = new ONAXMLReader();
-			ONAReader.readOASInput();
+		// [多线程修复] 原条件: if (ONAReader == null)
+		// 问题1: 仅判断 null，不感知 scale 变化。线程 A 加载 scale=3 后，线程 B 切换到 scale=8 时不会重新初始化。
+		// 问题2: 外部代码（如 Para_Test_FactoryScale）直接 ONAReader=null 可在 presetup() 执行中途置空，
+		//        导致后续 ONAReader.getObjectivesList() 抛出 NullPointerException。
+		// 修复: (1) 增加 currentScale 跟踪，scale 变化时强制重新加载。
+		//       (2) 使用局部变量 reader，最后才赋值给 ONAReader，防止中途被外部置 null。
+		if (ONAReader == null || currentScale != factoryModel.ONA.ONAFactoryModel.scale) {
+			ONAXMLReader reader = new ONAXMLReader();
+			reader.readOASInput();
 
-			objectives = ONAReader.getObjectivesList();
-			devices = ONAReader.getResources();
-			processes = ONAReader.getProcesses();
-			relation = ONAReader.getRelations();
-			setUps = ONAReader.getSetUps();
+			objectives = reader.getObjectivesList();
+			devices = reader.getResources();
+			processes = reader.getProcesses();
+			relation = reader.getRelations();
+			setUps = reader.getSetUps();
 
 			devicesName = new ArrayList<>();
 			for (Device d : devices) {
@@ -63,6 +74,11 @@ public final class OnaConfigurationType {
 					unAvailableTimes.put(deviceID, Arrays.asList(d.getNotavailbaileTime().split(" ")));
 				}
 			}
+
+			// [多线程修复] 在方法末尾、所有字段设置完毕后再赋值 ONAReader 和 currentScale，
+			// 确保外部代码读到非 null 的 ONAReader 时，processes/devices 等字段已完整就绪。
+			currentScale = factoryModel.ONA.ONAFactoryModel.scale;
+			ONAReader = reader;
 		}
 	}
 

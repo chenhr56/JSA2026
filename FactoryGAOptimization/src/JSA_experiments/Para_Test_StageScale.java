@@ -30,14 +30,14 @@ public class Para_Test_StageScale {
     int NoC = 5;
     String folder = "result_factory1/";
 
-    int maxParallelJ = 16;
+    int maxParallelJ = 4;
     int threadNum = Math.min(maxParallelJ, Runtime.getRuntime().availableProcessors());
 
     java.util.concurrent.ExecutorService pool =
             java.util.concurrent.Executors.newFixedThreadPool(threadNum);
 
     try {
-        for (int s = 1; s <= 10; s = s + 1) {
+        for (int s = 1; s <= 32; s = s + 1) {
 
             System.out.println("--------------------------------------------------------------------");
             System.out.println("No. Stages: " + s);

@@ -33,17 +33,27 @@ public class Para_Test_FactoryScale {
         int NoC = 5;
         String folder = "diff_kappa_factoryScale_result/";
 
-        int threadNum = Math.min(8, Runtime.getRuntime().availableProcessors());
+        int threadNum = Math.min(4, Runtime.getRuntime().availableProcessors());
 
         java.util.concurrent.ExecutorService pool = java.util.concurrent.Executors.newFixedThreadPool(threadNum);
 
         java.util.List<java.util.concurrent.Future<?>> futures = new java.util.ArrayList<>();
 
         try {
-            for (int j = 1; j <= 10; j++) {
+            for (int j = 1; j <= 32; j++) {
                 final int factoryScale = j;
 
                 futures.add(pool.submit(() -> {
+                    // [多线程修复] 原代码: OnaConfigurationType.ONAReader = null;
+                    // 此行在多线程下存在竞态：线程 A 在 presetup() 内部已将 ONAReader 赋值
+                    // 为新对象，线程 B 从外部直接置 null 会导致线程 A 的后续 ONAReader.xxx()
+                    // 调用抛出 NullPointerException（presetup() 的 synchronized 无法保护
+                    // 这种外部直接字段写入）。同时它也无法正确感知 scale 变化。
+                    // 修复方案: OnaConfigurationType.presetup() 现已通过 currentScale 跟踪
+                    // scale 变化并自动重新初始化，不再需要外部置 null。参见 OnaConfigurationType
+                    // 中 presetup() 的注释。
+                    //
+                    // OnaConfigurationType.ONAReader = null;  // <-- 原代码，已移除
                     for (int i = 1; i < 41; i++) {
                         runGAforOneSize(factoryScale, i, NoC, folder, numberOfIslands);
                     }
