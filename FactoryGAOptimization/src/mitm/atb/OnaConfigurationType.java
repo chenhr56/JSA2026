@@ -54,7 +54,7 @@ public final class OnaConfigurationType {
 		//        导致后续 reader.getObjectivesList() 抛出 NullPointerException。
 		// 修复: (1) 增加 currentScale 跟踪，scale 变化时强制重新加载。
 		//       (2) 使用局部变量 reader，最后才赋值给 ONAReader，防止中途被外部置 null。
-		if (ONAReader == null || currentScale != factoryModel.ONA.ONAFactoryModel.scale) {
+		if (ONAReader == null || currentScale != factoryModel.ONA.ONAFactoryModel.scale.get()) {
 			ONAXMLReader reader = new ONAXMLReader();
 			reader.readOASInput();
 
@@ -77,7 +77,7 @@ public final class OnaConfigurationType {
 
 			// [多线程修复] 在方法末尾、所有字段设置完毕后再赋值 ONAReader 和 currentScale，
 			// 确保外部代码读到非 null 的 ONAReader 时，processes/devices 等字段已完整就绪。
-			currentScale = factoryModel.ONA.ONAFactoryModel.scale;
+			currentScale = factoryModel.ONA.ONAFactoryModel.scale.get();
 			ONAReader = reader;
 
 				// [多线程修复] 在 synchronized 块内立即将 processes/devices 保存到 ThreadLocal，

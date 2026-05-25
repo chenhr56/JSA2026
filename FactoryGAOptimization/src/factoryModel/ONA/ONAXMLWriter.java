@@ -18,7 +18,7 @@ public class ONAXMLWriter {
 	public static void main(String args[]) {
 
 		for (int i = 10; i < 24; i++) {
-			ONAFactoryModel.scale = i + 1;
+			ONAFactoryModel.scale.set(i + 1);
 			write();
 		}
 	}
@@ -49,7 +49,7 @@ public class ONAXMLWriter {
 
 			// display nice nice
 			xmlOutput.setFormat(Format.getPrettyFormat());
-			xmlOutput.output(doc, new FileWriter("input/ONAConfiguration" + ONAFactoryModel.scale + ".xml"));
+			xmlOutput.output(doc, new FileWriter("input/ONAConfiguration" + ONAFactoryModel.scale.get() + ".xml"));
 
 			System.out.println("File Saved!");
 		} catch (IOException io) {

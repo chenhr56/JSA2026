@@ -27,7 +27,7 @@ public class ONAXMLReader {
 	public void readOASInput() {
 		try {
 
-			File fXmlFile = new File("input/ONAConfiguration" + ONAFactoryModel.scale + ".xml");
+			File fXmlFile = new File("input/ONAConfiguration" + ONAFactoryModel.scale.get() + ".xml");
 			DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
 			Document ONAConfiguration = dBuilder.parse(fXmlFile);

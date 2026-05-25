@@ -846,7 +846,7 @@ public class ManagerPP {
 			boolean useCloud) {
 		int islandID = id;
 		String cloudID = System.getenv("ISLAND_ID");
-		ONAFactoryModel.scale = ONAfactoryScale;
+		ONAFactoryModel.scale.set(ONAfactoryScale);
 
 		ct = bc.getConfigurationType(percentAvailability, random);
 			// [多线程修复] captureForCurrentThread() 已移至 OnaConfigurationType.presetup()

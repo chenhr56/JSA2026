@@ -660,7 +660,7 @@ public class LinkageFactory {
 
 			LinkageFactory factory = new LinkageFactory(BusinessCase.ONA, 1000 + i);
 
-			ONAFactoryModel.scale = 3;
+			ONAFactoryModel.scale.set(3);
 			ConfigurationType ct = factory.bc.getConfigurationType(100, factory.random);
 			Configuration config = Utility.randomConfiguration(ct, factory.random);
 			UoYEarlyPrototypeDemo.observableMetrics = Utility

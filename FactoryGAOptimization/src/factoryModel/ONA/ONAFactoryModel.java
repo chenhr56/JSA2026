@@ -29,7 +29,11 @@ public class ONAFactoryModel {
 		M, UnDefined/* , LT, S, F, EQ, O, D */
 	}
 
-	public static int scale = 1;
+	// [多线程修复] 原为 public static int scale = 1; 多线程下各线程各自调用
+	// startIsland() 设置不同的 scale，但静态字段会被互相覆盖。改为 ThreadLocal，
+	// 每个线程独立持有自己的 scale 值，XML 读取和 presetup() 都不会读到错误 scale。
+	// 使用方式: ONAFactoryModel.scale.get() 读取, ONAFactoryModel.scale.set(x) 设置。
+	public static final ThreadLocal<Integer> scale = ThreadLocal.withInitial(() -> 1);
 
 	public static String[] PRODUCTIONS = null;
 
@@ -47,7 +51,7 @@ public class ONAFactoryModel {
 
 	public static void main(String args[]) {
 		ONAFactoryModel ona = new ONAFactoryModel();
-		ONAFactoryModel.scale = 3;
+		ONAFactoryModel.scale.set(3);
 		ona.getONAConfiguration();
 		System.out.println("done");
 	}
@@ -60,9 +64,9 @@ public class ONAFactoryModel {
 	public List<SequenceDependentTaskInfo> setups;
 
 	public void getONAConfiguration() {
-		int[] NUMBER_OF_DEVICES = { 4 * scale, 4 * scale, 4 * scale };
+		int[] NUMBER_OF_DEVICES = { 4 * scale.get(), 4 * scale.get(), 4 * scale.get() };
 
-		int NoP = 14 * scale;
+		int NoP = 14 * scale.get();
 
 		PRODUCTIONS = new String[NoP];
 		for (int i = 0; i < NoP; i++) {
@@ -164,7 +168,7 @@ public class ONAFactoryModel {
 			// }
 			// if (compitables.size() == 4) {
 			ProductionProcess process = new ProductionProcess(productionProcessName, compitables, processingTime,
-					energy, montary, 1, productionNumber + 1, scale);
+					energy, montary, 1, productionNumber + 1, scale.get());
 			processes.add(process);
 			// }
 
@@ -351,7 +355,7 @@ public class ONAFactoryModel {
 
 		int startIndex = 0;
 
-		for (int i = 0; i < scale; i++) {
+		for (int i = 0; i < scale.get(); i++) {
 
 			recipeAndResourceNameToCost.put(Pair.create("P1", "Small " + (1 + startIndex)), 192.1);
 			recipeAndResourceNameToCost.put(Pair.create("P1", "Small " + (2 + startIndex)), 168.4);
@@ -534,7 +538,7 @@ public class ONAFactoryModel {
 
 		int startIndex = 0;
 
-		for (int i = 0; i < scale; i++) {
+		for (int i = 0; i < scale.get(); i++) {
 			recipeAndResourceNameToCuttingTime.put(Pair.create("P1", "Small " + (1 + startIndex)), (int) (2833.5));
 			recipeAndResourceNameToCuttingTime.put(Pair.create("P1", "Small " + (2 + startIndex)), (int) (2956.2));
 			recipeAndResourceNameToCuttingTime.put(Pair.create("P1", "Small " + (3 + startIndex)), (int) (3042.1));
