@@ -8,7 +8,6 @@ import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.tuple.MutablePair;
 
-import factoryModel.ONA.Device;
 import factoryModel.ONA.ProductionProcess;
 import metrics.Configuration;
 import metrics.Value;
@@ -25,11 +24,6 @@ public class ONAFitnessFunction extends ObjectiveFunction.LocalObjectiveFunction
 	}
 
 	public List<Double> predictKeyObjectivesImpl(Configuration current) {
-		// Snapshot static state to prevent race conditions when multiple threads
-		// replace OnaConfigurationType.processes/devices for different problem scales
-		List<ProductionProcess> processes = OnaConfigurationType.processes;
-		List<Device> devices = OnaConfigurationType.devices;
-
 		Map<String, Value> controlMetric = current.getControlledMetrics();
 
 		List<MutablePair<String, Value>> controlsList = controlMetric.entrySet().stream()
@@ -39,7 +33,7 @@ public class ONAFitnessFunction extends ObjectiveFunction.LocalObjectiveFunction
 		 * Organize parts information
 		 */
 		List<String> parts = new ArrayList<>();
-		for (ProductionProcess process : processes) {
+		for (ProductionProcess process : OnaConfigurationType.processes) {
 			String name = process.getName();
 
 			for (int i = 0; i < process.getInstanceNumber(); i++) {
@@ -72,24 +66,13 @@ public class ONAFitnessFunction extends ObjectiveFunction.LocalObjectiveFunction
 			String name = parts.get(i);
 			String allocation = allocs[i];
 
-			if (allocation == null) {
-				throw new IllegalStateException(
-						"Missing allocation for part '" + name + "'. Configuration/processes mismatch.");
-			}
-
 			String shortName = name.split(" ")[0];
 			int number = Integer.parseInt(shortName.substring(1, shortName.length())) - 1;
-			int index_allocation = processes.get(number).compitableResourceName
+			int index_allocation = OnaConfigurationType.processes.get(number).compitableResourceName
 					.indexOf(allocation);
 
-			if (index_allocation < 0) {
-				throw new IllegalStateException(
-						"Allocation '" + allocation + "' not found for part '" + name
-								+ "'. Configuration may have been created with a different problem scale.");
-			}
-
-			int cost = processes.get(number).montarys.get(index_allocation);
-			int time = processes.get(number).processingTime.get(index_allocation);
+			int cost = OnaConfigurationType.processes.get(number).montarys.get(index_allocation);
+			int time = OnaConfigurationType.processes.get(number).processingTime.get(index_allocation);
 
 			SchedulableObject sch = new SchedulableObject(parts.get(i), prios[i], allocs[i], time, cost);
 			scheds.add(sch);
@@ -100,7 +83,7 @@ public class ONAFitnessFunction extends ObjectiveFunction.LocalObjectiveFunction
 		/**
 		 * Allocate parts now
 		 */
-		long[] makespan = new long[devices.size()];
+		long[] makespan = new long[OnaConfigurationType.devices.size()];
 
 		double finalTime = 0;
 		double finalCost = 0;
@@ -114,10 +97,10 @@ public class ONAFitnessFunction extends ObjectiveFunction.LocalObjectiveFunction
 				baseIndex = 0;
 			}
 			if (machine_size.equals("Medium")) {
-				baseIndex = devices.size() / 3;
+				baseIndex = OnaConfigurationType.devices.size() / 3;
 			}
 			if (machine_size.equals("Large")) {
-				baseIndex = devices.size() / 3 * 2;
+				baseIndex = OnaConfigurationType.devices.size() / 3 * 2;
 			}
 
 			int index = baseIndex + wireNum;
@@ -127,12 +110,12 @@ public class ONAFitnessFunction extends ObjectiveFunction.LocalObjectiveFunction
 			finalCost += so.cost;
 		}
 
-		long[] makespanWithMutex = new long[devices.size() / 3];
+		long[] makespanWithMutex = new long[OnaConfigurationType.devices.size() / 3];
 
 		for (int i = 0; i < makespanWithMutex.length; i++) {
 			int smallIndex = i;
-			int mediumIndex = i + devices.size() / 3;
-			int largeIndex = i + devices.size() / 3 * 2;
+			int mediumIndex = i + OnaConfigurationType.devices.size() / 3;
+			int largeIndex = i + OnaConfigurationType.devices.size() / 3 * 2;
 
 			makespanWithMutex[i] += makespan[smallIndex];
 			makespanWithMutex[i] += makespan[mediumIndex];
