@@ -29,7 +29,12 @@ public class TCADResultsReaderAndAnalyzer {
 		runAnalysisFactory("result_factory/", island_No);
 	}
 
+	// [backward compat] original 2-param version delegates to 3-param with global factory_Size
 	public static void runAnalysisFactory(String folder, int island) {
+		runAnalysisFactory(folder, island, factory_Size);
+	}
+
+	public static void runAnalysisFactory(String folder, int island, int factorySize) {
 		int startSeed = 1000;
 		int caseNum = 40;
 
@@ -47,7 +52,7 @@ public class TCADResultsReaderAndAnalyzer {
 		} catch (Exception e) {
 		}
 
-		for (int i = 1; i <= factory_Size; i++) {
+		for (int i = 1; i <= factorySize; i++) {
 			analyseOneFactory(i, startSeed, caseNum, folder, island);
 		}
 
@@ -118,7 +123,7 @@ public class TCADResultsReaderAndAnalyzer {
 
 			List<List<Integer>> ranks = rankings.get(i);
 
-			for (int j = 0; j < ranks.get(0).size(); j++) {
+			for (int j = 0; j < (ranks.isEmpty() || ranks.get(0).isEmpty() ? 0 : ranks.get(0).size()); j++) {
 
 				int ranksForOneMethod = 0;
 				double[] ranksD = new double[ranks.size()];

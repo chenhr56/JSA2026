@@ -364,10 +364,14 @@ public class ManagerPPLocal {
 	}
 
 	public static String getName(int remove, int add) {
-		if (remove == -5 && add == -5)
+		if (remove == -6 && add == -6)
 			return "MOP3";
-		if (remove == -4 && add == -4)
+		if (remove == -5 && add == -5)
 			return "MOGOMEA";
+		if (remove == -4 && add == -4)
+			return "GePIM";
+		if (remove == -3 && add == -3)
+			return "NSGA-II";
 		if (remove == -2 && add == -2)
 			return "traditional MOEA/D";
 

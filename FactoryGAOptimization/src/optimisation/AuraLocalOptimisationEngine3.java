@@ -113,6 +113,10 @@ public final class AuraLocalOptimisationEngine3 extends OptimisationEngine3.Loca
 		 */
 
 		OptimisationIslandResult or = null;
+		if (args.getConfigurations().isEmpty()) {
+			System.err.println("[DIAG] optimise: configurations is empty!");
+			throw new IllegalStateException("[DIAG] empty configs in optimise");
+		}
 		if (args.getConfigurations().get(0).getKeyObjectives().size() == 1) {
 			// System.out.println("Single Objective Optimsation Start");
 			or = EAIsland.apply(args.getConfigurations(),

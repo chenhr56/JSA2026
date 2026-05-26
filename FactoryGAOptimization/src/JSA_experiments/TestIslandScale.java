@@ -32,7 +32,10 @@ public class TestIslandScale {
 
 		for (int j = 1; j < 11; j++) {
 			for (int i = 1; i < 41; i++) {
-				OnaConfigurationType.ONAReader = null;
+				// [多线程修复] 原代码: OnaConfigurationType.ONAReader = null;
+				// 多线程下外部直接置 null 可在 presetup() 执行中途导致 NPE。
+				// presetup() 现已通过 currentScale 跟踪 scale 变化并自动重新初始化，不再需要此行。
+				// OnaConfigurationType.ONAReader = null;  // <-- 原代码，已移除
 				runGAforOneSize(factorySize, i, j, folder, j);
 			}
 

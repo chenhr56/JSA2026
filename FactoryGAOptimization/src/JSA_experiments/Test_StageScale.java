@@ -47,12 +47,14 @@ public class Test_StageScale {
 				ManagerPP.Global_NoOfStages = s;
 
 				for (int i = 1; i < 41; i++) {
-					OnaConfigurationType.ONAReader = null;
+					// [多线程修复] 原代码: OnaConfigurationType.ONAReader = null; 见 Para_Test_FactoryScale 中同名注释。
+					// OnaConfigurationType.ONAReader = null;  // <-- 已移除，presetup() 通过 currentScale 跟踪自动处理
 					runGAforOneSize(j, i, NoC, folder, numberOfIslands);
 				}
 
 				System.out.println("*******************************************************");
-				TCADResultsReaderAndAnalyzer.factory_Size = j;
+				// [修复] 使用三参数版本直接传入 j，无需设置全局 factory_Size
+					TCADResultsReaderAndAnalyzer.runAnalysisFactory(folder, numberOfIslands, j);
 				TCADResultsReaderAndAnalyzer.runAnalysisFactory(folder, numberOfIslands);
 				System.out.println("*******************************************************");
 				System.out.println("--------------------------------------------------------------------");

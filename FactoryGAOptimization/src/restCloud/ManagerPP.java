@@ -147,7 +147,7 @@ public class ManagerPP {
 		}
 		
 		if(testStageScale) {
-			System.out.println("here11");
+			// System.out.println("here11");
 			this.NoOfStages = Global_NoOfStages;
 		}
 		
@@ -771,7 +771,9 @@ public class ManagerPP {
 			Configuration configurationTemplate) {
 
 		List<Configuration> configurations = new ArrayList<Configuration>();
-		for (PopulationEntry populationEntry : or.getFinalPopulation()) {
+		List<PopulationEntry> fp = or.getFinalPopulation();
+		System.err.println("[DIAG] extractConfigs: finalPop size=" + fp.size() + " RemoveMethod=" + RemoveMethod);
+		for (PopulationEntry populationEntry : fp) {
 			Configuration config = new Configuration(configurationTemplate.getConfigurationType(),
 					populationEntry.getConfiguration().getControlledMetrics(),
 					configurationTemplate.getKeyObjectives());
@@ -782,6 +784,10 @@ public class ManagerPP {
 	}
 
 	private OptimisationIslandResult execute(OptimisationArguments optimisationArguments) {
+		if (optimisationArguments.getConfigurations().isEmpty()) {
+			System.err.println("[DIAG] execute entry: configs empty! RemoveMethod=" + RemoveMethod + " addMethod=" + addMethod + " popSize=" + populationSize + " noOfIslands=" + noOfIslands);
+			Thread.dumpStack();
+		}
 
 		final ObjectiveFunction.LocalObjectiveFunction of = bc.getObjectiveFunction();
 		final Random rng = new Random(seeds);
@@ -821,6 +827,10 @@ public class ManagerPP {
 
 	private OptimisationArguments createIsland(ConfigurationType ct, double urgency, double quality, int populationSize,
 			Random random) {
+		if (populationSize <= 0) {
+			throw new IllegalStateException("[DIAG] createIsland popSize=" + populationSize
+					+ " RemoveMethod=" + RemoveMethod);
+		}
 
 		List<Configuration> configurations = new ArrayList<Configuration>();
 		for (int j = 0; j < populationSize; j++) {
@@ -889,7 +899,13 @@ public class ManagerPP {
 			optimisationIslandResult.clear();
 
 			for (int island = 0; island < noOfIslands; island++) {
-				optimisationIslandResult.add(execute(optimisationArguments.get(island)));
+				OptimisationArguments oa = optimisationArguments.get(island);
+				if (oa.getConfigurations().isEmpty()) {
+					System.err.println("[DIAG] startIsland: before execute, configs EMPTY! stage=" + stage + " island=" + island + " RemoveMethod=" + RemoveMethod + " popSize=" + populationSize + " oa.hashCode=" + System.identityHashCode(oa) + " configs.hashCode=" + System.identityHashCode(oa.getConfigurations()));
+				} else {
+					System.err.println("[DIAG] startIsland: OK stage=" + stage + " size=" + oa.getConfigurations().size() + " oa.hashCode=" + System.identityHashCode(oa) + " configs.hashCode=" + System.identityHashCode(oa.getConfigurations()));
+				}
+				optimisationIslandResult.add(execute(oa));
 			}
 
 			/**

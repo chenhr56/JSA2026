@@ -234,7 +234,10 @@ public class NSGA2 {
 		final List<PopulationEntry> newPopulation = new ArrayList<>();
 
 		// IntStream.range(0, initialPopulation.size() / 2).parallel().forEach( i -> {
-		IntStream.range(0, currentPopulation.size() / 2).forEach(i -> {
+		// [修复] 原: currentPopulation.size() / 2，当 size=1 时 1/2=0 不产后代，
+				// 导致种群坍缩到 0。改为至少 1 次迭代，确保始终有后代输出。
+				int breedIterations = currentPopulation.isEmpty() ? 0 : Math.max(1, currentPopulation.size() / 2);
+				IntStream.range(0, breedIterations).forEach(i -> {
 			final PopulationEntry p1 = select.apply(currentPopulation, rng);
 			final PopulationEntry p2 = select.apply(currentPopulation, rng);
 			final Configuration c1 = mutation.apply(crossover.apply(p1.getConfiguration(), p2.getConfiguration()));
@@ -317,6 +320,7 @@ public class NSGA2 {
 
 		}
 
+		System.err.println("[DIAG] NSGA2 exit: curPop.size=" + currentPopulation.size() + " bestFront.size=" + bestFront.size() + " initPop.size=" + initialPopulation.size());
 
 		return bestFront;
 	}
