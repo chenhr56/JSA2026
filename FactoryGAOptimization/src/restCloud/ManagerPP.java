@@ -772,7 +772,7 @@ public class ManagerPP {
 
 		List<Configuration> configurations = new ArrayList<Configuration>();
 		List<PopulationEntry> fp = or.getFinalPopulation();
-		System.err.println("[DIAG] extractConfigs: finalPop size=" + fp.size() + " RemoveMethod=" + RemoveMethod);
+		// System.err.println("[DIAG] extractConfigs: finalPop size=" + fp.size() + " RemoveMethod=" + RemoveMethod);
 		for (PopulationEntry populationEntry : fp) {
 			Configuration config = new Configuration(configurationTemplate.getConfigurationType(),
 					populationEntry.getConfiguration().getControlledMetrics(),
@@ -900,11 +900,11 @@ public class ManagerPP {
 
 			for (int island = 0; island < noOfIslands; island++) {
 				OptimisationArguments oa = optimisationArguments.get(island);
-				if (oa.getConfigurations().isEmpty()) {
-					System.err.println("[DIAG] startIsland: before execute, configs EMPTY! stage=" + stage + " island=" + island + " RemoveMethod=" + RemoveMethod + " popSize=" + populationSize + " oa.hashCode=" + System.identityHashCode(oa) + " configs.hashCode=" + System.identityHashCode(oa.getConfigurations()));
-				} else {
-					System.err.println("[DIAG] startIsland: OK stage=" + stage + " size=" + oa.getConfigurations().size() + " oa.hashCode=" + System.identityHashCode(oa) + " configs.hashCode=" + System.identityHashCode(oa.getConfigurations()));
-				}
+				// if (oa.getConfigurations().isEmpty()) {
+				// 	System.err.println("[DIAG] startIsland: before execute, configs EMPTY! stage=" + stage + " island=" + island + " RemoveMethod=" + RemoveMethod + " popSize=" + populationSize + " oa.hashCode=" + System.identityHashCode(oa) + " configs.hashCode=" + System.identityHashCode(oa.getConfigurations()));
+				// } else {
+				// 	System.err.println("[DIAG] startIsland: OK stage=" + stage + " size=" + oa.getConfigurations().size() + " oa.hashCode=" + System.identityHashCode(oa) + " configs.hashCode=" + System.identityHashCode(oa.getConfigurations()));
+				// }
 				optimisationIslandResult.add(execute(oa));
 			}
 
