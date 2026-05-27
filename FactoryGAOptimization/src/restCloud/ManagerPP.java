@@ -4,6 +4,7 @@ import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Random;
 import java.util.stream.Collectors;
 
@@ -84,7 +85,7 @@ public class ManagerPP {
 		this.numberOfReplacement = numberOfReplacement;
 		this.RemoveMethod = RemoveMethod;
 		this.addMethod = addMethod;
-//		this.NoOfStages = this.NoOfStages * Global_NoOfStages;
+		// this.NoOfStages = this.NoOfStages * Global_NoOfStages;
 		random = new Random(seeds);
 
 		of = (ObjectiveFunction.LocalObjectiveFunction) bc.getObjectiveFunction();
@@ -120,7 +121,7 @@ public class ManagerPP {
 		// traditional MOEA/D
 		if (RemoveMethod == -2) {
 			this.populationSize = populationSize * island;
-//			this.NoOfStages = this.NoOfStages * island;
+			// this.NoOfStages = this.NoOfStages * island;
 		}
 
 		if (testSameCPUTime) {
@@ -145,12 +146,12 @@ public class ManagerPP {
 				this.NoOfStages = linkage_stage * Global_NoOfStages;
 			}
 		}
-		
-		if(testStageScale) {
+
+		if (testStageScale) {
 			// System.out.println("here11");
 			this.NoOfStages = Global_NoOfStages;
 		}
-		
+
 		System.out.println("add: " + addMethod + ", remove: " + RemoveMethod + ", stages: " + NoOfStages
 				+ ", iter: " + generations + ", pop: " + populationSize);
 
@@ -341,11 +342,11 @@ public class ManagerPP {
 			fronts.add(pf);
 		}
 
-//				globalPF.stream().map(p -> {
-//			List<List<Double>> oneFront = new ArrayList<>();
-//			oneFront.add(p.getObjectives());
-//			return oneFront;
-//		}).collect(Collectors.toList());
+		// globalPF.stream().map(p -> {
+		// List<List<Double>> oneFront = new ArrayList<>();
+		// oneFront.add(p.getObjectives());
+		// return oneFront;
+		// }).collect(Collectors.toList());
 
 		int sizeTemp = globalPF.size();
 
@@ -400,35 +401,32 @@ public class ManagerPP {
 		return newMembers;
 	}
 
-	// private double getSumHammingDistance(Configuration point, List<Configuration>
-	// sets) {
-	// int diff = 0;
-	//
-	// final List<Entry<String, Value>> control1 =
-	// point.getControlledMetrics().entrySet().stream()
-	// .collect(Collectors.toList());
-	// control1.sort((p1, p2) -> p1.getKey().compareTo(p2.getKey()));
-	//
-	// for (int k = 0; k < sets.size(); k++) {
-	// final List<Entry<String, Value>> control2 =
-	// sets.get(k).getControlledMetrics().entrySet().stream()
-	// .collect(Collectors.toList());
-	// control2.sort((p1, p2) -> p1.getKey().compareTo(p2.getKey()));
-	//
-	// assert (control1.size() == control2.size());
-	//
-	// for (int i = 0; i < control1.size(); i++) {
-	// String controlUnit1 = control1.get(i).getValue().toString();
-	// String controlUnit2 = control2.get(i).getValue().toString();
-	//
-	// if (!controlUnit1.equals(controlUnit2))
-	// diff++;
-	// }
-	//
-	// }
-	//
-	// return diff;
-	// }
+	public static double getSumHammingDistance(PopulationEntry point, List<PopulationEntry> sets) {
+		int diff = 0;
+
+		final List<Entry<String, Value>> control1 = point.getConfiguration().getControlledMetrics().entrySet().stream()
+				.collect(Collectors.toList());
+		control1.sort((p1, p2) -> p1.getKey().compareTo(p2.getKey()));
+
+		for (int k = 0; k < sets.size(); k++) {
+			final List<Entry<String, Value>> control2 = sets.get(k).getConfiguration().getControlledMetrics().entrySet().stream()
+					.collect(Collectors.toList());
+			control2.sort((p1, p2) -> p1.getKey().compareTo(p2.getKey()));
+
+			assert (control1.size() == control2.size());
+
+			for (int i = 0; i < control1.size(); i++) {
+				String controlUnit1 = control1.get(i).getValue().toString();
+				String controlUnit2 = control2.get(i).getValue().toString();
+
+				if (!controlUnit1.equals(controlUnit2))
+					diff++;
+			}
+
+		}
+
+		return diff;
+	}
 
 	private double getCrowdingDistance(List<Double> ref, List<List<Double>> set) {
 
@@ -490,23 +488,23 @@ public class ManagerPP {
 		List<PopulationEntry> newMems = new ArrayList<>();
 
 		switch (addMethod) {
-		case 0:
-			newMems = getEntryBaseline(number);
-			break;
-		case 1:
-			newMems = getEntryRandom(remotePoP, number);
-			break;
-		case 2:
-			// newMems = getEntryBestMakeSpan(result, globalPF);
-			newMems = getEntryBestQI(remotePoP, number);
-			break;
-		case 3:
-			// newMems = getEntryDiverseByHamming(result, globalPF, number);
-			newMems = getEntryDriverseByCrowding(localPoP, remotePoP, number);
-			break;
+			case 0:
+				newMems = getEntryBaseline(number);
+				break;
+			case 1:
+				newMems = getEntryRandom(remotePoP, number);
+				break;
+			case 2:
+				// newMems = getEntryBestMakeSpan(result, globalPF);
+				newMems = getEntryBestQI(remotePoP, number);
+				break;
+			case 3:
+				// newMems = getEntryDiverseByHamming(result, globalPF, number);
+				newMems = getEntryDriverseByCrowding(localPoP, remotePoP, number);
+				break;
 
-		default:
-			break;
+			default:
+				break;
 		}
 
 		return newMems;
@@ -749,15 +747,15 @@ public class ManagerPP {
 
 		for (int i = 0; i < number; i++) {
 			switch (removeMethod) {
-			case 0:
-				removeEntryRandom(localPoP, rng);
-				break;
-			case 1:
-				removeEntryWorst(localPoP);
-				break;
+				case 0:
+					removeEntryRandom(localPoP, rng);
+					break;
+				case 1:
+					removeEntryWorst(localPoP);
+					break;
 
-			default:
-				break;
+				default:
+					break;
 			}
 		}
 
@@ -772,7 +770,8 @@ public class ManagerPP {
 
 		List<Configuration> configurations = new ArrayList<Configuration>();
 		List<PopulationEntry> fp = or.getFinalPopulation();
-		// System.err.println("[DIAG] extractConfigs: finalPop size=" + fp.size() + " RemoveMethod=" + RemoveMethod);
+		// System.err.println("[DIAG] extractConfigs: finalPop size=" + fp.size() + "
+		// RemoveMethod=" + RemoveMethod);
 		for (PopulationEntry populationEntry : fp) {
 			Configuration config = new Configuration(configurationTemplate.getConfigurationType(),
 					populationEntry.getConfiguration().getControlledMetrics(),
@@ -785,7 +784,8 @@ public class ManagerPP {
 
 	private OptimisationIslandResult execute(OptimisationArguments optimisationArguments) {
 		if (optimisationArguments.getConfigurations().isEmpty()) {
-			System.err.println("[DIAG] execute entry: configs empty! RemoveMethod=" + RemoveMethod + " addMethod=" + addMethod + " popSize=" + populationSize + " noOfIslands=" + noOfIslands);
+			System.err.println("[DIAG] execute entry: configs empty! RemoveMethod=" + RemoveMethod + " addMethod="
+					+ addMethod + " popSize=" + populationSize + " noOfIslands=" + noOfIslands);
 			Thread.dumpStack();
 		}
 
@@ -794,28 +794,30 @@ public class ManagerPP {
 		final int iterations = generations;
 
 		int engine = RemoveMethod == -3 ? 1 : 0;
-		// final OptimisationEngine3 oe = new AuraLocalOptimisationEngine3(of, iterations, rng, engine);
+		// final OptimisationEngine3 oe = new AuraLocalOptimisationEngine3(of,
+		// iterations, rng, engine);
 
 		final long startTime = System.currentTimeMillis();
 		OptimisationIslandResult or;
 
-    	if (RemoveMethod == -6) {
-        	// MOP3
-        	or = MOP3.apply(optimisationArguments.getConfigurations(), of,
-            	SearchDirection.MINIMIZING, rng, iterations * populationSize);
-    	} if (RemoveMethod == -5) {
-        	// MOGOMEA
-        	or = MOGOMEA.apply(optimisationArguments.getConfigurations(), of,
-            	SearchDirection.MINIMIZING, rng, iterations * populationSize,
-            (int) Math.sqrt(populationSize));
-    	} else if (RemoveMethod == -4) {
-        	// GePIM
-        	or = GePIM.apply(optimisationArguments.getConfigurations(), of,
-            	SearchDirection.MINIMIZING, rng, iterations * populationSize);
-    	} else {
-        	final OptimisationEngine3 oe = new AuraLocalOptimisationEngine3(of, iterations, rng, engine);
-        	or = oe.optimise(optimisationArguments);
-    	}
+		if (RemoveMethod == -6) {
+			// MOP3
+			or = MOP3.apply(optimisationArguments.getConfigurations(), of,
+					SearchDirection.MINIMIZING, rng, iterations * populationSize);
+		}
+		if (RemoveMethod == -5) {
+			// MOGOMEA
+			or = MOGOMEA.apply(optimisationArguments.getConfigurations(), of,
+					SearchDirection.MINIMIZING, rng, iterations * populationSize,
+					(int) Math.sqrt(populationSize));
+		} else if (RemoveMethod == -4) {
+			// GePIM
+			or = GePIM.apply(optimisationArguments.getConfigurations(), of,
+					SearchDirection.MINIMIZING, rng, iterations * populationSize);
+		} else {
+			final OptimisationEngine3 oe = new AuraLocalOptimisationEngine3(of, iterations, rng, engine);
+			or = oe.optimise(optimisationArguments);
+		}
 
 		// final OptimisationIslandResult or = oe.optimise(optimisationArguments);
 		final long endTime = System.currentTimeMillis();
@@ -859,10 +861,10 @@ public class ManagerPP {
 		ONAFactoryModel.scale.set(ONAfactoryScale);
 
 		ct = bc.getConfigurationType(percentAvailability, random);
-			// [多线程修复] captureForCurrentThread() 已移至 OnaConfigurationType.presetup()
-			// 内部的 synchronized 块中调用。在此处调用会存在窗口：presetup() 释放锁后、
-			// 本行执行前，其他线程的 presetup() 可能已改写静态字段，导致捕获到错误 scale 的数据。
-			// 因此不在 startIsland() 中重复调用，避免覆盖 presetup() 内已设置的正确 ThreadLocal 值。
+		// [多线程修复] captureForCurrentThread() 已移至 OnaConfigurationType.presetup()
+		// 内部的 synchronized 块中调用。在此处调用会存在窗口：presetup() 释放锁后、
+		// 本行执行前，其他线程的 presetup() 可能已改写静态字段，导致捕获到错误 scale 的数据。
+		// 因此不在 startIsland() 中重复调用，避免覆盖 presetup() 内已设置的正确 ThreadLocal 值。
 		Configuration configurationTemplate = Utility.randomConfiguration(ct, random);
 		List<OptimisationArguments> optimisationArguments = new ArrayList<OptimisationArguments>();
 		UoYEarlyPrototypeDemo.observableMetrics = Utility
@@ -901,9 +903,14 @@ public class ManagerPP {
 			for (int island = 0; island < noOfIslands; island++) {
 				OptimisationArguments oa = optimisationArguments.get(island);
 				// if (oa.getConfigurations().isEmpty()) {
-				// 	System.err.println("[DIAG] startIsland: before execute, configs EMPTY! stage=" + stage + " island=" + island + " RemoveMethod=" + RemoveMethod + " popSize=" + populationSize + " oa.hashCode=" + System.identityHashCode(oa) + " configs.hashCode=" + System.identityHashCode(oa.getConfigurations()));
+				// System.err.println("[DIAG] startIsland: before execute, configs EMPTY!
+				// stage=" + stage + " island=" + island + " RemoveMethod=" + RemoveMethod + "
+				// popSize=" + populationSize + " oa.hashCode=" + System.identityHashCode(oa) +
+				// " configs.hashCode=" + System.identityHashCode(oa.getConfigurations()));
 				// } else {
-				// 	System.err.println("[DIAG] startIsland: OK stage=" + stage + " size=" + oa.getConfigurations().size() + " oa.hashCode=" + System.identityHashCode(oa) + " configs.hashCode=" + System.identityHashCode(oa.getConfigurations()));
+				// System.err.println("[DIAG] startIsland: OK stage=" + stage + " size=" +
+				// oa.getConfigurations().size() + " oa.hashCode=" + System.identityHashCode(oa)
+				// + " configs.hashCode=" + System.identityHashCode(oa.getConfigurations()));
 				// }
 				optimisationIslandResult.add(execute(oa));
 			}
@@ -948,8 +955,9 @@ public class ManagerPP {
 					isImproved = true;
 				}
 
-//				System.out.println(
-//						"island: " + islandID + " stage: " + stage + " Prev: " + previousDCI + " Now: " + currentDCI);
+				// System.out.println(
+				// "island: " + islandID + " stage: " + stage + " Prev: " + previousDCI + " Now:
+				// " + currentDCI);
 			}
 
 			if (!isImproved) {

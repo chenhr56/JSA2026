@@ -2,6 +2,9 @@ package JSA_experiments;
 
 import java.util.List;
 
+import aura.PopulationEntry;
+import metrics.Configuration;
+
 public class ResultBundle {
 
 	public String name = "";
@@ -15,6 +18,8 @@ public class ResultBundle {
 	public List<List<Double>> objectives = null;
 	
 	public String out = "";
+
+	public List<PopulationEntry> finalPF = null;
 	
 	public ResultBundle(List<List<Double>> objectives, int push, int pull, long time, String out, String name) {
 		this.objectives = objectives;
@@ -25,6 +30,12 @@ public class ResultBundle {
 		this.out = out;
 		this.name = name;
 	}
+
+	public ResultBundle(List<List<Double>> objectives, int push, int pull, long time, 
+                    String name, List<PopulationEntry> finalPF) {
+    	this(objectives, push, pull, time, "", name);
+    	this.finalPF = finalPF;
+}
 	
 	public ResultBundle(List<List<Double>> objectives, int push, int pull, long time) {
 		this(objectives, push, pull, time, "","");

@@ -200,6 +200,7 @@ public class ResultAnalyser {
 
 	public static void writeResult(String filename, String result) {
 		PrintWriter writer = null;
+		new File(filename).getParentFile().mkdirs();
 		try {
 			writer = new PrintWriter(new FileWriter(new File(filename), false));
 		} catch (FileNotFoundException e) {

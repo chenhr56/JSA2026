@@ -35,7 +35,7 @@ public class Test_StageScale {
 
 		int numberOfIslands = 5;
 		int NoC = 5;
-		String folder = "fig_8_stageScale_result/";
+		String folderBase = "fig_8_stageScale_result/";
 
 
 		for (int j = 2; j <= 2; j++) {
@@ -45,6 +45,7 @@ public class Test_StageScale {
 				System.out.println("--------------------------------------------------------------------");
 				System.out.println("No. Stages: " + s);
 				ManagerPP.Global_NoOfStages = s;
+				String folder = folderBase + s + "/";
 
 				for (int i = 1; i < 41; i++) {
 					// [多线程修复] 原代码: OnaConfigurationType.ONAReader = null; 见 Para_Test_FactoryScale 中同名注释。
@@ -55,7 +56,7 @@ public class Test_StageScale {
 				System.out.println("*******************************************************");
 				// [修复] 使用三参数版本直接传入 j，无需设置全局 factory_Size
 					TCADResultsReaderAndAnalyzer.runAnalysisFactory(folder, numberOfIslands, j);
-				TCADResultsReaderAndAnalyzer.runAnalysisFactory(folder, numberOfIslands);
+				// TCADResultsReaderAndAnalyzer.runAnalysisFactory(folder, numberOfIslands);
 				System.out.println("*******************************************************");
 				System.out.println("--------------------------------------------------------------------");
 				System.out.println("\n\n");

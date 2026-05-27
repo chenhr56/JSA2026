@@ -8,12 +8,11 @@ import java.util.Random;
 import JSA_experiments.ResultBundle;
 import aura.PopulationEntry;
 import indicator.Indicators;
+import metrics.Configuration;
 import mitm.atb.BusinessCase;
 
 public class ManagerPPLocal {
-	
 
-	
 	public enum ADD {
 		New, Random, Best, Diverse
 	}
@@ -28,7 +27,7 @@ public class ManagerPPLocal {
 	private ResultBundle startManager(BusinessCase bc, int ONAfactoryScale, int numberOfIslandsParam, int seeds,
 			int notImprovedInARowLimit, int numberOfReplacement, int RemoveMethod, int addMethod) {
 
-//		System.out.println(getName(RemoveMethod, addMethod));
+		// System.out.println(getName(RemoveMethod, addMethod));
 
 		int numberOfIslands = (RemoveMethod == -2 || RemoveMethod == -3 || RemoveMethod == -4 || RemoveMethod == -5 || RemoveMethod == -6) ? 1 : numberOfIslandsParam;
 		Random ran = new Random(seeds);
@@ -52,7 +51,8 @@ public class ManagerPPLocal {
 				@Override
 				public void run() {
 					ResultBundle res = new ManagerPP(bc, ONAfactoryScale, ran.nextInt(), notImprovedInARowLimit,
-							numberOfReplacement, RemoveMethod, addMethod, numberOfIslandsParam).start(id, globalCaps, numberOfActions, false);
+							numberOfReplacement, RemoveMethod, addMethod, numberOfIslandsParam)
+							.start(id, globalCaps, numberOfActions, false);
 
 					results.set(id, res);
 				}
@@ -81,6 +81,11 @@ public class ManagerPPLocal {
 			}
 		}
 
+		// List<Configuration> finalConfigs = new ArrayList<>();
+		// for (PopulationEntry e : globalPF) {
+		// 	finalConfigs.add(e.getConfiguration());
+		// }
+
 		List<List<Double>> objectives = new ArrayList<>();
 
 		for (int i = 0; i < globalPF.size(); i++) {
@@ -101,50 +106,53 @@ public class ManagerPPLocal {
 
 		long time = (long) Math.ceil(timeSum / (double) results.size());
 
-//		System.out.println("time: " + time);
-		return new ResultBundle(objectives, numberOfPush, numberOfPull, time, getName(RemoveMethod, addMethod));
+		// System.out.println("time: " + time);
+		return new ResultBundle(objectives, numberOfPush, numberOfPull, time, getName(RemoveMethod, addMethod),
+				globalPF);
 	}
 
-//	public static void main(String args[]) {
-//		new ManagerPPLocal().startPPLocal(1000, 1, 5, 1, 3);
-//	}
+	// public static void main(String args[]) {
+	// new ManagerPPLocal().startPPLocal(1000, 1, 5, 1, 3);
+	// }
 
-//	public ResultBundle runOneSetting(BusinessCase bc, int ONAfactoryScale, int numberOfIslands, int seeds,
-//			int notImprovedInARowLimit, int numberOfReplacement, int remove, int add) {
-//
-//		String out = "";
-//
-//		System.out.println(getName(remove, add));
-//
-//		out += getName(-2, -2) + "\n";
-//
-//		ResultBundle result = startManager(bc, ONAfactoryScale, numberOfIslands, seeds, notImprovedInARowLimit,
-//				numberOfReplacement, -2, -2);
-//
-//		ObjectiveCapsule normalPF = new ObjectiveCapsule(result.objectives);
-//
-//		System.out.println("Final PF: ");
-//		out += "Final PF: \n";
-//		for (List<Double> l : normalPF.get()) {
-//			for (Double d : l) {
-//				System.out.print(d + " ");
-//				out += d + " ";
-//			}
-//			System.out.println();
-//			out += "\n";
-//		}
-//
-//		out += "push: " + result.push + " pull: " + result.pull + "\n";
-//		System.out.println("push: " + result.push + " pull: " + result.pull);
-//
-//		long time = result.time;
-//		out += "time: " + time + "\n";
-//		System.out.println("time: " + time + "\n\n");
-//
-//		result.out = out;
-//
-//		return result;
-//	}
+	// public ResultBundle runOneSetting(BusinessCase bc, int ONAfactoryScale, int
+	// numberOfIslands, int seeds,
+	// int notImprovedInARowLimit, int numberOfReplacement, int remove, int add) {
+	//
+	// String out = "";
+	//
+	// System.out.println(getName(remove, add));
+	//
+	// out += getName(-2, -2) + "\n";
+	//
+	// ResultBundle result = startManager(bc, ONAfactoryScale, numberOfIslands,
+	// seeds, notImprovedInARowLimit,
+	// numberOfReplacement, -2, -2);
+	//
+	// ObjectiveCapsule normalPF = new ObjectiveCapsule(result.objectives);
+	//
+	// System.out.println("Final PF: ");
+	// out += "Final PF: \n";
+	// for (List<Double> l : normalPF.get()) {
+	// for (Double d : l) {
+	// System.out.print(d + " ");
+	// out += d + " ";
+	// }
+	// System.out.println();
+	// out += "\n";
+	// }
+	//
+	// out += "push: " + result.push + " pull: " + result.pull + "\n";
+	// System.out.println("push: " + result.push + " pull: " + result.pull);
+	//
+	// long time = result.time;
+	// out += "time: " + time + "\n";
+	// System.out.println("time: " + time + "\n\n");
+	//
+	// result.out = out;
+	//
+	// return result;
+	// }
 
 	public List<List<Double>> startPPLocal(int seed, int factoryScale, int numberofIsland, int numerOfReplacement,
 			int notImprovedInRow, String folder) {
@@ -160,44 +168,35 @@ public class ManagerPPLocal {
 		int notImprovedInARowLimit = notImprovedInRow;
 
 		List<ResultBundle> bundles = new ArrayList<>();
-		
-		/**
-//		 * MOP3
-//		 */
+
+		// MOP3
 		bundles.add(startManager(bc, ONAfactoryScale, numberOfIslands, seeds, notImprovedInARowLimit,
 				numberOfReplacement, -6, -6));
 
-		/**
-//		 * MOGOMEA
-//		 */
+		// MOGOMEA
 		bundles.add(startManager(bc, ONAfactoryScale, numberOfIslands, seeds, notImprovedInARowLimit,
 				numberOfReplacement, -5, -5));
-				/**
-//		 * GePIM
-//		 */
+		// GePIM
 		bundles.add(startManager(bc, ONAfactoryScale, numberOfIslands, seeds, notImprovedInARowLimit,
 				numberOfReplacement, -4, -4));
-				
-//		/**
-//		 * The NSGA-II
-//		 */
+
+		// NSGA-II
 		bundles.add(startManager(bc, ONAfactoryScale, numberOfIslands, seeds, notImprovedInARowLimit,
 				numberOfReplacement, -3, -3));
 
-		
-//		ManagerPP.generations = moead_iter;
-//		System.out.println("Start MOEA/D, generation in each stage: " + ManagerPP.generations);
+		// ManagerPP.generations = moead_iter;
+		// System.out.println("Start MOEA/D, generation in each stage: " +
+		// ManagerPP.generations);
 		/**
 		 * The traditional MOEA/D
 		 */
-		
+
 		bundles.add(startManager(bc, ONAfactoryScale, numberOfIslands, seeds, notImprovedInARowLimit,
 				numberOfReplacement, -2, -2));
 
-		
-
-//		ManagerPP.generations = individual_iter;
-//		System.out.println("Start individual, generation in each stage: " + ManagerPP.generations);
+		// ManagerPP.generations = individual_iter;
+		// System.out.println("Start individual, generation in each stage: " +
+		// ManagerPP.generations);
 		/**
 		 * Island Model without migration
 		 */
@@ -214,11 +213,9 @@ public class ManagerPPLocal {
 			}
 		}
 
-		
-		
-		
-//		ManagerPP.generations = linkage_iter;
-//		System.out.println("Start linkage, generation in each stage: " + ManagerPP.generations);
+		// ManagerPP.generations = linkage_iter;
+		// System.out.println("Start linkage, generation in each stage: " +
+		// ManagerPP.generations);
 		/**
 		 * Island Model with linkage
 		 */
@@ -227,9 +224,83 @@ public class ManagerPPLocal {
 
 		List<List<Double>> result = preAnalysis(bundles);
 
+		printHammingMatrix(bundles);
+
 		writeToFile(bundles, numberOfIslands, ONAfactoryScale, seeds, numberOfReplacement, folder);
 
 		return result;
+	}
+
+	private void printHammingMatrix(List<ResultBundle> bundles) {
+		List<PopulationEntry> globalRefSet = new ArrayList<>();
+		for (int i = 0; i < bundles.size(); i++) {
+			ResultBundle b = bundles.get(i);
+			if (b.finalPF != null) {
+				for (PopulationEntry c : b.finalPF) {
+					// 用 PF 去重逻辑加入（这里简化：直接全加）
+					globalRefSet.add(c);
+				}
+			}
+		}
+		List<PopulationEntry> refSet = new ArrayList<>();
+		for (PopulationEntry c : globalRefSet) {
+			boolean dominated = false;
+			for (PopulationEntry ref : refSet) {
+				if (checkDominate(ref, c)) { dominated = true; break; }
+			}
+			if (!dominated) refSet.add(c);
+		}
+		List<Double> hammingQI = new ArrayList<>();
+		for (int i = 0; i < bundles.size(); i++) {
+			ResultBundle b = bundles.get(i);
+			if (b.finalPF == null || b.finalPF.isEmpty()) {
+				hammingQI.add(Double.MAX_VALUE); // 无数据 → 最差
+			} else {
+				double sumDist = 0;
+				for (PopulationEntry c : b.finalPF) {
+					sumDist += ManagerPP.getSumHammingDistance(c, refSet);
+				}
+				double avgDist = sumDist / b.finalPF.size();
+				hammingQI.add(avgDist);
+			}
+		}
+
+		// Step 3: 排名（距离越小越好，类似 GD）
+		List<Integer> ranks = new ArrayList<>();
+		List<Double> sorted = new ArrayList<>(hammingQI);
+		sorted.sort((a, b) -> Double.compare(a, b));
+		for (int i = 0; i < hammingQI.size(); i++) {
+			ranks.add(sorted.indexOf(hammingQI.get(i)) + 1);
+		}
+
+		// Step 4: 输出到文件
+		String outHamming = "--- Hamming Distance Quality Ranking ---\n";
+		outHamming += String.format("%-20s %-12s %-8s\n", "Method", "AvgHammingDist", "Rank");
+		outHamming += "-----------------------------------------\n";
+		for (int i = 0; i < bundles.size(); i++) {
+			outHamming += String.format("%-20s %-12.1f %-8d\n",
+					bundles.get(i).name, hammingQI.get(i), ranks.get(i));
+		}
+
+		String folder = "fig_8_stageScale_result/" + ManagerPP.Global_NoOfStages + "/";
+		ResultAnalyser.writeResult(folder + "FGCS/hamming_ranking.txt", outHamming);
+	}
+
+	boolean checkDominate(PopulationEntry individual1, PopulationEntry individual2) {
+		boolean isDominate = false;
+
+		if (individual1.getObjectives().size() != individual2.getObjectives().size()) {
+			System.out.println("error");
+		}
+
+		for (int i = 0; i < individual1.getObjectives().size(); i++) {
+			if (individual1.getObjectives().get(i) > individual2.getObjectives().get(i))
+				return false;
+			if (individual1.getObjectives().get(i) <= individual2.getObjectives().get(i))
+				isDominate = true;
+		}
+
+		return isDominate;
 	}
 
 	private List<List<Double>> preAnalysis(List<ResultBundle> bundles) {
@@ -383,30 +454,30 @@ public class ManagerPPLocal {
 
 		String name = "";
 		switch (remove) {
-		case 0:
-			name += "Remove random   ";
-			break;
-		case 1:
-			name += "Remove worst   ";
-			break;
+			case 0:
+				name += "Remove random   ";
+				break;
+			case 1:
+				name += "Remove worst   ";
+				break;
 		}
 
 		name += "";
 		switch (add) {
-		case 0:
-			name += "Add new";
-			break;
-		case 1:
-			name += "Add random";
-			break;
-		case 2:
-			name += "Add best";
-			break;
-		case 3:
-			name += "Add diversity";
-			break;
-		default:
-			break;
+			case 0:
+				name += "Add new";
+				break;
+			case 1:
+				name += "Add random";
+				break;
+			case 2:
+				name += "Add best";
+				break;
+			case 3:
+				name += "Add diversity";
+				break;
+			default:
+				break;
 		}
 
 		return name;

@@ -1,0 +1,19 @@
+--- Hamming Distance Quality Ranking ---
+Method               AvgHammingDist Rank    
+-----------------------------------------
+MOP3                 1015.1       1       
+MOGOMEA              1184.4       13      
+GePIM                1304.1       15      
+NSGA-II              1297.3       14      
+traditional MOEA/D   1018.0       2       
+remove and add nothing 1057.8       11      
+Remove random   Add new 1053.8       10      
+Remove random   Add random 1040.9       4       
+Remove random   Add best 1059.4       12      
+Remove random   Add diversity 1040.7       3       
+Remove worst   Add new 1047.8       8       
+Remove worst   Add random 1042.9       6       
+Remove worst   Add best 1050.0       9       
+Remove worst   Add diversity 1044.3       7       
+linkage migration    1041.5       5       
+

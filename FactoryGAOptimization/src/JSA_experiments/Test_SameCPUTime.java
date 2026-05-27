@@ -41,7 +41,7 @@ public class Test_SameCPUTime {
 
 		int numberOfIslands = 5;
 		int NoC = 5;
-		String folder = "tab6_result_factory";
+		String folderBase = "new_tab6_result_factory/";
 
 //		runGAforOneSize(factorySize, runGroup, NoC);
 
@@ -52,6 +52,7 @@ public class Test_SameCPUTime {
 				System.out.println("--------------------------------------------------------------------");
 				System.out.println("No. Stages: " + s);
 				ManagerPP.Global_NoOfStages = s;
+				String folder = folderBase + s + "/";
 
 				for (int i = 1; i < 41; i++) {
 					// [多线程修复] 原代码: OnaConfigurationType.ONAReader = null;
