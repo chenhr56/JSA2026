@@ -104,7 +104,8 @@ def read_ona_xml(xml_path: Path):
                     continue
                 options[(jid, dev)] = Option(
                     processing_time=int(cd.attrib["processingTime"]),
-                    monetary_cost=int(cd.attrib["montary"]),  # XML uses "montary"
+                    # XML uses "montary"
+                    monetary_cost=int(cd.attrib["montary"]),
                     energy=int(cd.attrib.get("energy", "0")),
                 )
 
@@ -168,20 +169,26 @@ def build_compact_model(devices, jobs, options, setups, args):
             "For duplicate priorities, use a full disjunctive/arc model."
         )
 
-    ok_uniform, uniform_setup, missing = setup_is_complete_and_uniform(devices, jobs, options, setups)
+    ok_uniform, uniform_setup, missing = setup_is_complete_and_uniform(
+        devices, jobs, options, setups)
     if not ok_uniform or uniform_setup is None:
-        preview = ", ".join(map(str, missing[:5])) if missing else "non-uniform setup values"
+        preview = ", ".join(
+            map(str, missing[:5])) if missing else "non-uniform setup values"
         raise ValueError(
             "The compact PuLP model expects complete and uniform setup values for all feasible pairs. "
             f"Problem: {preview}."
         )
 
-    max_processing_sum = sum(max(options[(j.jid, d)].processing_time for d in compatible_devices[j.jid]) for j in jobs)
-    horizon_ub = max_processing_sum + max(0, len(jobs) - 1) * uniform_setup.extra_time
+    max_processing_sum = sum(max(options[(
+        j.jid, d)].processing_time for d in compatible_devices[j.jid]) for j in jobs)
+    horizon_ub = max_processing_sum + \
+        max(0, len(jobs) - 1) * uniform_setup.extra_time
     big_m = horizon_ub + uniform_setup.extra_time + 1
 
-    max_processing_cost_sum = sum(max(options[(j.jid, d)].monetary_cost for d in compatible_devices[j.jid]) for j in jobs)
-    cost_ub = max_processing_cost_sum + max(0, len(jobs) - 1) * uniform_setup.extra_cost
+    max_processing_cost_sum = sum(max(
+        options[(j.jid, d)].monetary_cost for d in compatible_devices[j.jid]) for j in jobs)
+    cost_ub = max_processing_cost_sum + \
+        max(0, len(jobs) - 1) * uniform_setup.extra_cost
 
     prob = pulp.LpProblem("ONA_FJSP_PuLP_CBC", pulp.LpMinimize)
 
@@ -191,16 +198,21 @@ def build_compact_model(devices, jobs, options, setups, args):
         for (jid, d) in options
     }
     # used[d] = 1 if at least one job is assigned to d.
-    used = {d: pulp.LpVariable(f"used_{safe_name(d)}", cat=pulp.LpBinary) for d in devices}
-    start = {jid: pulp.LpVariable(f"S_{safe_name(jid)}", lowBound=0, cat=pulp.LpContinuous) for jid in job_ids}
-    end = {jid: pulp.LpVariable(f"C_{safe_name(jid)}", lowBound=0, cat=pulp.LpContinuous) for jid in job_ids}
+    used = {d: pulp.LpVariable(
+        f"used_{safe_name(d)}", cat=pulp.LpBinary) for d in devices}
+    start = {jid: pulp.LpVariable(
+        f"S_{safe_name(jid)}", lowBound=0, cat=pulp.LpContinuous) for jid in job_ids}
+    end = {jid: pulp.LpVariable(
+        f"C_{safe_name(jid)}", lowBound=0, cat=pulp.LpContinuous) for jid in job_ids}
     makespan = pulp.LpVariable("makespan", lowBound=0, cat=pulp.LpContinuous)
-    total_cost = pulp.LpVariable("total_cost", lowBound=0, cat=pulp.LpContinuous)
+    total_cost = pulp.LpVariable(
+        "total_cost", lowBound=0, cat=pulp.LpContinuous)
 
     # Each job chooses exactly one compatible device; completion time depends on the selected device.
     for j in jobs:
         jid = j.jid
-        prob += pulp.lpSum(x[(jid, d)] for d in compatible_devices[jid]) == 1, f"assign_{safe_name(jid)}"
+        prob += pulp.lpSum(x[(jid, d)] for d in compatible_devices[jid]
+                           ) == 1, f"assign_{safe_name(jid)}"
         prob += (
             end[jid] == start[jid] + pulp.lpSum(
                 options[(jid, d)].processing_time * x[(jid, d)] for d in compatible_devices[jid]
@@ -215,8 +227,10 @@ def build_compact_model(devices, jobs, options, setups, args):
             prob += used[d] == 0, f"unused_device_{safe_name(d)}"
             continue
         for jid in assigned_on_d:
-            prob += used[d] >= x[(jid, d)], f"used_ge_{safe_name(jid)}_{safe_name(d)}"
-        prob += used[d] <= pulp.lpSum(x[(jid, d)] for jid in assigned_on_d), f"used_le_sum_{safe_name(d)}"
+            prob += used[d] >= x[(jid, d)
+                                 ], f"used_ge_{safe_name(jid)}_{safe_name(d)}"
+        prob += used[d] <= pulp.lpSum(x[(jid, d)]
+                                      for jid in assigned_on_d), f"used_le_sum_{safe_name(d)}"
 
     priority_precedence_count = 0
     same_device_order_count = 0
@@ -233,16 +247,19 @@ def build_compact_model(devices, jobs, options, setups, args):
                 # If both jobs are on the same device, add setup time between them.
                 for d in devices:
                     if (pred.jid, d) in options and (succ.jid, d) in options:
-                        setup_time = setups[(pred.base, succ.base, d)].extra_time
+                        setup_time = setups[(
+                            pred.base, succ.base, d)].extra_time
                         prob += (
                             start[succ.jid]
                             >= end[pred.jid] + setup_time - big_m * (2 - x[(pred.jid, d)] - x[(succ.jid, d)])
                         ), f"same_dev_setup_{safe_name(pred.jid)}_{safe_name(succ.jid)}_{safe_name(d)}"
                         same_device_order_count += 1
 
-    processing_cost = pulp.lpSum(options[(jid, d)].monetary_cost * x[(jid, d)] for (jid, d) in options)
+    processing_cost = pulp.lpSum(
+        options[(jid, d)].monetary_cost * x[(jid, d)] for (jid, d) in options)
     # With complete uniform setup values, total setup count = number_of_jobs - number_of_used_devices.
-    setup_cost = uniform_setup.extra_cost * (len(jobs) - pulp.lpSum(used[d] for d in devices))
+    setup_cost = uniform_setup.extra_cost * \
+        (len(jobs) - pulp.lpSum(used[d] for d in devices))
     prob += total_cost == processing_cost + setup_cost, "define_total_cost"
 
     meta = {
@@ -282,7 +299,8 @@ def make_solver(args):
 
     if args.solver == "highs":
         if not hasattr(pulp, "HiGHS_CMD"):
-            raise ValueError("This PuLP version does not expose HiGHS_CMD. Use --solver cbc.")
+            raise ValueError(
+                "This PuLP version does not expose HiGHS_CMD. Use --solver cbc.")
         kwargs = {"msg": bool(args.log)}
         if args.time_limit is not None:
             kwargs["timeLimit"] = args.time_limit
@@ -297,9 +315,12 @@ def solve_model(prob, meta, args):
     solver = make_solver(args)
 
     if args.mode == "weighted":
-        time_scale = args.time_scale if args.time_scale else max(1.0, float(meta["horizon_ub"]))
-        cost_scale = args.cost_scale if args.cost_scale else max(1.0, float(meta["cost_ub"]))
-        set_objective(prob, args.time_weight * makespan / time_scale + args.cost_weight * total_cost / cost_scale)
+        time_scale = args.time_scale if args.time_scale else max(
+            1.0, float(meta["horizon_ub"]))
+        cost_scale = args.cost_scale if args.cost_scale else max(
+            1.0, float(meta["cost_ub"]))
+        set_objective(prob, args.time_weight * makespan /
+                      time_scale + args.cost_weight * total_cost / cost_scale)
         status = prob.solve(solver)
         return status
 
@@ -380,45 +401,63 @@ def write_csv(path: Path, rows: Iterable[dict]):
 
 def main(argv=None):
     parser = argparse.ArgumentParser()
-    parser.add_argument("xml", type=Path, help="Path to ONAFactoryModel XML file")
+    parser.add_argument(
+        "xml", type=Path, help="Path to ONAFactoryModel XML file")
     parser.add_argument("--mode", choices=["weighted", "lex_time", "lex_cost"], default="weighted",
                         help="weighted: normalized weighted sum; lex_time: first minimize makespan then cost; lex_cost: first minimize cost then makespan")
     parser.add_argument("--time-weight", type=float, default=1.0)
     parser.add_argument("--cost-weight", type=float, default=1.0)
-    parser.add_argument("--time-scale", type=float, default=None, help="Manual normalization scale for makespan")
-    parser.add_argument("--cost-scale", type=float, default=None, help="Manual normalization scale for total cost")
-    parser.add_argument("--epsilon", type=float, default=1e-6, help="Tolerance for lexicographic second-stage solve")
+    parser.add_argument("--time-scale", type=float, default=None,
+                        help="Manual normalization scale for makespan")
+    parser.add_argument("--cost-scale", type=float, default=None,
+                        help="Manual normalization scale for total cost")
+    parser.add_argument("--epsilon", type=float, default=1e-6,
+                        help="Tolerance for lexicographic second-stage solve")
     parser.add_argument("--solver", choices=["cbc", "highs"], default="cbc")
-    parser.add_argument("--time-limit", type=float, default=None, help="Solver time limit in seconds")
-    parser.add_argument("--mip-gap", type=float, default=None, help="Relative MIP gap, e.g., 0.01")
+    parser.add_argument("--time-limit", type=float,
+                        default=None, help="Solver time limit in seconds")
+    parser.add_argument("--mip-gap", type=float, default=None,
+                        help="Relative MIP gap, e.g., 0.01")
     parser.add_argument("--threads", type=int, default=None)
     parser.add_argument("--log", action="store_true")
     parser.add_argument("--csv", type=Path, default=Path("schedule.csv"))
     args = parser.parse_args(argv)
 
+    start_time = time.time()
+
     devices, jobs, options, setups = read_ona_xml(args.xml)
     prob, meta = build_compact_model(devices, jobs, options, setups, args)
 
     print(f"Jobs: {len(jobs)}, devices: {len(devices)}, assignment options: {len(options)}, setups: {len(setups)}")
-    print(f"Uniform setup: time={meta['uniform_setup'].extra_time}, cost={meta['uniform_setup'].extra_cost}")
-    print(f"Horizon upper bound: {meta['horizon_ub']}, cost upper bound: {meta['cost_ub']}, Big-M: {meta['big_m']}")
-    print(f"Priority precedence constraints: {meta['priority_precedence_count']}")
-    print(f"Same-device setup-order constraints: {meta['same_device_order_count']}")
-    print(f"Model size before solve: variables={len(prob.variables())}, constraints={len(prob.constraints)}")
+    print(
+        f"Uniform setup: time={meta['uniform_setup'].extra_time}, cost={meta['uniform_setup'].extra_cost}")
+    print(
+        f"Horizon upper bound: {meta['horizon_ub']}, cost upper bound: {meta['cost_ub']}, Big-M: {meta['big_m']}")
+    print(
+        f"Priority precedence constraints: {meta['priority_precedence_count']}")
+    print(
+        f"Same-device setup-order constraints: {meta['same_device_order_count']}")
+    print(
+        f"Model size before solve: variables={len(prob.variables())}, constraints={len(prob.constraints)}")
 
     status = solve_model(prob, meta, args)
     status_name = pulp.LpStatus.get(status, str(status))
 
+    end_time = time.time()
+
     if status_name not in {"Optimal", "Not Solved", "Undefined"} and pulp.value(meta["makespan"]) is None:
-        print(f"No feasible solution found. Solver status: {status_name}", file=sys.stderr)
+        print(
+            f"No feasible solution found. Solver status: {status_name}", file=sys.stderr)
         return 2
 
     # CBC may return "Not Solved" when stopped by time limit but still has an incumbent.
     if pulp.value(meta["makespan"]) is None or pulp.value(meta["total_cost"]) is None:
-        print(f"No incumbent solution available. Solver status: {status_name}", file=sys.stderr)
+        print(
+            f"No incumbent solution available. Solver status: {status_name}", file=sys.stderr)
         return 2
 
     print("\n===== Solution =====")
+    print(f"Time taken   : {end_time - start_time:.2f} seconds")
     print(f"Solve status : {status_name}")
     print(f"Objective    : {pulp.value(prob.objective):.6f}")
     print(f"Makespan     : {pulp.value(meta['makespan']):.6f}")
