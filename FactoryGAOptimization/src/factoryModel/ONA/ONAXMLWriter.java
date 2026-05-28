@@ -2,8 +2,11 @@ package factoryModel.ONA;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executors;
 
 import org.jdom2.Attribute;
 import org.jdom2.Document;
@@ -17,10 +20,31 @@ public class ONAXMLWriter {
 
 	public static void main(String args[]) {
 
-		for (int i = 24; i < 32; i++) {
-			ONAFactoryModel.scale.set(i + 1);
-			write();
+		int threadNum = Math.min(4, Runtime.getRuntime().availableProcessors());
+		java.util.concurrent.ExecutorService pool = Executors.newFixedThreadPool(threadNum);
+		java.util.List<java.util.concurrent.Future<?>> futures = new ArrayList<>();
+		
+		for (int i = 10; i < 32; i++) {
+			final int scale = i + 1;
+			futures.add(pool.submit(() -> {
+				ONAFactoryModel.scale.set(scale);
+				write();
+			}));
 		}
+		for (var f : futures) { try {
+			f.get();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ExecutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} }
+		pool.shutdown();
+		// for (int i = 10; i < 32; i++) {
+		// 	ONAFactoryModel.scale.set(i + 1);
+		// 	write();
+		// }
 	}
 
 	public static void write() {

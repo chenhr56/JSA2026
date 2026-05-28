@@ -42,7 +42,7 @@ public class Para_Test_FactoryScale {
         try {
             for (int j = 1; j <= 32; j++) {
                 final int factoryScale = j;
-
+                System.out.println("-------------------- factoryScale: " + factoryScale + " --------------------");
                 futures.add(pool.submit(() -> {
                     // [多线程修复] 原代码: OnaConfigurationType.ONAReader = null;
                     // 此行在多线程下存在竞态：线程 A 在 presetup() 内部已将 ONAReader 赋值

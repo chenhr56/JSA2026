@@ -13,16 +13,10 @@ import restCloud.ManagerPP;
 import restCloud.ManagerPPLocal;
 import restCloud.ResultAnalyser;
 
-public class Test_SameCPUTime {
-	/**
+/**
 	 * 对应表6实验
 	 */
-	
-
-	
-//	public static int moead_stage = 7;
-//	public static int individual_stage = 25;
-//	public static int linkage_stage = 18;
+public class Test_SameCPUTime {
 	
 	public static void main(String args[]) {
 		start();
@@ -43,7 +37,6 @@ public class Test_SameCPUTime {
 		int NoC = 5;
 		String folderBase = "new_tab6_result_factory/";
 
-//		runGAforOneSize(factorySize, runGroup, NoC);
 
 		for (int j = 1; j < 2; j++) {
 

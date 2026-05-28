@@ -26,7 +26,7 @@ public class ONAFactoryModel {
 	public static int machineScale = 1;
 	public static int NoPoduction = 20;
 
-	public static String[] PRODUCTIONS = null;
+	public String[] PRODUCTIONS = null;
 
 	public static int numberOfCuts = 1;
 

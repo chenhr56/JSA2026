@@ -266,88 +266,20 @@ public class ONAFactoryModel {
 	private List<Device> generateCompitables(String productionName) {
 
 		List<Device> comptiables = new ArrayList<>();
+		int pIndex = Integer.parseInt(productionName.substring(1)) - 1; // 0-based
+		int mod = pIndex % 16;
 
-		switch (productionName) {
-		case "P1":
+		if (mod < 2) {                       // Small + Medium + Large
 			comptiables.addAll(devices.get(0));
 			comptiables.addAll(devices.get(1));
 			comptiables.addAll(devices.get(2));
-			break;
-		case "P2":
-			comptiables.addAll(devices.get(0));
+		} else if (mod < 6) {                // Medium + Large
 			comptiables.addAll(devices.get(1));
 			comptiables.addAll(devices.get(2));
-			break;
-		case "P3":
-			comptiables.addAll(devices.get(1));
+		} else {                             // Large only
 			comptiables.addAll(devices.get(2));
-			break;
-		case "P4":
-			comptiables.addAll(devices.get(1));
-			comptiables.addAll(devices.get(2));
-			break;
-		case "P5":
-			comptiables.addAll(devices.get(1));
-			comptiables.addAll(devices.get(2));
-			break;
-		case "P6":
-			comptiables.addAll(devices.get(1));
-			comptiables.addAll(devices.get(2));
-			break;
-		case "P7":
-			comptiables.addAll(devices.get(2));
-			break;
-		case "P8":
-			comptiables.addAll(devices.get(2));
-			break;
-		case "P9":
-			comptiables.addAll(devices.get(2));
-			break;
-		case "P10":
-			comptiables.addAll(devices.get(2));
-			break;
-		case "P11":
-			comptiables.addAll(devices.get(2));
-			break;
-		case "P12":
-			comptiables.addAll(devices.get(2));
-			break;
-		case "P13":
-			comptiables.addAll(devices.get(2));
-			break;
-		case "P14":
-			comptiables.addAll(devices.get(2));
-			break;
-		case "P15":
-			comptiables.addAll(devices.get(2));
-			break;
-		case "P16":
-			comptiables.addAll(devices.get(2));
-			break;
-
-		case "P17":
-			comptiables.addAll(devices.get(0));
-			comptiables.addAll(devices.get(1));
-			comptiables.addAll(devices.get(2));
-			break;
-		case "P18":
-			comptiables.addAll(devices.get(0));
-			comptiables.addAll(devices.get(1));
-			comptiables.addAll(devices.get(2));
-			break;
-		case "P19":
-			comptiables.addAll(devices.get(1));
-			comptiables.addAll(devices.get(2));
-			break;
-		case "P20":
-			comptiables.addAll(devices.get(1));
-			comptiables.addAll(devices.get(2));
-			break;
-		default:
-			break;
 		}
-
-		return comptiables;
+		return comptiables;	
 	}
 
 	private Map<Pair<String, String>, Double> generateMontarys() {
