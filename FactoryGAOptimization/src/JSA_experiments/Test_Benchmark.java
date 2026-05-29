@@ -13,7 +13,7 @@ import restCloud.ManagerPP;
 import restCloud.ManagerPPLocal;
 import restCloud.ResultAnalyser;
 
-public class Test_FactoryScale {
+public class Test_Benchmark {
 /**
  * 对应图5 6的实验
  */
@@ -342,3 +342,5 @@ public class Test_FactoryScale {
 	}
 
 }
+
+

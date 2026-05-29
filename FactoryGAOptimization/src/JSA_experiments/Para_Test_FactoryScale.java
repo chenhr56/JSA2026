@@ -40,7 +40,7 @@ public class Para_Test_FactoryScale {
         java.util.List<java.util.concurrent.Future<?>> futures = new java.util.ArrayList<>();
 
         try {
-            for (int j = 1; j <= 32; j++) {
+            for (int j = 11; j <= 32; j++) {
                 final int factoryScale = j;
                 System.out.println("-------------------- factoryScale: " + factoryScale + " --------------------");
                 futures.add(pool.submit(() -> {

@@ -190,6 +190,11 @@ public final class OnaConfigurationType {
 						}
 					}
 
+					//ERROR: bound must be positive
+					// if (compatiables.isEmpty()) {
+					// 	continue;
+					// }
+
 					final ValueType allocationValueType = ValueType.nominalType(instanceName + " allocation type ",
 							compatiables.stream().map(index -> resourceNames[index]).toArray(String[]::new));
 					// e.g. Std Weiss A 1 allocation (nominal type, domain: Mixer 1, Mixer 2, Mixer

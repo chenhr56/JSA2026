@@ -35,7 +35,7 @@ public class ONAFactoryModel {
 	// 使用方式: ONAFactoryModel.scale.get() 读取, ONAFactoryModel.scale.set(x) 设置。
 	public static final ThreadLocal<Integer> scale = ThreadLocal.withInitial(() -> 1);
 
-	public static String[] PRODUCTIONS = null;
+	public String[] PRODUCTIONS = null;
 
 	public static int numberOfCuts = 1;
 
@@ -269,15 +269,94 @@ public class ONAFactoryModel {
 		int pIndex = Integer.parseInt(productionName.substring(1)) - 1; // 0-based
 		int mod = pIndex % 16;
 
-		if (mod < 2) {                       // Small + Medium + Large
+		// if (mod < 2) {                       // Small + Medium + Large
+		// 	comptiables.addAll(devices.get(0));
+		// 	comptiables.addAll(devices.get(1));
+		// 	comptiables.addAll(devices.get(2));
+		// } else if (mod < 6) {                // Medium + Large
+		// 	comptiables.addAll(devices.get(1));
+		// 	comptiables.addAll(devices.get(2));
+		// } else {                             // Large only
+		// 	comptiables.addAll(devices.get(2));
+		// }
+		switch (productionName) {
+		case "P1":
 			comptiables.addAll(devices.get(0));
 			comptiables.addAll(devices.get(1));
 			comptiables.addAll(devices.get(2));
-		} else if (mod < 6) {                // Medium + Large
+			break;
+		case "P2":
+			comptiables.addAll(devices.get(0));
 			comptiables.addAll(devices.get(1));
 			comptiables.addAll(devices.get(2));
-		} else {                             // Large only
+			break;
+		case "P3":
+			comptiables.addAll(devices.get(1));
 			comptiables.addAll(devices.get(2));
+			break;
+		case "P4":
+			comptiables.addAll(devices.get(1));
+			comptiables.addAll(devices.get(2));
+			break;
+		case "P5":
+			comptiables.addAll(devices.get(1));
+			comptiables.addAll(devices.get(2));
+			break;
+		case "P6":
+			comptiables.addAll(devices.get(1));
+			comptiables.addAll(devices.get(2));
+			break;
+		case "P7":
+			comptiables.addAll(devices.get(2));
+			break;
+		case "P8":
+			comptiables.addAll(devices.get(2));
+			break;
+		case "P9":
+			comptiables.addAll(devices.get(2));
+			break;
+		case "P10":
+			comptiables.addAll(devices.get(2));
+			break;
+		case "P11":
+			comptiables.addAll(devices.get(2));
+			break;
+		case "P12":
+			comptiables.addAll(devices.get(2));
+			break;
+		case "P13":
+			comptiables.addAll(devices.get(2));
+			break;
+		case "P14":
+			comptiables.addAll(devices.get(2));
+			break;
+		case "P15":
+			comptiables.addAll(devices.get(2));
+			break;
+		case "P16":
+			comptiables.addAll(devices.get(2));
+			break;
+
+		case "P17":
+			comptiables.addAll(devices.get(0));
+			comptiables.addAll(devices.get(1));
+			comptiables.addAll(devices.get(2));
+			break;
+		case "P18":
+			comptiables.addAll(devices.get(0));
+			comptiables.addAll(devices.get(1));
+			comptiables.addAll(devices.get(2));
+			break;
+		case "P19":
+			comptiables.addAll(devices.get(1));
+			comptiables.addAll(devices.get(2));
+			break;
+		case "P20":
+			comptiables.addAll(devices.get(1));
+			comptiables.addAll(devices.get(2));
+			break;
+		default:
+			break;
 		}
 		return comptiables;	
 	}
